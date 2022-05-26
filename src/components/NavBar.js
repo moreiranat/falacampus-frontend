@@ -14,6 +14,10 @@ function NavBar(props) {
                     <ul className="navbar-nav me-auto">
                         <NavBarItem href="/" label="Home" />
                         <NavBarItem href="/login" label="Login"/>
+
+                        <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
+
+                        <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
                     </ul>
                 </div>
             </div>

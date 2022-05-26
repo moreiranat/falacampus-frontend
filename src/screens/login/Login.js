@@ -23,7 +23,7 @@ class Login extends React.Component {
     }
 
     create = () => {
-        this.props.history.push('/');
+        this.props.history.push('/createUser');
     }
 
     render() {
@@ -40,7 +40,7 @@ class Login extends React.Component {
                                             <form>
                                                 <fieldset>
                                                     <FormGroup label='E-mail: *'>
-                                                        <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite seu email acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
+                                                        <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
                                                     </FormGroup> 
                                                     <br />   
                                                     <FormGroup label='Senha: *'>
