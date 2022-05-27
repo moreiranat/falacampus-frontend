@@ -3,8 +3,12 @@ import { Route, BrowserRouter } from "react-router-dom";
 
 import Home from "../screens/home/Home";
 import Login from "../screens/login/Login";
+
 import CreateDepartament from "../screens/createDepartament/CreateDepartament";
+import ViewDepartaments from "../screens/viewDepartaments/ViewDepartaments";
+
 import CreateUser from "../screens/createUser/CreateUser";
+import ViewUsers from "../screens/viewUsers/ViewUsers";
 
 function AppRoutes() {
     return (
@@ -13,8 +17,10 @@ function AppRoutes() {
             <Route component = { Login } path="/login" />
 
             <Route component = { CreateDepartament } path="/createDepartament" />
+            <Route component = { ViewDepartaments } path="/viewDepartaments" />
 
             <Route component = { CreateUser } path="/createUser" />
+            <Route component = { ViewUsers } path="/viewUsers" />
         </BrowserRouter>
     );
 }

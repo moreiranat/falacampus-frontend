@@ -9,11 +9,11 @@ import { withRouter } from 'react-router-dom';
 class Login extends React.Component {
 
     state = {
-        email: "",
-        password: ""
+        email: '',
+        password: ''
     }
     login = () => {
-        if (this.state.email === "monteiro@ifpb.edu.br" && this.state.password === "123") {
+        if (this.state.email === "monteiro@ifpb.edu.br" && this.state.password === "12345678") {
             console.log(this.state.email + ", você está logado!")
             this.props.history.push('/');
 

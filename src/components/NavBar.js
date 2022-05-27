@@ -16,13 +16,14 @@ function NavBar(props) {
                         <NavBarItem href="/login" label="Login"/>
 
                         <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
+                        <NavBarItem href="/viewDepartaments" label="Departamentos"/>
 
                         <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
+                        <NavBarItem href="/viewUsers" label="Usuários"/>
                     </ul>
                 </div>
             </div>
         </nav>
-
     )
 }
 

@@ -14,8 +14,7 @@ export default class Card extends React.Component {
     styles = {
         cardBg: {
             outerWidth: '20rem',
-            margin: '50px 0 0 0',
-            
+            margin: '50px 0 0 0'            
         }
     }
 }
