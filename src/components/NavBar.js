@@ -17,6 +17,8 @@ function NavBar(props) {
 
                         <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
                         <NavBarItem href="/viewDepartaments" label="Departamentos"/>
+                        <NavBarItem href="/updateDepartament" label="Atualizar Departamento"/>
+                        <NavBarItem href="/deleteDepartament" label="Apagar Departamento"/>
 
                         <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
                         <NavBarItem href="/viewUsers" label="Usuários"/>
