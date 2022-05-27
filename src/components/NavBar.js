@@ -20,6 +20,9 @@ function NavBar(props) {
 
                         <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
                         <NavBarItem href="/viewUsers" label="Usuários"/>
+
+                        <NavBarItem href="/updateUser" label="Update Usuario"/>
+                        <NavBarItem href="/deleteUser" label="Delete Usuario"/>
                     </ul>
                 </div>
             </div>

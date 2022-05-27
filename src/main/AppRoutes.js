@@ -9,6 +9,8 @@ import ViewDepartaments from "../screens/viewDepartaments/ViewDepartaments";
 
 import CreateUser from "../screens/createUser/CreateUser";
 import ViewUsers from "../screens/viewUsers/ViewUsers";
+import UpdateUser from "../screens/updateUser/UpdateUser";
+import DeleteUser from "../screens/deleteUser/DeleteUser";
 
 function AppRoutes() {
     return (
@@ -21,6 +23,8 @@ function AppRoutes() {
 
             <Route component = { CreateUser } path="/createUser" />
             <Route component = { ViewUsers } path="/viewUsers" />
+            <Route component = { UpdateUser } path="/UpdateUser" />
+            <Route component = { DeleteUser } path="/DeleteUser" />
         </BrowserRouter>
     );
 }
