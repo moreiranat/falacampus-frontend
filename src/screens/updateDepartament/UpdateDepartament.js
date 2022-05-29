@@ -1,6 +1,6 @@
 import React from 'react';
 import './UpdateDepartament.css';
-
+import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ import FormGroup from '../../components/FormGroup';
 class UpdateDepartament extends React.Component {
 
     state = {
-        id: 0,
+        id: "",
         name: '',
     }
 
@@ -53,6 +53,7 @@ class UpdateDepartament extends React.Component {
                                                         placeholder="Digite o Id do Departamento" 
                                                         value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
+                                                    <br />
                                                     <FormGroup label='Nome: *'>
                                                         <input type="text" className="form-control" id="inputDepartamentName" 
                                                         placeholder="Digite o Nome do Departamento" 
@@ -63,7 +64,7 @@ class UpdateDepartament extends React.Component {
                                                     <button onClick={this.update} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger">
+                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                                                                        

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Style.css';
 
 export default props => {
 
@@ -18,7 +19,7 @@ export default props => {
                         <i className="pi pi-pencil"></i>
                     </button>
                     <button type="button" title="Excluir"
-                        className="btn btn-danger"
+                        className="btn btn-danger btn-delete"
                         onClick={e => props.delete(user.id)}>
                         <i className="pi pi-trash"></i>
                     </button>

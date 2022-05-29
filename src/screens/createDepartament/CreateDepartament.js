@@ -1,6 +1,7 @@
 import React from 'react';
 import './CreateDepartament.css';
-
+import '../../components/Style.css';
+import 'primeicons/primeicons.css';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
@@ -53,7 +54,7 @@ class CreateDepartament extends React.Component {
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger">
+                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                 </fieldset>

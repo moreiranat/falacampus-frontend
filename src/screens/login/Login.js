@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
-
+import '../../components/Style.css';
+import 'primeicons/primeicons.css';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './ViewUsers.css';
-
+import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
@@ -39,48 +39,48 @@ class ViewUsers extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id != '') {
-            if (params != '?') {
+        if (this.state.id !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.name != '') {
-            if (params != '?') {
+        if (this.state.name !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}name=${this.state.name}`;
         }
 
-        if (this.state.email != '') {
-            if (params != '?') {
+        if (this.state.email !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}email=${this.state.email}`;
         }
 
-        if (this.state.registration != '') {
-            if (params != '?') {
+        if (this.state.registration !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}registration=${this.state.registration}`;
         }
 
-        if (this.state.role != '') {
-            if (params != '?') {
+        if (this.state.role !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}role=${this.state.role}`;
         }
 
-        if (this.state.departamentId != '') {
-            if (params != '?') {
+        if (this.state.departamentId !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 

@@ -29,6 +29,7 @@ function AppRoutes() {
             <Route component = { ViewUsers } path="/viewUsers" />
             <Route component = { UpdateUser } path="/UpdateUser" />
             <Route component = { DeleteUser } path="/DeleteUser" />
+           
         </BrowserRouter>
     );
 }

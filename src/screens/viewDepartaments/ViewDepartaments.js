@@ -1,6 +1,6 @@
 import React from 'react';
 import './ViewDepartaments.css';
-
+import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
@@ -35,16 +35,16 @@ class ViewDepartaments extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id != '') {
-            if (params != '?') {
+        if (this.state.id !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.name != '') {
-            if (params != '?') {
+        if (this.state.name !== '') {
+            if (params !== '?') {
                 params = `${params}&`;
             }
 
