@@ -16,7 +16,7 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav me-auto">
 
-                        <NavBarItem href="/login" label="Login"/>
+                        {/* <NavBarItem href="/login" label="Login"/> */}
                         
                         <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
                         <NavBarItem href="/viewDepartaments" label="Departamentos"/>
