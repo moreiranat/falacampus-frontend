@@ -19,12 +19,12 @@ function NavBar(props) {
                         {/* <NavBarItem href="/login" label="Login"/> */}
                         
                         <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
-                        <NavBarItem href="/viewDepartaments" label="Departamentos"/>
+                        <NavBarItem href="/viewDepartaments" label="Listar Departamentos"/>
                         <NavBarItem href="/updateDepartament" label="Atualizar Departamento"/>
                         <NavBarItem href="/deleteDepartament" label="Apagar Departamento"/>
 
                         <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
-                        <NavBarItem href="/viewUsers" label="Usuários"/>
+                        <NavBarItem href="/viewUsers" label="Listar Usuários"/>
                         <NavBarItem href="/updateUser" label="Atualizar Usuário"/>
                         <NavBarItem href="/deleteUser" label="Apagar Usuário"/>
 
