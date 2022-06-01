@@ -22,12 +22,12 @@ function AppRoutes() {
 
             <Route component = { CreateDepartament } path="/createDepartament" />
             <Route component = { ViewDepartaments } path="/viewDepartaments" />
-            <Route component = { UpdateDepartament } path="/updateDepartament" />
+            <Route component = { UpdateDepartament } path="/updateDepartament/:id" />
             <Route component = { DeleteDepartament } path="/deleteDepartament" />
 
             <Route component = { CreateUser } path="/createUser" />
             <Route component = { ViewUsers } path="/viewUsers" />
-            <Route component = { UpdateUser } path="/UpdateUser" />
+            <Route component = { UpdateUser } path="/UpdateUser/:id" />
             <Route component = { DeleteUser } path="/DeleteUser" />
            
         </BrowserRouter>

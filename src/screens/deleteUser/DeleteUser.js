@@ -12,6 +12,10 @@ class DeleteUser extends React.Component {
     state = {
       id: 0
     }
+
+    componentWillUnmount(){
+      this.clear();
+    }
   
     delete = () => {
       axios.delete(`http://localhost:8080/api/user/${this.state.id}`,

@@ -19,6 +19,10 @@ class CreateUser extends React.Component {
         departamentId: 0
     }
 
+    componentWillUnmount(){
+        this.clear();
+    }
+
     create = async () => {
         await axios.post('http://localhost:8080/api/user',
             {

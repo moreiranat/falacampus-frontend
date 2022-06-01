@@ -21,6 +21,14 @@ class ViewUsers extends React.Component {
         users: []
     }
 
+    componentDidMount(){
+        this.findAll();
+    }
+
+    // componentWillUnmount() {
+    //     this.clear();
+    // }
+
     delete = (userId) => {
         axios.delete(`http://localhost:8080/api/user/${userId}`,
         ).then(response => {
@@ -132,7 +140,7 @@ class ViewUsers extends React.Component {
                                         </FormGroup>
                                         <br />
                                         <FormGroup label='E-mail:'>
-                                            <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o e-mail acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
+                                            <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o E-mail Acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
                                             <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
                                         </FormGroup>
                                         <br />
@@ -151,18 +159,18 @@ class ViewUsers extends React.Component {
                                             </select>
                                         </div>
                                         <br />
-                                        <FormGroup label='Id do Departamento:'>
+                                        <FormGroup label='Id do Departamento: *'>
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
                                         <button onClick={this.find} type="button" className="btn btn-success">
-                                            <i className="pi pi-search"></i> Filtrar
+                                            <i className="pi pi-search"></i> Buscar
                                         </button>
-                                        <br />
+                                        {/* <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Buscar Tudo
-                                        </button>
+                                        </button> */}
                                     </fieldset>
                                 </form>
                             </Card>
