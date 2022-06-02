@@ -1,11 +1,12 @@
 import React from 'react';
-import NavBarItem from './NavBarItem'
+import NavBarItem from './NavBarItem';
 import './NavBar.css';
 import Logo from "./Logo";
 import FalaCampus from "../assets/img/Fala_campus-logo.png";
 
 function NavBar(props) {
     return (
+
         <nav className="navbar navbar-expand-lg navbar-light bg-nav">
             <div className="container-fluid">
                 <div className="col-md-3"><a href="/" className="navbar-brand"><Logo imageSrc={FalaCampus} /></a></div>
@@ -17,16 +18,35 @@ function NavBar(props) {
                     <ul className="navbar-nav me-auto">
 
                         {/* <NavBarItem href="/login" label="Login"/> */}
-                        
-                        <NavBarItem href="/createDepartament" label="Cadastrar Departamento"/>
-                        <NavBarItem href="/viewDepartaments" label="Listar Departamentos"/>
-                        <NavBarItem href="/updateDepartament/:id" label="Atualizar Departamento"/>
-                        <NavBarItem href="/deleteDepartament" label="Apagar Departamento"/>
 
-                        <NavBarItem href="/createUser" label="Cadastrar Usuário"/>
-                        <NavBarItem href="/viewUsers" label="Listar Usuários"/>
-                        <NavBarItem href="/updateUser/:id" label="Atualizar Usuário"/>
-                        <NavBarItem href="/deleteUser" label="Apagar Usuário"/>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Departamento</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem href="/createDepartament" label="Cadastrar Departamento" /></li>
+                                <li><NavBarItem href="/viewDepartaments" label="Listar Departamentos" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Usuário</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem href="/createUser" label="Cadastrar Usuário" /></li>
+                                <li><NavBarItem href="/viewUsers" label="Listar Usuários" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Comentário</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem href="#" label="Criar Comentário" /></li>
+                                <li><NavBarItem href="#" label="Listar Comentários" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resposta</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem href="#" label="Responder Comentário" /></li>
+                                <li><NavBarItem href="#" label="Listar Respostas" /></li>
+                            </ul>
+                        </li>
 
                         {/* <NavBarItem href="/" label="Sair"/> */}
                     </ul>
@@ -37,3 +57,38 @@ function NavBar(props) {
 }
 
 export default NavBar;
+
+document.addEventListener("DOMContentLoaded", function () {
+    // make it as accordion for smaller screens
+    if (window.innerWidth > 992) {
+
+        document.querySelectorAll('.navbar .nav-item').forEach(function (everyitem) {
+
+            everyitem.addEventListener('mouseover', function (e) {
+
+                let el_link = this.querySelector('a[data-bs-toggle]');
+
+                if (el_link != null) {
+                    let nextEl = el_link.nextElementSibling;
+                    el_link.classList.add('show');
+                    nextEl.classList.add('show');
+                }
+
+            });
+            everyitem.addEventListener('mouseleave', function (e) {
+                let el_link = this.querySelector('a[data-bs-toggle]');
+
+                if (el_link != null) {
+                    let nextEl = el_link.nextElementSibling;
+                    el_link.classList.remove('show');
+                    nextEl.classList.remove('show');
+                }
+
+
+            })
+        });
+
+    }
+    // end if innerWidth
+});
+    // DOMContentLoaded  end
