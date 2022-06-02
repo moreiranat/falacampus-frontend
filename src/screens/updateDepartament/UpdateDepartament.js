@@ -13,6 +13,30 @@ class UpdateDepartament extends React.Component {
         id: "",
         name: '',
     }
+    componentDidMount(){
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
+
+
+    findById = (departamentId) => {
+        axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
+            .then(response => {
+                const departament = response.data[0];
+                const id = departament.id;
+                const name = departament.name;
+              
+
+                this.setState({ id, name });
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
+    }
+
+    
 
     update = async () => {
         await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,

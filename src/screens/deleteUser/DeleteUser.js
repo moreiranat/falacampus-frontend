@@ -12,6 +12,10 @@ class DeleteUser extends React.Component {
     state = {
       id: 0
     }
+
+    componentWillUnmount(){
+      this.clear();
+    }
   
     delete = () => {
       axios.delete(`http://localhost:8080/api/user/${this.state.id}`,
@@ -43,9 +47,8 @@ class DeleteUser extends React.Component {
                                     <div className='bs-component'>
                                         <form>
                                             <fieldset>
-                                                <FormGroup label='Id do Usuário: *'>
-                                                    <input type="number" className="form-control" id="inputUserId" 
-                                                    placeholder="Digite o Id do Usuário" 
+                                                <FormGroup label='Id do Usuário: *' htmlFor="inputUserId">
+                                                    <input type="number" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" 
                                                     value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                 </FormGroup>
                                                 <br />
