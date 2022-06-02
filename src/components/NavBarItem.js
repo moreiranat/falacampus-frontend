@@ -2,8 +2,8 @@ import React from 'react';
 
 function NavBarItem(props){
     return(
-        <li className="nav-item">
-            <a className="nav-link" href={props.href}>{props.label}</a>
+        <li className="nav-item dropdown">          
+                <a className="dropdown-item" href={props.href}>{props.label}</a>           
         </li>
     )
 }

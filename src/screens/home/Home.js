@@ -33,19 +33,19 @@ class Home extends React.Component {
             </div>
                 <div>
 
-                    {/* <div className="section-one">
+                    <div className="section-one">
                         <div>
-                            <div className="col-md-3">
+                            <div>
                                 <div className="section-one-title">
                                     <h4><img src={ icon01 }/>Sugestões</h4>
                                 </div>
                             </div>
-                            <div className="col-md-3">
+                            <div>
                                 <div className="section-one-title">
                                     <h4><img src={ icon02 }/>Críticas</h4>
                                 </div>
                             </div>
-                            <div className="col-md-3">
+                            <div>
                                 <div><div className="section-one-title">
                                     <h4><img src={ icon03 }/>Elogios</h4>
                                 </div>
@@ -54,7 +54,7 @@ class Home extends React.Component {
                         </div>
 
                         
-                    </div> */}
+                    </div>
                     <div className="section-two">
                         <center><p className="post">Projeto desenvolvido por Nataly Lucena,
                             Patrícia dos Santos e Rosenato Barreto para a Disciplina de Desenvolvimento
