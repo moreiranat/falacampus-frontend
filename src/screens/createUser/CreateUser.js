@@ -19,7 +19,7 @@ class CreateUser extends React.Component {
         departamentId: 0
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.clear();
     }
 
@@ -61,21 +61,21 @@ class CreateUser extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label='Nome: *'>
-                                                        <input type="text" className="form-control" id="inputDepartamentName" placeholder="Digite o seu Nome" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                                                    <FormGroup label="Nome:" htmlFor="inputUserName">
+                                                        <input type="text" className="form-control" id="inputUserName" placeholder="Digite o seu Nome" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label='E-mail: *'>
+                                                    <FormGroup label="E-mail: *" htmlFor="inputEmail">
                                                         <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
                                                         <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label='Matrícula: *'>
+                                                    <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
                                                         <input type="long" className="form-control" id="inputRegistration" placeholder="Digite o Número da sua Matrícula" value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
                                                         <small id="registrationHelp" className="form-text text-muted">Apenas números.</small>
                                                     </FormGroup>
-                                                    <div className="form-group">
-                                                        <label htmlFor="selectRole" className="form-label mt-4">Papel: *</label>
+                                                    <br />
+                                                    <FormGroup label="Papel: *" htmlFor="selectRole" className="form-label mt-4">
                                                         <select className="form-select" id="selectRole" value={this.state.role} onChange={(e) => { this.setState({ role: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
                                                             <option>STUDENT</option>
@@ -83,14 +83,14 @@ class CreateUser extends React.Component {
                                                             <option>TEACHER</option>
                                                             <option>ADMINISTRATOR</option>
                                                         </select>
-                                                    </div>
+                                                    </FormGroup>                                                    
                                                     <br />
-                                                    <FormGroup label='Senha: *'>
+                                                    <FormGroup label="Senha: *" htmlFor="inputPassword">
                                                         <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                         <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label='Id do Departamento: *'>
+                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                                         <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />

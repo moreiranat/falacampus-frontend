@@ -13,10 +13,10 @@ class UpdateUser extends React.Component {
         id: '',
         name: '',
         email: '',
-        registration: '',
+        registration: 0,
         role: '',
         password: '',
-        departamentId: ''
+        departamentId: 0
     }
 
     componentDidMount() {
@@ -38,9 +38,10 @@ class UpdateUser extends React.Component {
                 const email = user.email;
                 const registration = user.registration;
                 const role = user.role;
+                const password = user.password;
                 const departamentId = user.departamentId;
 
-                this.setState({ id, name, email, registration, role, departamentId });
+                this.setState({ id, name, email, registration, role, password, departamentId });
             }
             ).catch(error => {
                 console.log(error.response);
