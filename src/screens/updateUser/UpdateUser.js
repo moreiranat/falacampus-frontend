@@ -42,7 +42,9 @@ class UpdateUser extends React.Component {
                 const departamentId = user.departamentId;
 
                 this.setState({ id, name, email, registration, role, password, departamentId });
+                
             }
+
             ).catch(error => {
                 console.log(error.response);
             }

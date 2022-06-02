@@ -15,9 +15,9 @@ class ViewUsers extends React.Component {
         name: '',
         id: '',
         email: '',
-        registration: '',
+        registration: 0,
         role: '',
-        departamentId: '',
+        departamentId: 0,
         users: []
     }
 
@@ -164,13 +164,13 @@ class ViewUsers extends React.Component {
                                         </FormGroup>
                                         <br />
                                         <button onClick={this.find} type="button" className="btn btn-success">
-                                            <i className="pi pi-search"></i> Buscar
+                                            <i className="pi pi-search"></i> Filtrar
                                         </button>
-                                        {/* <br />
+                                         <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Buscar Tudo
-                                        </button> */}
+                                        </button>
                                     </fieldset>
                                 </form>
                             </Card>
