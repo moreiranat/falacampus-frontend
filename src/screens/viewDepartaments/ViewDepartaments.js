@@ -16,7 +16,9 @@ class ViewDepartaments extends React.Component {
         id: '',
         departaments: []
     }
-
+    componentDidMount() {
+        this.findAll();
+    }
     delete = (departamentId) => {
         axios.delete(`http://localhost:8080/api/departament/${departamentId}`,
         ).then(response => {
