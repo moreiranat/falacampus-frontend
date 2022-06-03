@@ -14,7 +14,7 @@ import ViewUsers from "../screens/viewUsers/ViewUsers";
 import UpdateUser from "../screens/updateUser/UpdateUser";
 import DeleteUser from "../screens/deleteUser/DeleteUser";
 
-// import CreateComment from "../screens/createComment/CreateComment";
+import CreateComment from "../screens/createComment/CreateComment";
 import ViewComments from "../screens/viewComments/ViewComments";
 import UpdateComment from "../screens/updateComment/UpdateComment";
 import DeleteComment from "../screens/deleteComment/DeleteComment";
@@ -38,7 +38,7 @@ function AppRoutes() {
             <Route component = { UpdateUser } path="/UpdateUser/:id" />
             <Route component = { DeleteUser } path="/DeleteUser" />
 
-            {/* <Route component = { CreateComment } path="/createComment" /> */}
+            <Route component = { CreateComment } path="/createComment" />
             <Route component = { ViewComments } path="/viewComments" />
             <Route component = { UpdateComment } path="/UpdateComment/:id" />
             <Route component = { DeleteComment } path="/DeleteComment" />

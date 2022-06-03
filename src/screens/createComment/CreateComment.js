@@ -53,7 +53,7 @@ class CreateComment extends React.Component {
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className="bs-docs-section">
-                            <Card title='Cadastro de Commentário'>
+                            <Card title='Cadastro de Comentário'>
                                 <div className='row'>
                                     <div className='col-lg-12' >
                                         <div className='bs-component'>
