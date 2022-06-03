@@ -16,11 +16,11 @@ class ViewComments extends React.Component {
         id: '',
         message: '',
         creationDate: Date,
-        // commentType: '',
-        // statusComment: '',
-        // authorId: 0,
-        // departamentId: 0,
-        // answerId: 0,
+        commentType: '',
+        statusComment: '',
+        authorId: 0,
+        departamentId: 0,
+        answerId: 0,
         comments: []
     }
 
@@ -74,29 +74,29 @@ class ViewComments extends React.Component {
             params = `${params}message=${this.state.message}`;
         }
 
-        if (this.state.creationDate !== '') {
+        // if (this.state.creationDate !== '') {
+        //     if (params !== '?') {
+        //         params = `${params}&`;
+        //     }
+
+        //     params = `${params}creationDate=${this.state.creationDate}`;
+        // }
+
+        if (this.state.commentType !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
 
-            params = `${params}creationDate=${this.state.creationDate}`;
+            params = `${params}commentType=${this.state.commentType}`;
         }
 
-        // if (this.state.commentType !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
+        if (this.state.statusComment !== '') {
+            if (params !== '?') {
+                params = `${params}&`;
+            }
 
-        //     params = `${params}commentType=${this.state.commentType}`;
-        // }
-
-        // if (this.state.statusComment !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}statusComment=${this.state.statusComment}`;
-        // }
+            params = `${params}statusComment=${this.state.statusComment}`;
+        }
 
         // if (this.state.authorId !== '') {
         //     if (params !== '?') {
@@ -175,7 +175,7 @@ class ViewComments extends React.Component {
                                         <FormGroup label="Data de Criação: *" htmlFor="inputCreationDate">
                                             <input type="date" className="form-control" id="inputCreationDate" placeholder="Digite a Data de Criação do Comentário" value={this.state.creationDate} onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />
                                         </FormGroup>
-                                        {/* <br />
+                                        <br />
                                         <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                             <select className="form-select" id="selectCommentType" value={this.state.commentType} onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                 <option>Selecione uma opção</option>
@@ -193,7 +193,7 @@ class ViewComments extends React.Component {
                                             </select>
                                         </FormGroup>  
                                         <br /> 
-                                        <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
+                                        {/* <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
                                             <input type="long" className="form-control" id="inputAuthorId" placeholder="Digite o Id do Autor do Comentário" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
@@ -203,14 +203,14 @@ class ViewComments extends React.Component {
                                         <br />      
                                         <FormGroup label="Id da Resposta do Comentário: *" htmlFor="inputAnswerId">
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id da Resposta do Comentário" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
-                                        </FormGroup> */}
-                                        <br />
-                                        <button onClick={this.find} type="button" className="btn btn-success">
+                                        </FormGroup>
+                                        <br /> */}
+                                        <button onClick={this.find} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>
-                                         <br />
                                         <br />
-                                        <button onClick={this.findAll} type="button" className="btn btn-primary">
+                                        <br />
+                                        <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo
                                         </button>
                                     </fieldset>

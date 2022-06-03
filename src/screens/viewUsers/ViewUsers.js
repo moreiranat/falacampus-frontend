@@ -163,12 +163,12 @@ class ViewUsers extends React.Component {
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                         </FormGroup>
                                         <br /> */}
-                                        <button onClick={this.find} type="button" className="btn btn-success">
+                                        <button onClick={this.find} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>
                                          <br />
                                         <br />
-                                        <button onClick={this.findAll} type="button" className="btn btn-primary">
+                                        <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo
                                         </button>
                                     </fieldset>
