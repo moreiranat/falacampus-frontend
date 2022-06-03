@@ -13,12 +13,9 @@ class UpdateComment extends React.Component {
         id: '',
         title: '',
         message: '',
-        creationDate: Date,
         commentType: '',
-        statusComment: '',
         authorId: 0,
-        departamentId: 0,
-        answerId: 0,
+        departamentId: 0
     }
 
     componentDidMount() {
@@ -38,14 +35,11 @@ class UpdateComment extends React.Component {
                 const id = comment.id;
                 const title = comment.title;
                 const message = comment.message;
-                const creationDate = comment.creationDate;
                 const commentType = comment.commentType;
-                const statusComment = comment.statusComment;
                 const authorId = comment.authorId;
                 const departamentId = comment.departamentId;
-                const answerId = comment.answerId;
 
-                this.setState({ id, title, message, creationDate, commentType, statusComment, authorId, departamentId, answerId });
+                this.setState({ id, title, message, commentType, authorId, departamentId });
             }
 
             ).catch(error => {
@@ -59,12 +53,9 @@ class UpdateComment extends React.Component {
             {
                 title: this.state.title,
                 message: this.state.message,
-                creationDate: this.state.creationDate,
                 commentType: this.state.commentType,
-                statusComment: this.state.statusComment,
                 authorId: this.state.authorId,
-                departamentId: this.state.departamentId,
-                answerId: this.state.answerId
+                departamentId: this.state.departamentId
             }
         ).then(response => {
             console.log(response);
@@ -111,11 +102,6 @@ class UpdateComment extends React.Component {
                                                         <small id="messageHelp" className="form-text text-muted">A mensagem do comentário deve ter no mínimo 10 e no máximo 255 caracteres.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Data de Criação: *" htmlFor="inputCreationDate">
-                                                        <input type="date" id="inputCreationDate" className="form-control"
-                                                            value={this.state.creationDate} name="creationDate" onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />
-                                                    </FormGroup>
-                                                    <br />
                                                     <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                                         <select className="form-select" id="selectCommentType" value={this.state.commentType} name="commentType" onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
@@ -125,24 +111,12 @@ class UpdateComment extends React.Component {
                                                         </select>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Status do Comentário: *" htmlFor="selectStatusComment" className="form-label mt-4">
-                                                        <select className="form-select" id="selectStatusComment" value={this.state.statusComment} name="statusComment" onChange={(e) => { this.setState({ statusComment: e.target.value }) }}>
-                                                            <option>Selecione uma opção</option>
-                                                            <option>NOT_SOLVED</option>
-                                                            <option>SOLVED</option>
-                                                        </select>
-                                                    </FormGroup>
-                                                    <br />
                                                     <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
                                                         <input type="long" className="form-control" id="inputAuthorId" value={this.state.authorId} name="authorId" onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                                         <input type="long" className="form-control" id="inputDepartamentId" value={this.state.departamentId} name="departamentId" onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
-                                                    </FormGroup>
-                                                    <br />
-                                                    <FormGroup label="Id da Resposta do Comentário: *" htmlFor="inputAnswerId">
-                                                        <input type="long" className="form-control" id="inputDepartamentId" value={this.state.departamentId} name="answerId" onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <button onClick={this.update} type="button" className="btn btn-success">
