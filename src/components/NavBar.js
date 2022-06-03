@@ -44,7 +44,7 @@ function NavBar(props) {
                             <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resposta</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="#" label="Responder Comentário" /></li>
-                                <li><NavBarItem href="/ViewAnswers" label="Listar Respostas" /></li>
+                                <li><NavBarItem href="#" label="Listar Respostas" /></li>
                             </ul>
                         </li>
 
