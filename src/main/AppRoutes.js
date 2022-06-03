@@ -14,6 +14,14 @@ import ViewUsers from "../screens/viewUsers/ViewUsers";
 import UpdateUser from "../screens/updateUser/UpdateUser";
 import DeleteUser from "../screens/deleteUser/DeleteUser";
 
+// import CreateComment from "../screens/createComment/CreateComment";
+import ViewComments from "../screens/viewComments/ViewComments";
+import UpdateComment from "../screens/updateComment/UpdateComment";
+import DeleteComment from "../screens/deleteComment/DeleteComment";
+
+// import CreateAnswer from "../screens/createAnswer/CreateAnswer";
+// import ViewAnswers from "../screens/viewAnswers/ViewAnswers";
+
 function AppRoutes() {
     return (
         <BrowserRouter>
@@ -29,6 +37,14 @@ function AppRoutes() {
             <Route component = { ViewUsers } path="/viewUsers" />
             <Route component = { UpdateUser } path="/UpdateUser/:id" />
             <Route component = { DeleteUser } path="/DeleteUser" />
+
+            {/* <Route component = { CreateComment } path="/createComment" /> */}
+            <Route component = { ViewComments } path="/viewComments" />
+            <Route component = { UpdateComment } path="/UpdateComment/:id" />
+            <Route component = { DeleteComment } path="/DeleteComment" />
+
+            {/* <Route component = { CreateAnswer } path="/createAnswer" />
+            <Route component = { ViewAnswers } path="/viewAnswers" /> */}
            
         </BrowserRouter>
     );
