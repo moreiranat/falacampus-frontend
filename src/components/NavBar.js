@@ -36,10 +36,8 @@ function NavBar(props) {
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Comentário</a>
                             <ul className="dropdown-menu">
-                                <li><NavBarItem href="#" label="Criar Comentário" /></li>
-                                <li><NavBarItem href="/viewComments" label="Listar Comentários" /></li>
                                 <li><NavBarItem href="/createComment" label="Criar Comentário" /></li>
-                                <li><NavBarItem href="#" label="Listar Comentários" /></li>
+                                <li><NavBarItem href="/viewComments" label="Listar Comentários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
