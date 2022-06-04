@@ -3,12 +3,12 @@ import './Style.css';
 
 export default props => {
 
-    const rows = props.answer.map(answer => {
+    const rows = props.answers.map(answer => {
         return (
             <tr key={answer.id}>
                  <td>{answer.id}</td>
                 <td>{answer.message}</td>
-                <td>{answer.commentId}</td>
+                <td>{answer.creationDate}</td>
                 <td>{answer.authorId}</td>
                 <td>
                     <button type="button" title="Editar"
@@ -32,9 +32,10 @@ export default props => {
             <thead>
                 <tr className="table-active">
                     <th scope="col">Id</th>
-                    <th scope="col">Message</th>
-                    <th scope="col">CommentId</th>
-                    <th scope="col">AuthorId</th>
+                    <th scope="col">Mensagem</th>
+                    <th scope="col">Id Comentário</th>
+                    <th scope="col">Data/Hora De Criação</th>
+                    <th scope="col">Id Autor </th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>

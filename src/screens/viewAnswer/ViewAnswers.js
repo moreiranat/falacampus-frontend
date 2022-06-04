@@ -7,7 +7,7 @@ import axios from 'axios';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
-import AnswerTable from '../../components/AnswerTable'
+import AnswersTable from '../../components/AnswersTable';
 
 class ViewAnswers extends React.Component {
 
@@ -15,7 +15,9 @@ class ViewAnswers extends React.Component {
         id: 0,
         message:'' ,
         commentId: 0,
-        authorId:0
+        creationDate :Date,
+        authorId:0,
+        answers: []
     }
 
     componentDidMount() {
@@ -44,7 +46,7 @@ class ViewAnswers extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id !== '') {
+        if (this.state.id !== 0) {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -60,15 +62,22 @@ class ViewAnswers extends React.Component {
             params = `${params}name=${this.state.message}`;
         }
 
-        if (this.state.commentId !== '') {
+        if (this.state.commentId !== 0) {
             if (params !== '?') {
                 params = `${params}&`;
             }
 
             params = `${params}commentId=${this.state.commentId}`;
         }
+           // if (this.state.creationDate !== '') {
+        //     if (params !== '?') {
+        //         params = `${params}&`;
+        //     }
 
-        if (this.state. authorId!== '') {
+        //     params = `${params}creationDate=${this.state.creationDate}`;
+        // }
+
+        if (this.state. authorId!== 0) {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -118,18 +127,22 @@ class ViewAnswers extends React.Component {
                                             <input type="long" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label=" Message:" htmlFor="inputAnswerMessage">
-                                            <input type="text" className="form-control" id="inputAnswerMessage" placeholder="Resposta" value={this.state.message} onChange={(e) => { this.setState({ message: e.target.value }) }} />
+                                        <FormGroup label=" Mensagem:" htmlFor="inputAnswerMessage">
+                                            <input type="text" className="form-control" id="inputAnswerMessage" placeholder="Digite sua Resposta" value={this.state.message} onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label=" CommentId: *" htmlFor="inputCommentId">
+                                        <FormGroup label=" Id de Comentário: *" htmlFor="inputCommentId">
                                         <input type="long" className="form-control" id="inputCommentId" placeholder="Digite o Id do Comontário" value={this.state.commentId} onChange={(e) => { this.setState({ commentId: e.target.value }) }} />  
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label="  AuthorId: *" htmlFor="inputAuthorId">
+                                        <FormGroup label="  Data De Criação: *" htmlFor="inputDataCriacao">
+                                        <input type="date" className="form-control" id="inputDataCriacao" placeholder="Digite a Data de Criação Respostas" value={this.state.creationDate} onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />  
+                                        </FormGroup>
+                                        <br />
+                                        <FormGroup label="  Id do Autor : *" htmlFor="inputAuthorId">
                                         <input type="long" className="form-control" id="inputAuthorIdId" placeholder="Digite o Id do Author" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />  
                                         </FormGroup>
-                                      
+                                        <br />
                                         <button onClick={this.find} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>
@@ -146,7 +159,7 @@ class ViewAnswers extends React.Component {
                         <div className='row'>
                             <div className='col-lg-12' >
                                 <div className='bs-component'>
-                                    <AnswerTable answer={this.state.answer}
+                                    <AnswersTable answers={this.state.answers}
                                         delete={this.delete}
                                         edit={this.edit} />
                                 </div>
