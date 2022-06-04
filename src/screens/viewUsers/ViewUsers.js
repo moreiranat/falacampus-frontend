@@ -13,11 +13,14 @@ class ViewUsers extends React.Component {
 
     state = {
         name: '',
-        id: '',
+        id: 0,
         email: '',
         registration: 0,
         role: '',
-        // departamentId: 0,
+        departament:{
+            departamentId: 0,
+            name: ''
+        },
         users: []
     }
 
@@ -47,7 +50,7 @@ class ViewUsers extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id !== '') {
+        if (this.state.id !== 0) {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -87,13 +90,13 @@ class ViewUsers extends React.Component {
             params = `${params}role=${this.state.role}`;
         }
 
-        // if (this.state.departamentId !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
+        if (this.state.departament.id !== 0) {
+            if (params !== '?') {
+                params = `${params}&`;
+            }
 
-        //     params = `${params}departamentId=${this.state.departamentId}`;
-        // }
+            params = `${params}departamentId=${this.state.departamentId}`;
+        }
 
         axios.get(`http://localhost:8080/api/user/${params}`)
             .then(response => {
@@ -159,10 +162,10 @@ class ViewUsers extends React.Component {
                                             </select>
                                         </FormGroup>                                        
                                         <br />
-                                        {/* <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
+                                        <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                         </FormGroup>
-                                        <br /> */}
+                                        <br />
                                         <button onClick={this.find} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>

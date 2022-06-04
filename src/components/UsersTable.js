@@ -11,7 +11,7 @@ export default props => {
                 <td>{user.email}</td>
                 <td>{user.registration}</td>
                 <td>{user.role}</td>
-                <td>{user.departamentId}</td>
+                <td>{user.departament.id}</td>
                 <td>
                     <button type="button" title="Editar"
                         className="btn btn-warning"

@@ -10,13 +10,16 @@ import FormGroup from '../../components/FormGroup';
 class UpdateUser extends React.Component {
 
     state = {
-        id: '',
+        id: 0,
         name: '',
         email: '',
         registration: 0,
         role: '',
         password: '',
-        departamentId: 0
+        departament:{
+            departamentId: 0,
+            name:''
+        } 
     }
 
     componentDidMount() {
@@ -30,23 +33,25 @@ class UpdateUser extends React.Component {
     // }
 
     findById = (userId) => {
-        axios.get(`http://localhost:8080/api/user?id=${userId}`)
+        axios.get(`http://localhost:8080/api/user/${userId}`)
             .then(response => {
-                const user = response.data[0];
+                console.log(response);
+                const user = response.data;
                 const id = user.id;
                 const name = user.name;
                 const email = user.email;
                 const registration = user.registration;
                 const role = user.role;
                 const password = user.password;
-                const departamentId = user.departamentId;
+                const departament = user.departament;
 
-                this.setState({ id, name, email, registration, role, password, departamentId });
+                this.setState({ id, name, email, registration, role, password, departament});
                 
             }
 
             ).catch(error => {
                 console.log(error.response);
+                console.log(error.message);
             }
             );
     }
@@ -59,7 +64,7 @@ class UpdateUser extends React.Component {
                 registration: this.state.registration,
                 role: this.state.role,
                 password: this.state.password,
-                departamentId: this.state.departamentId
+                departamentId: this.state.departament.id
             }
         ).then(response => {
             console.log(response);
@@ -131,7 +136,7 @@ class UpdateUser extends React.Component {
                                                     <br />
                                                     <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                                         <input type="long" id="inputDepartamentId" className="form-control" 
-                                                        value={this.state.departamentId} name="departamentId" onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
+                                                        value={this.state.departament.id} name="departamentId" onChange={(e) => { this.setState({ 'departament.id': e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <button onClick={this.update} type="button" className="btn btn-success">

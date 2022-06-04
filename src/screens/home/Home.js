@@ -6,7 +6,7 @@ import icon01 from "../../assets/img/icons8-speech-balloon-96.png";
 import icon02 from "../../assets/img/icons8-megaphone-96.png";
 import icon03 from "../../assets/img/icons8-thumbs-up-96.png";
 import { withRouter } from 'react-router-dom';
-import Card from '../../components/Card';
+// import Card from '../../components/Card';
 
 class Home extends React.Component {
 

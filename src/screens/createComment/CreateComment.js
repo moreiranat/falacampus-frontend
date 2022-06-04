@@ -18,9 +18,9 @@ class CreateComment extends React.Component {
         departamentId: 0
     }
 
-    componentWillUnmount() {
-        this.clear();
-    }
+    // componentWillUnmount() {
+    //     this.clear();
+    // }
 
     create = async () => {
         await axios.post('http://localhost:8080/api/comment',
