@@ -19,8 +19,9 @@ import ViewComments from "../screens/viewComments/ViewComments";
 import UpdateComment from "../screens/updateComment/UpdateComment";
 import DeleteComment from "../screens/deleteComment/DeleteComment";
 
-// import CreateAnswer from "../screens/createAnswer/CreateAnswer";
-// import ViewAnswers from "../screens/viewAnswers/ViewAnswers";
+ import CreateAnswer from "../screens/createAnswer/CreateAnswer";
+ import ViewAnswers from "../screens/viewAnswer/ViewAnswers";
+ import UpdateAnswer from "../screens/updateAnswer/UpdateAnswer";
 
 function AppRoutes() {
     return (
@@ -43,9 +44,9 @@ function AppRoutes() {
             <Route component = { UpdateComment } path="/UpdateComment/:id" />
             <Route component = { DeleteComment } path="/DeleteComment" />
 
-            {/* <Route component = { CreateAnswer } path="/createAnswer" />
-            <Route component = { ViewAnswers } path="/viewAnswers" /> */}
-           
+             <Route component = { CreateAnswer } path="/createAnswer" />
+            <Route component = { ViewAnswers } path="/viewAnswer" /> 
+            <Route component = { UpdateAnswer } path="/UpdateAnswer/:id" />
         </BrowserRouter>
     );
 }
