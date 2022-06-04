@@ -118,7 +118,7 @@ class ViewAnswers extends React.Component {
 
             <div className="container">
                 <div className='row'>
-                    <div className='col-md-12' style={this.styles.colMd12}>
+                    <div className='col-md-12'>
                         <div className="bs-docs-section">
                             <Card title='Consulta de Respostas'>
                                 <form>
@@ -169,11 +169,6 @@ class ViewAnswers extends React.Component {
                 </div >
             </div >
         )
-    }
-    styles = {
-        colMd12: {
-            position: 'relative'
-        }
     }
 }
 

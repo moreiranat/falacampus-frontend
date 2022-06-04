@@ -78,10 +78,10 @@ class CreateUser extends React.Component {
                                                     <FormGroup label="Papel: *" htmlFor="selectRole" className="form-label mt-4">
                                                         <select className="form-select" id="selectRole" value={this.state.role} onChange={(e) => { this.setState({ role: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option>STUDENT</option>
-                                                            <option>TECHNICIAN</option>
-                                                            <option>TEACHER</option>
-                                                            <option>ADMINISTRATOR</option>
+                                                            <option value="STUDENT" >ESTUDANTE</option>
+                                                            <option value="TECHNICIAN">TÉCNICO</option>
+                                                            <option value="TEACHER">PROFESSOR</option>
+                                                            <option value="ADMINISTRATOR">ADMINISTRADOR</option>
                                                         </select>
                                                     </FormGroup>                                                    
                                                     <br />
