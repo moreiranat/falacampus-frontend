@@ -17,7 +17,7 @@ class ViewUsers extends React.Component {
         email: '',
         registration: 0,
         role: '',
-        departament:{
+        departament: {
             departamentId: 0,
             name: ''
         },
@@ -133,7 +133,7 @@ class ViewUsers extends React.Component {
                         <div className="bs-docs-section">
                             <Card title='Consulta de Usuários'>
                                 <form>
-                                    <fieldset>                                        
+                                    <fieldset>
                                         <FormGroup label="Id:" htmlFor="inputUserId">
                                             <input type="long" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
@@ -155,12 +155,12 @@ class ViewUsers extends React.Component {
                                         <FormGroup label="Papel: *" htmlFor="selectRole" className="form-label mt-4">
                                             <select className="form-select" id="selectRole" value={this.state.role} onChange={(e) => { this.setState({ role: e.target.value }) }}>
                                                 <option>Selecione uma opção</option>
-                                                <option>STUDENT</option>
-                                                <option>TECHNICIAN</option>
-                                                <option>TEACHER</option>
-                                                <option>ADMINISTRATOR</option>
+                                                <option value="STUDENT" >ESTUDANTE</option>
+                                                <option value="TECHNICIAN">TÉCNICO</option>
+                                                <option value="TEACHER">PROFESSOR</option>
+                                                <option value="ADMINISTRATOR">ADMINISTRADOR</option>
                                             </select>
-                                        </FormGroup>                                        
+                                        </FormGroup>
                                         <br />
                                         <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
@@ -171,7 +171,7 @@ class ViewUsers extends React.Component {
 
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>
-                                         <br />
+                                        <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo

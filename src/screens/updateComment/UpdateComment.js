@@ -111,9 +111,9 @@ class UpdateComment extends React.Component {
                                                     <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                                         <select className="form-select" id="selectCommentType" value={this.state.commentType} name="commentType" onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option value = "CRÍTICA">REVIEW</option>
-                                                            <option value = "SUGESTÃO">SUGGESTION</option>
-                                                            <option value = "ELOGIO">COMPLIMENT</option>
+                                                            <option value = "REVIEW">CRÍTICA</option>
+                                                            <option value = "SUGGESTION">SUGESTÃO</option>
+                                                            <option value = "COMPLIMENT">ELOGIO</option>
                                                         </select>
                                                     </FormGroup>
                                                     <br />

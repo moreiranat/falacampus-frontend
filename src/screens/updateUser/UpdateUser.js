@@ -121,10 +121,10 @@ class UpdateUser extends React.Component {
                                                         <select className="form-select" id="selectRole" 
                                                         value={this.state.role} name="role" onChange={(e) => { this.setState({ role: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option>STUDENT</option>
-                                                            <option>TECHNICIAN</option>
-                                                            <option>TEACHER</option>
-                                                            <option>ADMINISTRATOR</option>
+                                                            <option value="STUDENT" >ESTUDANTE</option>
+                                                            <option value="TECHNICIAN">TÉCNICO</option>
+                                                            <option value="TEACHER">PROFESSOR</option>
+                                                            <option value="ADMINISTRATOR">ADMINISTRADOR</option>
                                                         </select>
                                                     </div>
                                                     <br />

@@ -13,7 +13,7 @@ class UpdateDepartament extends React.Component {
         id: "",
         name: '',
     }
-    componentDidMount(){
+    componentDidMount() {
         const params = this.props.match.params;
         const id = params.id;
         this.findById(id);
@@ -26,7 +26,7 @@ class UpdateDepartament extends React.Component {
                 const departament = response.data[0];
                 const id = departament.id;
                 const name = departament.name;
-              
+
 
                 this.setState({ id, name });
             }
@@ -36,7 +36,7 @@ class UpdateDepartament extends React.Component {
             );
     }
 
-    
+
 
     update = async () => {
         await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
@@ -45,7 +45,7 @@ class UpdateDepartament extends React.Component {
             }
         ).then(response => {
             console.log(response);
-            
+
         }
         ).catch(error => {
             console.log(error.response);
@@ -72,16 +72,15 @@ class UpdateDepartament extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label='Id: *'>
-                                                        <input type="number" className="form-control" id="inputDepartamentId" 
-                                                        placeholder="Digite o Id do Departamento" 
-                                                        value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
+                                                    <FormGroup label="Id: *" htmlFor="inputId">
+                                                        <input type="long" id="inputId" disabled={true} className="form-control"
+                                                            value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label='Nome: *'>
-                                                        <input type="text" className="form-control" id="inputDepartamentName" 
-                                                        placeholder="Digite o Nome do Departamento" 
-                                                        value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                                                        <input type="text" className="form-control" id="inputDepartamentName"
+                                                            placeholder="Digite o Nome do Departamento"
+                                                            value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                         <div className="valid-feedback">Departamento atualizado!</div>
                                                     </FormGroup>
                                                     <br />
@@ -91,7 +90,7 @@ class UpdateDepartament extends React.Component {
                                                     <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
-                                                                                                       
+
                                                 </fieldset>
                                             </form>
                                         </div>
