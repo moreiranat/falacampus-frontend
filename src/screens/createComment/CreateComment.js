@@ -16,6 +16,7 @@ class CreateComment extends React.Component {
         title: '',
         message: '',
         commentType: '',
+        creationDate: Date,
         authorId: 0,
         departamentId: 0
     }
@@ -31,7 +32,8 @@ class CreateComment extends React.Component {
                 message: this.state.message,
                 commentType: this.state.commentType,
                 authorId: this.state.authorId,
-                departamentId: this.state.departamentId
+                departamentId: this.state.departamentId,
+                creationDate: this.state.creationDate
             }
         ).then(response => {
             console.log(response);

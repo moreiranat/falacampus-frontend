@@ -20,28 +20,28 @@ function NavBar(props) {
                         {/* <NavBarItem href="/login" label="Login"/> */}
 
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Departamento</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Departamento</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createDepartament" label="Cadastrar Departamento" /></li>
                                 <li><NavBarItem href="/viewDepartaments" label="Listar Departamentos" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Usuário</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Usuário</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createUser" label="Cadastrar Usuário" /></li>
                                 <li><NavBarItem href="/viewUsers" label="Listar Usuários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Comentário</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Comentário</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createComment" label="Criar Comentário" /></li>
                                 <li><NavBarItem href="/viewComments" label="Listar Comentários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Resposta</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resposta</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/CreateAnswer" label="Responder Comentário" /></li>
                                 <li><NavBarItem href="/ViewAnswer" label="Listar Respostas" /></li>

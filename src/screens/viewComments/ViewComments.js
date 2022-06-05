@@ -44,9 +44,9 @@ class ViewComments extends React.Component {
         this.findAll();
     }
 
-    // componentWillUnmount() {
-    //     this.clear();
-    // }
+    componentWillUnmount() {
+        this.clear();
+    }
 
     delete = (commentId) => {
         axios.delete(`http://localhost:8080/api/comment/${commentId}`,

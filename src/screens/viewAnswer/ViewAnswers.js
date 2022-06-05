@@ -30,9 +30,9 @@ class ViewAnswers extends React.Component {
         this.findAll();
     }
 
-    // componentWillUnmount() {
-    //     this.clear();
-    // }
+    componentWillUnmount() {
+        this.clear();
+    }
 
     delete = (answerId) => {
         axios.delete(`http://localhost:8080/api/answer/${answerId}`,
@@ -75,13 +75,13 @@ class ViewAnswers extends React.Component {
 
             params = `${params}commentId=${this.state.commentId}`;
         }
-           // if (this.state.creationDate !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
+           if (this.state.creationDate !== '') {
+            if (params !== '?') {
+                params = `${params}&`;
+            }
 
-        //     params = `${params}creationDate=${this.state.creationDate}`;
-        // }
+            params = `${params}creationDate=${this.state.creationDate}`;
+        }
 
         if (this.state.authorId !== 0) {
             if (params !== '?') {
