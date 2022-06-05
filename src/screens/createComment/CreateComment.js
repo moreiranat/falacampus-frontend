@@ -7,6 +7,8 @@ import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import SelectDepartament from '../../components/SelectDepartament';
+import SelectUser from '../../components/SelectUser';
 
 class CreateComment extends React.Component {
 
@@ -18,9 +20,9 @@ class CreateComment extends React.Component {
         departamentId: 0
     }
 
-    // componentWillUnmount() {
-    //     this.clear();
-    // }
+    componentWillUnmount() {
+        this.clear();
+    }
 
     create = async () => {
         await axios.post('http://localhost:8080/api/comment',
@@ -36,6 +38,7 @@ class CreateComment extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
+            alert("O comentário não pode ser salvo!")
         }
         );
 
@@ -44,6 +47,18 @@ class CreateComment extends React.Component {
 
     cancel = () => {
         this.props.history.push('/');
+    }
+
+    handleInputSelectDepartament = (e) => {
+        this.setState({departamentId: e.target.value}, () => {
+            console.log("Id do Departamento Destinatário: ", this.state.departamentId);
+        });
+    }
+
+    handleInputSelectUser = (e) => {
+        this.setState({authorId: e.target.value}, () => {
+            console.log("Id do Autor(Usuário): ", this.state.authorId);
+        });
     }
 
     render() {
@@ -59,22 +74,27 @@ class CreateComment extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label="Título:" htmlFor="inputCommentTitle">
-                                                        <input type="text" className="form-control" id="inputCommentTitle" 
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios para o envio de críticas, sugestões ou elogios.
+                                                        </small>
+                                                    </p>
+                                                    <FormGroup label="Título: *" htmlFor="inputCommentTitle">
+                                                        <input type="text" className="form-control" id="inputCommentTitle"  minLength="5" maxlength="50"
                                                         placeholder="Digite o título da mensagem" 
                                                         value={this.state.title} 
                                                         onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Messagem: *" htmlFor="inputMessage">
-                                                        <input type="text" className="form-control" id="inputMessage" 
+                                                        <input type="text" className="form-control" id="inputMessage" minLength="10" maxlength="255" 
                                                         placeholder="Digite a sugestão, crítica ou elogio" 
                                                         value={this.state.message} 
                                                         onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                                         <small id="messageHelp" className="form-text text-muted">Seja cordial ao escrever sua crítica, sugestão ou elogio.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType">
+                                                    <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" input>
                                                     <select className="form-select" id="selectCommentType" 
                                                     value={this.state.commentType} 
                                                     onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
@@ -85,19 +105,29 @@ class CreateComment extends React.Component {
                                                         </select>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Autor: *" htmlFor="inputAuthorId">
+                                                    {/* <FormGroup label="Id do Autor: *" htmlFor="inputAuthorId">
                                                         <input type="number" className="form-control" id="inputAuthorId" 
                                                         placeholder="Digite o id do autor" 
                                                         value={this.state.authorId} 
                                                         onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
-                                                    </FormGroup>                                                    
+                                                    </FormGroup>                                                     */}
+                                                    <FormGroup label="Autor do Comentário: *" htmlFor="inputUserAuthor">
+                                                        <br />
+                                                        <SelectUser onChange={this.handleInputSelectUser}/>
+                                                    </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
+                                                    {/* <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                                         <input type="number" className="form-control" id="inputDepartamentId" 
                                                         placeholder="Digite o id do departamento" 
                                                         value={this.state.departamentId} 
                                                         onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
+                                                    </FormGroup> */}
+                                                    
+                                                    <FormGroup label="Selecione o Departamento para o envio da crítica, sugestão ou elogio: *" htmlFor="inputDepartamentDestination">
+                                                        <br />
+                                                        <SelectDepartament onChange={this.handleInputSelectDepartament}/>
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar

@@ -3,21 +3,21 @@ import axios from "axios";
 
 const SelectUser = (props) => {
 
-    const [users, setUsers] = React.useState([]);
+    const [users, setUsers] = React.useState([]); 
 
-    function findUsers() {
-        axios.get( "http://localhost:8080/api/user"
+    function findDepartaments() {
+        axios.get( "http://localhost:8080/api/user/all"
         ).then( Response => {
-            const users = Response.data;
-            setUsers(users);
-            console.log("users", users);
+            const departaments = Response.data;
+            setUsers(departaments);
+            console.log("users", departaments);
         }).catch(error => {
             console.log(error.Response)
         });
     }
 
-    React.useEffect(() => {
-        findUsers();
+    React.useEffect(() => { 
+        findDepartaments();
     },[]);
 
     return (

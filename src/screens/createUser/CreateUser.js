@@ -39,6 +39,7 @@ class CreateUser extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
+            alert("O usuário não pode ser salvo!")
         }
         );
 
@@ -51,7 +52,7 @@ class CreateUser extends React.Component {
 
     inputSelectDepartament = (e) => {
         this.setState({departamentId: e.target.value}, () => {
-            console.log("Id do Local selecionado: ", this.state.departamentId);
+            console.log("Id do Departamento Destinatário: ", this.state.departamentId);
         });
     }
 
@@ -96,14 +97,12 @@ class CreateUser extends React.Component {
                                                         <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                         <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
                                                     </FormGroup>
-                                                    {/* <br />
-                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
-                                                        <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
-                                                    </FormGroup> */}
                                                     <br />
-                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
+                                                    <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
+                                                        <br />
                                                         <SelectDepartament onChange={this.inputSelectDepartament}/>
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar
