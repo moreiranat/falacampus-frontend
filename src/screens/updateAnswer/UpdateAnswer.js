@@ -10,20 +10,29 @@ import FormGroup from '../../components/FormGroup';
 class UpdateAnswer extends React.Component {
 
     state = {
-        id: 0,
+        id: '',
         message:'' ,
-        commentId: 0,
+        comment: {
+            commentId:0
+           
+        },
         creationDate :Date,
-        authorId:0
+        user:{
+            authorId: 0
+       
+        }
     }
 
     componentDidMount() {
+        
         const params = this.props.match.params;
         const id = params.id;
-        const message =params.message;
-        const commentId = params.commentId;
-        const  creationDate =params.creationDate;
-        const authorId =params.authorId;
+        // const message =params.message;
+        // const comment = params.comment;
+        // const  creationDate =params.creationDate;
+        // const author =params.author;
+        
+      
         this.findById(id);
     }
 
@@ -38,12 +47,12 @@ class UpdateAnswer extends React.Component {
                 const id = answer.id;
                 const message = answer.message;
                 
-                const commentId =answer.commentId;
+                const comment =answer.comment;
                 const createDate=answer.createDate;
-                const authorId = answer.authorId;
+                const author = answer.author;
                 
 
-                this.setState({ id, message, commentId, authorId });
+                this.setState({ id, message, comment,createDate, author });
             }
 
             ).catch(error => {
@@ -57,9 +66,9 @@ class UpdateAnswer extends React.Component {
             {
                
                 message: this.state.message,
-                commentId: this.state.commentId,
+                commentId: this.state.comment.id,
                 creationDate :this.state.creationDate,
-                authorId: this.state.authorId
+                authorId: this.state.author.id
                
             }
         ).then(response => {
@@ -118,7 +127,8 @@ class UpdateAnswer extends React.Component {
                                                    
                                                     <br />
                                                     <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
-                                                        <input type="long" className="form-control" id="inputAuthorId" value={this.state.authorId} name="authorId" onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
+                                                        <input type="long" className="form-control" id="inputAuthorId" 
+                                                        value={this.state.authorId} name="authorId" onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     

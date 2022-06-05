@@ -14,9 +14,15 @@ class ViewAnswers extends React.Component {
     state = {
         id: 0,
         message:'' ,
-        commentId: 0,
+        comment: {
+            commentId:0
+
+        },
         creationDate :Date,
-        authorId:0,
+        user:{
+            authorId: 0
+           
+        },
         answers: []
     }
 
@@ -103,9 +109,9 @@ class ViewAnswers extends React.Component {
 
         axios.get(`http://localhost:8080/api/answer/all`)
             .then(response => {
-                const answer = response.data;
-                this.setState({ answer});
-                console.log(answer);
+                const answers = response.data;
+                this.setState({ answers});
+                console.log(answers);
             }
             ).catch(error => {
                 console.log(error.response);
