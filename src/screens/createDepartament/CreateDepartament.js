@@ -57,6 +57,7 @@ class CreateDepartament extends React.Component {
                                                     <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
+                                                    <br />
                                                 </fieldset>
                                             </form>
                                         </div>

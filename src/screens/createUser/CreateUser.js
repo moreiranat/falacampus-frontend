@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import SelectDepartament from '../../components/SelectDepartament';
 
 class CreateUser extends React.Component {
 
@@ -46,6 +47,12 @@ class CreateUser extends React.Component {
 
     cancel = () => {
         this.props.history.push('/');
+    }
+
+    inputSelectDepartament = (e) => {
+        this.setState({departamentId: e.target.value}, () => {
+            console.log("Id do Local selecionado: ", this.state.departamentId);
+        });
     }
 
     render() {
@@ -89,9 +96,13 @@ class CreateUser extends React.Component {
                                                         <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                         <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
                                                     </FormGroup>
-                                                    <br />
+                                                    {/* <br />
                                                     <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                                         <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
+                                                    </FormGroup> */}
+                                                    <br />
+                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
+                                                        <SelectDepartament onChange={this.inputSelectDepartament}/>
                                                     </FormGroup>
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">

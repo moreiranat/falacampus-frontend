@@ -63,7 +63,7 @@ class CreateAnswer extends React.Component {
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Messagem: *" htmlFor="inputMessage">
-                                                        <input type="textarea" className="form-control" id="inputMessage" 
+                                                        <input type="textfield" className="form-control" id="inputMessage" 
                                                         placeholder="Incluir resposta" 
                                                         value={this.state.message} 
                                                         onChange={(e) => { this.setState({ message: e.target.value }) }} />
