@@ -79,9 +79,9 @@ class CreateComment extends React.Component {
                                                     value={this.state.commentType} 
                                                     onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option>REVIEW</option>
-                                                            <option>SUGGESTION</option>
-                                                            <option>COMPLIMENT</option>
+                                                            <option value = "CRÍTICA">REVIEW</option>
+                                                            <option value = "SUGESTÃO">SUGGESTION</option>
+                                                            <option value = "ELOGIO">COMPLIMENT</option>
                                                         </select>
                                                     </FormGroup>
                                                     <br />

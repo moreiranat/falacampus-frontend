@@ -14,8 +14,14 @@ class UpdateComment extends React.Component {
         title: '',
         message: '',
         commentType: '',
-        authorId: 0,
-        departamentId: 0
+        user:{
+            authorId: 0,
+            name: ''
+        },
+        departament:{
+            departamentId: 0,
+            name:''
+        } 
     }
 
     componentDidMount() {
@@ -36,10 +42,10 @@ class UpdateComment extends React.Component {
                 const title = comment.title;
                 const message = comment.message;
                 const commentType = comment.commentType;
-                const authorId = comment.authorId;
-                const departamentId = comment.departamentId;
+                const author = comment.author;
+                const departament = comment.departament;
 
-                this.setState({ id, title, message, commentType, authorId, departamentId });
+                this.setState({ id, title, message, commentType, author, departament });
             }
 
             ).catch(error => {
@@ -54,8 +60,8 @@ class UpdateComment extends React.Component {
                 title: this.state.title,
                 message: this.state.message,
                 commentType: this.state.commentType,
-                authorId: this.state.authorId,
-                departamentId: this.state.departamentId
+                authorId: this.state.author.id,
+                departamentId: this.state.departament.id
             }
         ).then(response => {
             console.log(response);
@@ -105,9 +111,9 @@ class UpdateComment extends React.Component {
                                                     <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                                         <select className="form-select" id="selectCommentType" value={this.state.commentType} name="commentType" onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option>REVIEW</option>
-                                                            <option>SUGGESTION</option>
-                                                            <option>COMPLIMENT</option>
+                                                            <option value = "CRÍTICA">REVIEW</option>
+                                                            <option value = "SUGESTÃO">SUGGESTION</option>
+                                                            <option value = "ELOGIO">COMPLIMENT</option>
                                                         </select>
                                                     </FormGroup>
                                                     <br />
