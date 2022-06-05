@@ -30,9 +30,9 @@ class ViewAnswers extends React.Component {
         this.findAll();
     }
 
-    componentWillUnmount() {
-        this.clear();
-    }
+    // componentWillUnmount() {
+    //     this.clear();
+    // }
 
     delete = (answerId) => {
         axios.delete(`http://localhost:8080/api/answer/${answerId}`,
