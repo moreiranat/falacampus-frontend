@@ -69,6 +69,9 @@ class CreateUser extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
+                                                    <small id="messageHelp" className="form-text text-muted">
+                                                        * Todos os campos são obrigatórios.
+                                                    </small>
                                                     <FormGroup label="Nome:" htmlFor="inputUserName">
                                                         <input type="text" className="form-control" id="inputUserName" placeholder="Digite o seu Nome" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>

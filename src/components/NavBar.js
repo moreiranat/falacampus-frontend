@@ -10,7 +10,7 @@ function NavBar(props) {
         <nav className="navbar navbar-expand-lg navbar-light bg-nav">
             <div className="container-fluid">
                 <div className="col-md-3"><a href="/" className="navbar-brand"><Logo imageSrc={FalaCampus} /></a></div>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
@@ -20,28 +20,28 @@ function NavBar(props) {
                         {/* <NavBarItem href="/login" label="Login"/> */}
 
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Departamento</a>
+                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Departamento</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createDepartament" label="Cadastrar Departamento" /></li>
                                 <li><NavBarItem href="/viewDepartaments" label="Listar Departamentos" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Usuário</a>
+                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Usuário</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createUser" label="Cadastrar Usuário" /></li>
                                 <li><NavBarItem href="/viewUsers" label="Listar Usuários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Comentário</a>
+                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Comentário</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/createComment" label="Criar Comentário" /></li>
                                 <li><NavBarItem href="/viewComments" label="Listar Comentários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resposta</a>
+                            <a className="nav-link dropdown-toggle" href="http://" data-bs-toggle="dropdown">Resposta</a>
                             <ul className="dropdown-menu">
                                 <li><NavBarItem href="/CreateAnswer" label="Responder Comentário" /></li>
                                 <li><NavBarItem href="/ViewAnswer" label="Listar Respostas" /></li>

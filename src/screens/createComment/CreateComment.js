@@ -35,10 +35,11 @@ class CreateComment extends React.Component {
             }
         ).then(response => {
             console.log(response);
+            alert("Comentário criado!")
         }
         ).catch(error => {
             console.log(error.response);
-            alert("O comentário não pode ser salvo!")
+            alert("O comentário não pode ser criado!")
         }
         );
 

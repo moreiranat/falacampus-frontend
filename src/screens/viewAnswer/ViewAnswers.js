@@ -83,7 +83,7 @@ class ViewAnswers extends React.Component {
         //     params = `${params}creationDate=${this.state.creationDate}`;
         // }
 
-        if (this.state. authorId!== 0) {
+        if (this.state.authorId !== 0) {
             if (params !== '?') {
                 params = `${params}&`;
             }

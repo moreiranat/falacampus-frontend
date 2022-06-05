@@ -19,17 +19,24 @@ class ViewComments extends React.Component {
         commentType: '',
         statusComment: '',
         user:{
-            authorId: 0,
-            name: ''
+            authotId: 0
+            // name: '',
+            // email: '',
+            // registration: 0,
+            // role: '',
+            // departamentId: 0
         },
         departament:{
-            departamentId: 0,
-            name: ''
+            departamentId: 0
+            // name: ''
         },
-        // answer: {
-        //     answerId: 0,
-        //     message: ''
-        // }, 
+        answer: {
+            answerId: 0
+            // message: '',
+            // commentId: '',
+            // creationDate: Date,
+            // authorId: 0
+        }, 
         comments: []
     }
 
@@ -90,46 +97,6 @@ class ViewComments extends React.Component {
 
             params = `${params}creationDate=${this.state.creationDate}`;
         }
-
-        // if (this.state.commentType !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}commentType=${this.state.commentType}`;
-        // }
-
-        // if (this.state.statusComment !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}statusComment=${this.state.statusComment}`;
-        // }
-
-        // if (this.state.authorId !== 0) {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}authorId=${this.state.authorId}`;
-        // }
-
-        // if (this.state.departamentId !== 0) {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}departamentId=${this.state.departamentId}`;
-        // }
-
-        // if (this.state.answerId !== 0) {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}answerId=${this.state.answerId}`;
-        // }
 
         axios.get(`http://localhost:8080/api/comment/${params}`)
             .then(response => {

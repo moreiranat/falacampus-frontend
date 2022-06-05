@@ -2,9 +2,9 @@ import React from 'react';
 import './Home.css';
 import Banner from '../../components/Banner';
 import img01 from "../../assets/img/img-01.png";
-import icon01 from "../../assets/img/icons8-speech-balloon-96.png";
-import icon02 from "../../assets/img/icons8-megaphone-96.png";
-import icon03 from "../../assets/img/icons8-thumbs-up-96.png";
+// import icon01 from "../../assets/img/icons8-speech-balloon-96.png";
+// import icon02 from "../../assets/img/icons8-megaphone-96.png";
+// import icon03 from "../../assets/img/icons8-thumbs-up-96.png";
 import { withRouter } from 'react-router-dom';
 // import Card from '../../components/Card';
 
@@ -33,7 +33,7 @@ class Home extends React.Component {
             </div>
                 <div>
 
-                    <div className="section-one">
+                    {/* <div className="section-one">
                         <div>
                             <div>
                                 <div className="section-one-title">
@@ -54,7 +54,7 @@ class Home extends React.Component {
                         </div>
 
                         
-                    </div>
+                    </div> */}
                     <div className="section-two">
                         <center><p className="post">Projeto desenvolvido por Nataly Lucena,
                             Patrícia dos Santos e Rosenato Barreto para a Disciplina de Desenvolvimento

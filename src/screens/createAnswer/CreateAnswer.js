@@ -62,14 +62,14 @@ class CreateAnswer extends React.Component {
                                                         onChange={(e) => { this.setState({ commentId: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Messagem: *" htmlFor="inputMessage">
+                                                    <FormGroup label="Mensagem: *" htmlFor="inputMessage">
                                                         <input type="textfield" className="form-control" id="inputMessage" 
                                                         placeholder="Incluir resposta" 
-                                                        value={this.state.message} 
+                                                        value={this.state.message}
                                                         onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Autor: *" htmlFor="inputAuthorId">
+                                                    <FormGroup label="Id do Autor da Mensagem: *" htmlFor="inputAuthorId">
                                                         <input type="number" className="form-control" id="inputAuthorId" 
                                                         placeholder="Digite o id do autor" 
                                                         value={this.state.authorId} 

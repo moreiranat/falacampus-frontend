@@ -1,5 +1,5 @@
 import React from 'react';
-import './UpdateComment.css';
+// import './UpdateComment.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
@@ -10,17 +10,21 @@ import FormGroup from '../../components/FormGroup';
 class UpdateComment extends React.Component {
 
     state = {
-        id: '',
+        id: 0,
         title: '',
         message: '',
         commentType: '',
         user:{
-            authorId: 0,
-            name: ''
+            id: 0
+            // name: '',
+            // email: '',
+            // registration: 0,
+            // role: '',
+            // departamentId: 0
         },
         departament:{
-            departamentId: 0,
-            name:''
+            departamentId: 0
+            // name:''
         } 
     }
 
@@ -42,10 +46,10 @@ class UpdateComment extends React.Component {
                 const title = comment.title;
                 const message = comment.message;
                 const commentType = comment.commentType;
-                const author = comment.author;
+                const user = comment.user;
                 const departament = comment.departament;
 
-                this.setState({ id, title, message, commentType, author, departament });
+                this.setState({ id, title, message, commentType, user, departament });
             }
 
             ).catch(error => {
@@ -60,15 +64,17 @@ class UpdateComment extends React.Component {
                 title: this.state.title,
                 message: this.state.message,
                 commentType: this.state.commentType,
-                authorId: this.state.author.id,
-                departamentId: this.state.departament.id
+                // user: this.state.user.id,
+                // departamentId: this.state.departament.id
             }
         ).then(response => {
             console.log(response);
             // this.find();
+            alert("O comentário foi atualizado!")
         }
         ).catch(error => {
             console.log(error.response);
+            alert("O comentário não pode ser atualizado!")
         }
         );
 
@@ -117,14 +123,14 @@ class UpdateComment extends React.Component {
                                                         </select>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
-                                                        <input type="long" className="form-control" id="inputAuthorId" value={this.state.authorId} name="authorId" onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
+                                                    {/* <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
+                                                        <input type="long" className="form-control" id="inputAuthorId" value={this.state.user} name="authorId" onChange={(e) => { this.setState({ 'user.id': e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
-                                                        <input type="long" className="form-control" id="inputDepartamentId" value={this.state.departamentId} name="departamentId" onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
+                                                        <input type="long" className="form-control" id="inputDepartamentId" value={this.state.departament} name="departamentId" onChange={(e) => { this.setState({ 'departament.id': e.target.value }) }} />
                                                     </FormGroup>
-                                                    <br />
+                                                    <br /> */}
                                                     <button onClick={this.update} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar
                                                     </button>

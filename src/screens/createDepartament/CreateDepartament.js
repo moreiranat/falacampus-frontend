@@ -47,8 +47,11 @@ class CreateDepartament extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
+                                                   
                                                     <FormGroup label='Nome: *'>
-                                                        <input type="text" className="form-control" id="inputDepartamentName" placeholder="Digite o Nome do Departamento" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                                                        <input type="text" className="form-control" id="inputDepartamentName" minLength="2" maxlength="255"
+                                                        placeholder="Digite o Nome do Departamento" 
+                                                        value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
