@@ -46,7 +46,7 @@ class ViewAnswers extends React.Component {
     find = () => {
         var params = '?';
 
-        if (this.state.id !== 0) {
+        if (this.state.id !== "") {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -89,9 +89,9 @@ class ViewAnswers extends React.Component {
 
         axios.get(`http://localhost:8080/api/answer/${params}`)
             .then(response => {
-                const answer= response.data;
-                this.setState({ answer });
-                console.log(answer);
+                const answers= response.data;
+                this.setState({ answers });
+                console.log(answers);
             }
             ).catch(error => {
                 console.log(error.response);

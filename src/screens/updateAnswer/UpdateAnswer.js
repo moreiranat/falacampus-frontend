@@ -13,6 +13,7 @@ class UpdateAnswer extends React.Component {
         id: 0,
         message:'' ,
         commentId: 0,
+        creationDate :Date,
         authorId:0
     }
 
@@ -21,6 +22,7 @@ class UpdateAnswer extends React.Component {
         const id = params.id;
         const message =params.message;
         const commentId = params.commentId;
+        const  creationDate =params.creationDate;
         const authorId =params.authorId;
         this.findById(id);
     }
@@ -37,6 +39,7 @@ class UpdateAnswer extends React.Component {
                 const message = answer.message;
                 
                 const commentId =answer.commentId;
+                const createDate=answer.createDate;
                 const authorId = answer.authorId;
                 
 
@@ -55,6 +58,7 @@ class UpdateAnswer extends React.Component {
                
                 message: this.state.message,
                 commentId: this.state.commentId,
+                creationDate :this.state.creationDate,
                 authorId: this.state.authorId
                
             }
@@ -104,6 +108,13 @@ class UpdateAnswer extends React.Component {
                                                             <input type="long" id="inputCommentId" disabled={true} className="form-control"
                                                             value={this.state.commentId} name="id" onChange={(e) => { this.setState({ commentId: e.target.value }) }} />
                                                     </FormGroup>
+                                                    <br />
+                                                    <FormGroup label="createDate: *" htmlFor="inputCreateDate">
+                                                            <input type="date" id="inputCreateDate" disabled={true} className="form-control"
+                                                            value={this.state.createDate} name="id" onChange={(e) => { this.setState({ createDate: e.target.value }) }} />
+                                                    </FormGroup>
+                                                   
+                                                  
                                                    
                                                     <br />
                                                     <FormGroup label="Id do Autor do Comentário: *" htmlFor="inputAuthorId">
