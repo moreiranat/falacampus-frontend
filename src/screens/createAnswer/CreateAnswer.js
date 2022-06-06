@@ -7,6 +7,8 @@ import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import SelectComment from '../../components/SelectComment';
+import SelectUser from '../../components/SelectUser';
 
 class CreateAnswer extends React.Component {
 
@@ -42,6 +44,18 @@ class CreateAnswer extends React.Component {
         this.props.history.push('/');
     }
 
+    handleInputSelectComment = (e) => {
+        this.setState({commentId: e.target.value}, () => {
+            console.log("Id do Comentário: ", this.state.commentId);
+        });
+    }
+
+    handleInputSelectUser = (e) => {
+        this.setState({authorId: e.target.value}, () => {
+            console.log("Id do Autor(Usuário): ", this.state.authorId);
+        });
+    }
+
     render() {
         return (
 
@@ -55,13 +69,18 @@ class CreateAnswer extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label="Id do Comentário: *" htmlFor="inputCommentId">
+                                                    <FormGroup label="Selecione o Comentário para o envio da resposta: *" htmlFor="inputDepartamentDestination">
+                                                        <br />
+                                                        <SelectComment onChange={this.handleInputSelectComment}/>
+                                                    </FormGroup>
+                                                    <br />
+                                                    {/* <FormGroup label="Id do Comentário: *" htmlFor="inputCommentId">
                                                         <input type="number" className="form-control" id="inputCommentId" 
                                                         placeholder="Digite o id do comentário" 
                                                         value={this.state.commentId} 
                                                         onChange={(e) => { this.setState({ commentId: e.target.value }) }} />
                                                     </FormGroup>
-                                                    <br />
+                                                    <br /> */}
                                                     <FormGroup label="Mensagem: *" htmlFor="inputMessage">
                                                         <input type="textfield" className="form-control" id="inputMessage" 
                                                         placeholder="Incluir resposta" 
@@ -69,12 +88,17 @@ class CreateAnswer extends React.Component {
                                                         onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Autor da Mensagem: *" htmlFor="inputAuthorId">
+                                                    {/* <FormGroup label="Id do Autor da Mensagem: *" htmlFor="inputAuthorId">
                                                         <input type="number" className="form-control" id="inputAuthorId" 
                                                         placeholder="Digite o id do autor" 
                                                         value={this.state.authorId} 
                                                         onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
-                                                    </FormGroup>                                                    
+                                                    </FormGroup>   */}
+                                                    <FormGroup label="Autor do Comentário: *" htmlFor="inputUserAuthor">
+                                                        <br />
+                                                        <SelectUser onChange={this.handleInputSelectUser}/>
+                                                    </FormGroup>
+                                                    <br />                                                  
                                                     <br />
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">

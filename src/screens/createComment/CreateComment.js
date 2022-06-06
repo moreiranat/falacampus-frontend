@@ -89,7 +89,7 @@ class CreateComment extends React.Component {
                                                         onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Messagem: *" htmlFor="inputMessage">
+                                                    <FormGroup label="Mensagem: *" htmlFor="inputMessage">
                                                         <input type="text" className="form-control" id="inputMessage" minLength="10" maxlength="255" 
                                                         placeholder="Digite a sugestão, crítica ou elogio" 
                                                         value={this.state.message} 
