@@ -8,6 +8,7 @@ import axios from 'axios';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 class CreateDepartament extends React.Component {
 
     state = {
@@ -21,9 +22,11 @@ class CreateDepartament extends React.Component {
             }
         ).then(response => {
             console.log(response);
+            showSuccessMessage('Departamento criado com sucesso!');
         }
         ).catch(error => {
             console.log(error.response);
+            showErrorMessage('O Departamento não pode ser criado!');
         }
         );
 

@@ -19,23 +19,23 @@ class ViewComments extends React.Component {
         commentType: '',
         statusComment: '',
         user:{
-            authotId: 0
-            // name: '',
-            // email: '',
-            // registration: 0,
-            // role: '',
-            // departamentId: 0
+            authotId: 0,
+            name: '',
+            email: '',
+            registration: 0,
+            role: '',
+            departamentId: 0
         },
         departament:{
-            departamentId: 0
-            // name: ''
+            departamentId: 0,
+            name: ''
         },
         answer: {
-            answerId: 0
-            // message: '',
-            // commentId: '',
-            // creationDate: Date,
-            // authorId: 0
+            answerId: 0,
+            message: '',
+            commentId: '',
+            creationDate: Date,
+            authorId: 0
         }, 
         comments: []
     }

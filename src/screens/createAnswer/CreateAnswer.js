@@ -10,6 +10,8 @@ import FormGroup from '../../components/FormGroup';
 import SelectComment from '../../components/SelectComment';
 import SelectUser from '../../components/SelectUser';
 
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
+
 class CreateAnswer extends React.Component {
 
     state = {
@@ -31,9 +33,11 @@ class CreateAnswer extends React.Component {
             }
         ).then(response => {
             console.log(response);
+            showSuccessMessage('Comentário respondido!');
         }
         ).catch(error => {
             console.log(error.response);
+            showErrorMessage("O comentário não pode ser respondido!")
         }
         );
 

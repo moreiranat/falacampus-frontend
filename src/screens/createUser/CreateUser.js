@@ -9,6 +9,8 @@ import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 import SelectDepartament from '../../components/SelectDepartament';
 
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
+
 class CreateUser extends React.Component {
 
     state = {
@@ -36,10 +38,11 @@ class CreateUser extends React.Component {
             }
         ).then(response => {
             console.log(response);
+            showSuccessMessage('Usuário criado com sucesso!');
         }
         ).catch(error => {
             console.log(error.response);
-            alert("O usuário não pode ser salvo!")
+            showErrorMessage('O usuário não pode ser salvo!');
         }
         );
 

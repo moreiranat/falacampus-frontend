@@ -10,6 +10,8 @@ import FormGroup from '../../components/FormGroup';
 import SelectDepartament from '../../components/SelectDepartament';
 import SelectUser from '../../components/SelectUser';
 
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
+
 class CreateComment extends React.Component {
 
     state = {
@@ -37,11 +39,11 @@ class CreateComment extends React.Component {
             }
         ).then(response => {
             console.log(response);
-            alert("Comentário criado!")
+            showSuccessMessage('Comentário criado com sucesso!');
         }
         ).catch(error => {
             console.log(error.response);
-            alert("O comentário não pode ser criado!")
+            showErrorMessage("O comentário não pode ser criado!")
         }
         );
 
