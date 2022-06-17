@@ -10,7 +10,7 @@ import FormGroup from '../../components/FormGroup';
 import SelectDepartament from '../../components/SelectDepartament';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
-
+import UserApiService from '../../services/UserApiService';
 class CreateUser extends React.Component {
 
     state = {
@@ -21,6 +21,10 @@ class CreateUser extends React.Component {
         password: '',
         departamentId: 0
     }
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
 
     componentWillUnmount() {
         this.clear();
@@ -28,6 +32,7 @@ class CreateUser extends React.Component {
 
     create = async () => {
         await axios.post('http://localhost:8080/api/user',
+        
             {
                 name: this.state.name,
                 email: this.state.email,

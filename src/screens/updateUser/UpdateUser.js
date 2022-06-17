@@ -2,10 +2,12 @@ import React from 'react';
 import './UpdateUser.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
+import UserApiService from '../../services/UserApiService';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+
 
 class UpdateUser extends React.Component {
 
@@ -20,6 +22,11 @@ class UpdateUser extends React.Component {
             departamentId: 0,
             name:''
         } 
+      
+    }
+    constructor(){
+        super();
+        this.service=new UserApiService();
     }
 
     componentDidMount() {
@@ -32,8 +39,8 @@ class UpdateUser extends React.Component {
     //     this.clear();
     // }
 
-    findById = (userId) => {
-        axios.get(`http://localhost:8080/api/user/${userId}`)
+    findById = () => {
+        this.service.find.id
             .then(response => {
                 console.log(response);
                 const user = response.data;
@@ -56,9 +63,10 @@ class UpdateUser extends React.Component {
             );
     }
 
-    update = async () => {
-        await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
-            {
+    update =  () => {
+       // await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
+        this.service.update(this.id,
+           {
                 name: this.state.name,
                 email: this.state.email,
                 registration: this.state.registration,
@@ -79,7 +87,8 @@ class UpdateUser extends React.Component {
     }
 
     cancel = () => {
-        this.props.history.push('/');
+        this.service.delete('/');
+        //props.history.push('/');
     }
 
     render() {

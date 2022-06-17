@@ -2,16 +2,20 @@ import React from 'react';
 import './UpdateDepartament.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-
+import UserApiService from '../../services/UserApiService';
 class UpdateDepartament extends React.Component {
 
     state = {
         id: "",
         name: '',
+    }
+    constructor(){
+        super();
+        this.service = new UserApiService();
     }
     componentDidMount() {
         const params = this.props.match.params;
@@ -20,8 +24,9 @@ class UpdateDepartament extends React.Component {
     }
 
 
-    findById = (departamentId) => {
-        axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
+    findById = () => {
+       // axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
+       this.service.find.id
             .then(response => {
                 const departament = response.data[0];
                 const id = departament.id;
@@ -38,8 +43,9 @@ class UpdateDepartament extends React.Component {
 
 
 
-    update = async () => {
-        await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
+    update =  () => {
+        //await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
+        this.service.update(this.id,
             {
                 name: this.state.name,
             }

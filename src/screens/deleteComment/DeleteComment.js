@@ -6,19 +6,25 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import UserApiService from '../../services/UserApiService';
 
 class DeleteComment extends React.Component {
 
     state = {
       id: 0
     }
+    constructor(){
+      super();
+      this.service=new UserApiService();
+  }
 
     componentWillUnmount(){
       this.clear();
     }
   
     delete = () => {
-      axios.delete(`http://localhost:8080/api/comment/${this.state.id}`,
+      //axios.delete(`http://localhost:8080/api/comment/${this.state.id}`,
+      this.service.update(this.id,
       ).then(response => 
         {
           console.log(response);

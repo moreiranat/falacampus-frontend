@@ -2,11 +2,11 @@ import React from 'react';
 // import './UpdateComment.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-
+import UserApiService from '../../services/UserApiService';
 class UpdateComment extends React.Component {
 
     state = {
@@ -27,6 +27,10 @@ class UpdateComment extends React.Component {
             // name:''
         } 
     }
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
 
     componentDidMount() {
         const params = this.props.match.params;
@@ -38,8 +42,10 @@ class UpdateComment extends React.Component {
     //     this.clear();
     // }
 
-    findById = (commentId) => {
-        axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
+    findById = () => {
+        //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
+        this.service.find.id
+
             .then(response => {
                 const comment = response.data[0];
                 const id = comment.id;
@@ -58,8 +64,9 @@ class UpdateComment extends React.Component {
             );
     }
 
-    update = async () => {
-        await axios.put(`http://localhost:8080/api/comment/${this.state.id}`,
+    update =  () => {
+        //await axios.put(`http://localhost:8080/api/comment/${this.state.id}`,
+        this.service.update(this.id,
             {
                 title: this.state.title,
                 message: this.state.message,
