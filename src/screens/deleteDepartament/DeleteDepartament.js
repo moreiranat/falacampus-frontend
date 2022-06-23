@@ -3,8 +3,8 @@ import './DeleteDepartament.css';
 import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
-
+//import axios from 'axios';
+import UserApiService from '../../services/UserApiService';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
@@ -13,9 +13,14 @@ class DeleteDepartament extends React.Component {
     state = {
       id: 0
     }
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
   
     delete = () => {
-      axios.delete(`http://localhost:8080/api/departament/${this.state.id}`,
+      //axios.delete(`http://localhost:8080/api/departament/${this.state.id}`,
+      this.service.delete(this.id,
       ).then(response => 
         {
           console.log(response);

@@ -9,7 +9,7 @@ import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 import SelectDepartament from '../../components/SelectDepartament';
 import SelectUser from '../../components/SelectUser';
-
+import UserApiService from '../../services/UserApiService';
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 class CreateComment extends React.Component {
@@ -21,6 +21,10 @@ class CreateComment extends React.Component {
         creationDate: Date,
         authorId: 0,
         departamentId: 0
+    }
+     constructor(){
+        super();
+        this.service=new UserApiService();
     }
 
     componentWillUnmount() {

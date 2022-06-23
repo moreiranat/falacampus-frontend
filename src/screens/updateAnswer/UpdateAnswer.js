@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-
+import UserApiService from '../../services/UserApiService';
 class UpdateAnswer extends React.Component {
 
     state = {
@@ -21,6 +21,10 @@ class UpdateAnswer extends React.Component {
             authorId: 0
        
         }
+    }
+    constructor(){
+        super();
+        this.service=new UserApiService();
     }
 
     componentDidMount() {
@@ -40,8 +44,9 @@ class UpdateAnswer extends React.Component {
     //     this.clear();
     // }
 
-    findById = (answerId) => {
-        axios.get(`http://localhost:8080/api/answer?id=${answerId}`)
+    findById = () => {
+        //axios.get(`http://localhost:8080/api/answer?id=${answerId}`)
+        this.service.find.id
             .then(response => {
                 const answer = response.data[0];
                 const id = answer.id;
@@ -61,8 +66,9 @@ class UpdateAnswer extends React.Component {
             );
     }
 
-    update = async () => {
-        await axios.put(`http://localhost:8080/api/answer/${this.state.id}`,
+    update =  () => {
+        //await axios.put(`http://localhost:8080/api/answer/${this.state.id}`,
+        this.service.update(this.id,
             {
                
                 message: this.state.message,

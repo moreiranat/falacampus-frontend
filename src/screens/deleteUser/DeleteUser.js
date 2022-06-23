@@ -3,22 +3,27 @@ import 'primeicons/primeicons.css';
 import './DeleteUser.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-
+import UserApiService from '../../services/UserApiService';
 class DeleteUser extends React.Component {
 
     state = {
       id: 0
     }
+    constructor(){
+      super();
+      this.service=new UserApiService();
+  }
 
     componentWillUnmount(){
       this.clear();
     }
   
     delete = () => {
-      axios.delete(`http://localhost:8080/api/user/${this.state.id}`,
+      //axios.delete(`http://localhost:8080/api/user/${this.state.id}`,
+      this.service.delete(this.id,
       ).then(response => 
         {
           console.log(response);

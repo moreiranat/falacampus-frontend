@@ -3,7 +3,7 @@ import './CreateAnswer.css';
 import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
@@ -11,7 +11,7 @@ import SelectComment from '../../components/SelectComment';
 import SelectUser from '../../components/SelectUser';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
-
+import UserApiService from '../../services/UserApiService';
 class CreateAnswer extends React.Component {
 
     state = {
@@ -23,9 +23,15 @@ class CreateAnswer extends React.Component {
     // componentWillUnmount() {
     //     this.clear();
     // }
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
 
-    create = async () => {
-        await axios.post('http://localhost:8080/api/answer',
+
+    create =  () => {
+        //await axios.post('http://localhost:8080/api/answer',
+        this.service.create(this.id,
             {
                 message: this.state.message,
                 commentId: this.state.commentId,
