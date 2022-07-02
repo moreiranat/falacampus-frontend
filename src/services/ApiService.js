@@ -5,8 +5,8 @@ const httpClient = axios.create({
 });
 export default class ApiService{
     
-    constructor(endpoit){
-        this.endpoit=endpoit;
+    constructor(endpoint){
+        this.endpoint=endpoint;
     }
     post(url,params){
         url=this.buildUrl(url);
@@ -25,7 +25,13 @@ export default class ApiService{
         url = this.buildUrl(url);
         return httpClient.get(url);
     }
+
+    getAll(url){
+        url = this.buildUrl(url);
+        return httpClient.get(url);
+    }
+
     buildUrl(url){
-        return `${this.endpoit}${url}`;
+        return `${this.endpoint}${url}`;
     }
 }

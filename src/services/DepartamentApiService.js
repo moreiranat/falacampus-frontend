@@ -18,4 +18,8 @@ export default class DepartamentApiService extends ApiService{
     find(params){
         return this.get(`${params}`);
     }
+    findAll(params){
+        return this.getAll('');
+    }
+    
 }

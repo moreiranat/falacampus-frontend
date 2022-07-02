@@ -9,7 +9,7 @@ import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 import SelectDepartament from '../../components/SelectDepartament';
 import SelectUser from '../../components/SelectUser';
-import UserApiService from '../../services/UserApiService';
+import CommentApiService from '../../services/CommentApiService';
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 class CreateComment extends React.Component {
@@ -24,15 +24,15 @@ class CreateComment extends React.Component {
     }
      constructor(){
         super();
-        this.service=new UserApiService();
+        this.service = new CommentApiService();
     }
 
     componentWillUnmount() {
         this.clear();
     }
 
-    create = async () => {
-        await axios.post('http://localhost:8080/api/comment',
+    create = () => {
+        this.service.create(this.state,
             {
                 title: this.state.title,
                 message: this.state.message,

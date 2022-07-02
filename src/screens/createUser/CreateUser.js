@@ -23,15 +23,15 @@ class CreateUser extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service = new UserApiService();
     }
 
     componentWillUnmount() {
         this.clear();
     }
 
-    create = async () => {
-        await axios.post('http://localhost:8080/api/user',
+    create = () => {
+        this.service.create(this.state,
         
             {
                 name: this.state.name,

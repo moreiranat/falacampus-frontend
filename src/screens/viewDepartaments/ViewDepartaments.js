@@ -8,7 +8,7 @@ import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import DepartamentsTable from '../../components/DepartamentsTable'
-import UserApiService from '../../services/UserApiService';
+import DepartamentApiService from '../../services/DepartamentApiService';
 class ViewDepartaments extends React.Component {
 
     state = {
@@ -18,7 +18,7 @@ class ViewDepartaments extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service=new DepartamentApiService();
     }
 
     componentDidMount() {
@@ -27,8 +27,8 @@ class ViewDepartaments extends React.Component {
     }
 //departamentId
     delete = () => {
-       // axios.delete(`http://localhost:8080/api/departament/${departamentId}`,
-       this.service.delete.id(this.state.id)
+       
+       this.service.delete(this.state.id)
         .then(response => {
             this.find();
         }
@@ -63,7 +63,21 @@ class ViewDepartaments extends React.Component {
         }
 
         //axios.get(`http://localhost:8080/api/departament/${params}`)
-        this.service.get.id
+        this.service.get(this.state.id)
+            .then(response => {
+                const departaments = response.data;
+                this.setState({ departaments });
+                console.log(departaments);
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
+    }
+
+    findAll = () => {
+
+        this.service.get('/all')
             .then(response => {
                 const departaments = response.data;
                 this.setState({ departaments });

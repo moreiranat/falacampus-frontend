@@ -22,9 +22,9 @@ class CreateDepartament extends React.Component {
     }
   
 //async
-    create =  () => {
+    create = () => {
         //await axios.post('http://localhost:8080/api/departament',
-        this.service.create(this.id,
+        this.service.create(this.state,
             {
                 name: this.state.name
             }

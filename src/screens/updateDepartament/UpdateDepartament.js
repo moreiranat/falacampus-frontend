@@ -27,7 +27,7 @@ class UpdateDepartament extends React.Component {
 
     findById = () => {
        // axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
-       this.service.find.id
+       this.service.find(this.state.id)
             .then(response => {
                 const departament = response.data[0];
                 const id = departament.id;
@@ -44,7 +44,7 @@ class UpdateDepartament extends React.Component {
 
 
 
-    update =  () => {
+    update = () => {
         //await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
         this.service.update(this.state.id,
             {
@@ -76,14 +76,15 @@ class UpdateDepartament extends React.Component {
                             <Card title='Atualização de Departamento'>
                                 <div className='row'>
                                     <div className='col-lg-12' >
+
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label="Id: *" htmlFor="inputId">
+                                                    {/* <FormGroup label="Id: *" htmlFor="inputId">
                                                         <input type="long" id="inputId" disabled={true} className="form-control"
                                                             value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
-                                                    <br />
+                                                    <br /> */}
                                                     <FormGroup label='Nome: *'>
                                                         <input type="text" className="form-control" id="inputDepartamentName"
                                                             placeholder="Digite o Nome do Departamento"

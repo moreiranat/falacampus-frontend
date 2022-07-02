@@ -11,7 +11,7 @@ import SelectComment from '../../components/SelectComment';
 import SelectUser from '../../components/SelectUser';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
-import UserApiService from '../../services/UserApiService';
+import AnswerApiService from '../../services/AnswerApiService';
 class CreateAnswer extends React.Component {
 
     state = {
@@ -25,13 +25,13 @@ class CreateAnswer extends React.Component {
     // }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service = new AnswerApiService();
     }
 
 
-    create =  () => {
-        //await axios.post('http://localhost:8080/api/answer',
-        this.service.create(this.id,
+    create = () => {
+        
+        this.service.create(this.state,
             {
                 message: this.state.message,
                 commentId: this.state.commentId,
