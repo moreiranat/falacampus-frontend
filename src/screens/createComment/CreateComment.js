@@ -95,8 +95,8 @@ class CreateComment extends React.Component {
                                                         onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Mensagem: *" htmlFor="inputMessage">
-                                                        <input type="text" className="form-control" id="inputMessage" minLength="10" maxlength="255" 
+                                                    <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
+                                                        <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255" 
                                                         placeholder="Digite a sugestão, crítica ou elogio" 
                                                         value={this.state.message} 
                                                         onChange={(e) => { this.setState({ message: e.target.value }) }} />
