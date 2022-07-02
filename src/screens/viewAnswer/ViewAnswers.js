@@ -2,13 +2,13 @@ import React from 'react';
 
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import AnswersTable from '../../components/AnswersTable';
-
+import UserApiService from '../../services/UserApiService';
 class ViewAnswers extends React.Component {
 
     state = {
@@ -25,7 +25,10 @@ class ViewAnswers extends React.Component {
         },
         answers: []
     }
-
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
     componentDidMount() {
         this.findAll();
     }
@@ -34,9 +37,10 @@ class ViewAnswers extends React.Component {
     //     this.clear();
     // }
 
-    delete = (answerId) => {
-        axios.delete(`http://localhost:8080/api/answer/${answerId}`,
-        ).then(response => {
+    delete = () => {
+        //axios.delete(`http://localhost:8080/api/answer/${answerId}`,
+        this.service.delete.id(this.state.id)
+        .then(response => {
             this.find();
         }
         ).catch(error => {
@@ -93,7 +97,8 @@ class ViewAnswers extends React.Component {
 
     
 
-        axios.get(`http://localhost:8080/api/answer/${params}`)
+       // axios.get(`http://localhost:8080/api/answer/${params}`)
+       this.service.get('/')
             .then(response => {
                 const answers= response.data;
                 this.setState({ answers });
@@ -107,7 +112,8 @@ class ViewAnswers extends React.Component {
 
     findAll = () => {
 
-        axios.get(`http://localhost:8080/api/answer/all`)
+        //axios.get(`http://localhost:8080/api/answer/all`)
+        this.service.get('/')
             .then(response => {
                 const answers = response.data;
                 this.setState({ answers});

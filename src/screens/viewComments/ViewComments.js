@@ -2,13 +2,13 @@ import React from 'react';
 import './ViewComments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import CommentsTable from '../../components/CommentsTable'
-
+import UserApiService from '../../services/UserApiService';
 class ViewComments extends React.Component {
 
     state = {
@@ -39,7 +39,10 @@ class ViewComments extends React.Component {
         }, 
         comments: []
     }
-
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
     componentDidMount() {
         this.findAll();
     }
@@ -48,9 +51,10 @@ class ViewComments extends React.Component {
     //     this.clear();
     // }
 
-    delete = (commentId) => {
-        axios.delete(`http://localhost:8080/api/comment/${commentId}`,
-        ).then(response => {
+    delete = () => {
+       // axios.delete(`http://localhost:8080/api/comment/${commentId}`,
+       this.service.delete.id
+        .then(response => {
             this.find();
         }
         ).catch(error => {
@@ -98,7 +102,8 @@ class ViewComments extends React.Component {
             params = `${params}creationDate=${this.state.creationDate}`;
         }
 
-        axios.get(`http://localhost:8080/api/comment/${params}`)
+        //axios.get(`http://localhost:8080/api/comment/${params}`)
+        this.service.get.id
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });
@@ -112,7 +117,8 @@ class ViewComments extends React.Component {
 
     findAll = () => {
 
-        axios.get(`http://localhost:8080/api/comment/all`)
+        //axios.get(`http://localhost:8080/api/comment/all`)
+        this.service.findAll.id
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });

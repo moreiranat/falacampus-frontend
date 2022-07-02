@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-import UserApiService from '../../services/UserApiService';
+
+import DepartamentApiService from '../../services/DepartamentApiService';
 class UpdateDepartament extends React.Component {
 
     state = {
@@ -15,7 +16,7 @@ class UpdateDepartament extends React.Component {
     }
     constructor(){
         super();
-        this.service = new UserApiService();
+        this.service = new DepartamentApiService();
     }
     componentDidMount() {
         const params = this.props.match.params;
@@ -45,7 +46,7 @@ class UpdateDepartament extends React.Component {
 
     update =  () => {
         //await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
-        this.service.update(this.id,
+        this.service.update(this.state.id,
             {
                 name: this.state.name,
             }

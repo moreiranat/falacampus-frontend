@@ -3,22 +3,28 @@ import './CreateDepartament.css';
 import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 import UserApiService from '../../services/UserApiService';
+import DepartamentApiService from '../../services/DepartamentApiService';
 class CreateDepartament extends React.Component {
 
     state = {
         name: ''
     }
+    constructor(){
+        super();
+        this.service = new DepartamentApiService();
+    }
   
-
-    create = async () => {
-        await axios.post('http://localhost:8080/api/departament',
+//async
+    create =  () => {
+        //await axios.post('http://localhost:8080/api/departament',
+        this.service.create(this.id,
             {
                 name: this.state.name
             }

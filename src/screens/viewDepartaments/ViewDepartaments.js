@@ -2,13 +2,13 @@ import React from 'react';
 import './ViewDepartaments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import DepartamentsTable from '../../components/DepartamentsTable'
-
+import UserApiService from '../../services/UserApiService';
 class ViewDepartaments extends React.Component {
 
     state = {
@@ -16,12 +16,20 @@ class ViewDepartaments extends React.Component {
         id: '',
         departaments: []
     }
+    constructor(){
+        super();
+        this.service=new UserApiService();
+    }
+
     componentDidMount() {
         this.find();
+        
     }
-    delete = (departamentId) => {
-        axios.delete(`http://localhost:8080/api/departament/${departamentId}`,
-        ).then(response => {
+//departamentId
+    delete = () => {
+       // axios.delete(`http://localhost:8080/api/departament/${departamentId}`,
+       this.service.delete.id(this.state.id)
+        .then(response => {
             this.find();
         }
         ).catch(error => {
@@ -35,9 +43,10 @@ class ViewDepartaments extends React.Component {
     }
 
     find = () => {
+        this.service.find(this.state.id)
         var params = '?';
-
-        if (this.state.id !== '') {
+       
+        if ( this.state.id!== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -45,7 +54,7 @@ class ViewDepartaments extends React.Component {
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.name !== '') {
+        if (this.state.id !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -53,7 +62,8 @@ class ViewDepartaments extends React.Component {
             params = `${params}name=${this.state.name}`;
         }
 
-        axios.get(`http://localhost:8080/api/departament/${params}`)
+        //axios.get(`http://localhost:8080/api/departament/${params}`)
+        this.service.get.id
             .then(response => {
                 const departaments = response.data;
                 this.setState({ departaments });
