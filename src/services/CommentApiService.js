@@ -2,7 +2,7 @@ import ApiService from './ApiService';
 
 export default class CommentApiService extends ApiService{
     constructor(){
-        super('/api/comment');
+        super('/comment');
     }
     create(object){
         return this.post('',object);
@@ -15,5 +15,8 @@ export default class CommentApiService extends ApiService{
     }
     find(params){
         return this.get(`${params}`);
+    }
+    findAll(params){
+        return this.getAll('');
     }
 }

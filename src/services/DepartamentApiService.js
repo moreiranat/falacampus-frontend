@@ -1,14 +1,16 @@
 import ApiService from './ApiService';
 
 export default class DepartamentApiService extends ApiService{
+
     constructor(){
-        super('/api/departament');
+        super('/departament');
     }
+
     create(object){
         return this.post('',object);
     }
     update(id,object){
-        return this.put(`/${id}`);
+        return this.put(`/${id}`,object);
     }
     delete(id){
         return super.delete(`/${id}`)
@@ -16,4 +18,8 @@ export default class DepartamentApiService extends ApiService{
     find(params){
         return this.get(`${params}`);
     }
+    findAll(params){
+        return this.getAll('');
+    }
+    
 }

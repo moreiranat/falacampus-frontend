@@ -2,7 +2,7 @@ import ApiService from './ApiService';
 
 export default class UserApiService extends ApiService{
     constructor(){
-        super('/api/user');
+        super('/user');
     }
     create(object){
         return this.post('',object);
@@ -15,5 +15,8 @@ export default class UserApiService extends ApiService{
     }
     find(params){
         return this.get(`${params}`);
+    }
+    findAll(params){
+        return this.getAll('');
     }
 }

@@ -2,13 +2,13 @@ import React from 'react';
 import './ViewDepartaments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import DepartamentsTable from '../../components/DepartamentsTable'
-
+import DepartamentApiService from '../../services/DepartamentApiService';
 class ViewDepartaments extends React.Component {
 
     state = {
@@ -16,12 +16,20 @@ class ViewDepartaments extends React.Component {
         id: '',
         departaments: []
     }
+    constructor(){
+        super();
+        this.service=new DepartamentApiService();
+    }
+
     componentDidMount() {
         this.find();
+        
     }
-    delete = (departamentId) => {
-        axios.delete(`http://localhost:8080/api/departament/${departamentId}`,
-        ).then(response => {
+//departamentId
+    delete = () => {
+       
+       this.service.delete(this.state.id)
+        .then(response => {
             this.find();
         }
         ).catch(error => {
@@ -35,9 +43,10 @@ class ViewDepartaments extends React.Component {
     }
 
     find = () => {
+        this.service.find(this.state.id)
         var params = '?';
-
-        if (this.state.id !== '') {
+       
+        if ( this.state.id!== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -45,7 +54,7 @@ class ViewDepartaments extends React.Component {
             params = `${params}id=${this.state.id}`;
         }
 
-        if (this.state.name !== '') {
+        if (this.state.id !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -53,7 +62,22 @@ class ViewDepartaments extends React.Component {
             params = `${params}name=${this.state.name}`;
         }
 
-        axios.get(`http://localhost:8080/api/departament/${params}`)
+        //axios.get(`http://localhost:8080/api/departament/${params}`)
+        this.service.get(this.state.id)
+            .then(response => {
+                const departaments = response.data;
+                this.setState({ departaments });
+                console.log(departaments);
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
+    }
+
+    findAll = () => {
+
+        this.service.get('/all')
             .then(response => {
                 const departaments = response.data;
                 this.setState({ departaments });
