@@ -25,22 +25,13 @@ class CreateAnswer extends React.Component {
     // }
     constructor() {
         super();
-<<<<<<< HEAD
-        this.service = new UserApiService();
-=======
         this.service = new AnswerApiService();
->>>>>>> 190c76fbe46632498a9fd371072dbeaf610d9122
     }
 
 
     create = () => {
-<<<<<<< HEAD
-        //await axios.post('http://localhost:8080/api/answer',
-        this.service.create(this.id,
-=======
         
         this.service.create(this.state,
->>>>>>> 190c76fbe46632498a9fd371072dbeaf610d9122
             {
                 message: this.state.message,
                 commentId: this.state.commentId,
