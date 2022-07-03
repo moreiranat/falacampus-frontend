@@ -2,12 +2,13 @@ import React from 'react';
 import './ViewUsers.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import UsersTable from '../../components/UsersTable'
+import UserApiService from '../../services/UserApiService';
 
 class ViewUsers extends React.Component {
 
@@ -23,7 +24,10 @@ class ViewUsers extends React.Component {
         },
         users: []
     }
-
+    constructor(){
+        super();
+        this.service = new UserApiService();
+    }
     componentDidMount() {
         this.findAll();
     }
@@ -33,8 +37,9 @@ class ViewUsers extends React.Component {
     // }
 
     delete = (userId) => {
-        axios.delete(`http://localhost:8080/api/user/${userId}`,
-        ).then(response => {
+        //axios.delete(`http://localhost:8080/api/user/${userId}`,
+        this.service.delete(userId)
+        .then(response => {
             this.find();
         }
         ).catch(error => {
@@ -48,6 +53,7 @@ class ViewUsers extends React.Component {
     }
 
     find = () => {
+        this.service.find.id(this.state.id)
         var params = '?';
 
         if (this.state.id !== 0) {
@@ -98,7 +104,8 @@ class ViewUsers extends React.Component {
             params = `${params}departamentId=${this.state.departamentId}`;
         }
 
-        axios.get(`http://localhost:8080/api/user/${params}`)
+        //axios.get(`http://localhost:8080/api/user/${params}`)
+        this.service.get(this.state.id)
             .then(response => {
                 const users = response.data;
                 this.setState({ users });
@@ -112,7 +119,8 @@ class ViewUsers extends React.Component {
 
     findAll = () => {
 
-        axios.get(`http://localhost:8080/api/user/all`)
+        //axios.get(`http://localhost:8080/api/user/all`)
+        this.service.get('/all')
             .then(response => {
                 const users = response.data;
                 this.setState({ users });

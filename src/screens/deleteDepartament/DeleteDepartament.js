@@ -4,9 +4,10 @@ import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import { withRouter } from 'react-router-dom';
 //import axios from 'axios';
-import UserApiService from '../../services/UserApiService';
+
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import DepartamentApiService from '../../services/DepartamentApiService';
 
 class DeleteDepartament extends React.Component {
 
@@ -15,7 +16,7 @@ class DeleteDepartament extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service=new DepartamentApiService();
     }
   
     delete = () => {

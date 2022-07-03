@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-import UserApiService from '../../services/UserApiService';
+import CommentApiService from '../../services/CommentApiService';
 class UpdateComment extends React.Component {
 
     state = {
@@ -29,7 +29,7 @@ class UpdateComment extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service = new CommentApiService();
     }
 
     componentDidMount() {
@@ -44,7 +44,7 @@ class UpdateComment extends React.Component {
 
     findById = () => {
         //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
-        this.service.find.id
+        this.service.find(this.state.id)
 
             .then(response => {
                 const comment = response.data[0];
@@ -66,7 +66,7 @@ class UpdateComment extends React.Component {
 
     update =  () => {
         //await axios.put(`http://localhost:8080/api/comment/${this.state.id}`,
-        this.service.update(this.state.id,
+        this.service.update(this.state,
             {
                 title: this.state.title,
                 message: this.state.message,

@@ -2,13 +2,13 @@ import React from 'react';
 import './ViewComments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-//import axios from 'axios';
+
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import CommentsTable from '../../components/CommentsTable'
-import UserApiService from '../../services/UserApiService';
+import CommentApiService from '../../services/CommentApiService';
 class ViewComments extends React.Component {
 
     state = {
@@ -41,7 +41,7 @@ class ViewComments extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service=new CommentApiService();
     }
     componentDidMount() {
         this.findAll();
@@ -51,9 +51,9 @@ class ViewComments extends React.Component {
     //     this.clear();
     // }
 
-    delete = () => {
-       // axios.delete(`http://localhost:8080/api/comment/${commentId}`,
-       this.service.delete.id
+    delete = (commentId) => {
+      
+       this.service.delete(commentId)
         .then(response => {
             this.find();
         }
@@ -68,6 +68,7 @@ class ViewComments extends React.Component {
     }
 
     find = () => {
+        this.service.find(this.state.id)
         var params = '?';
 
         if (this.state.id !== 0) {
@@ -103,7 +104,7 @@ class ViewComments extends React.Component {
         }
 
         //axios.get(`http://localhost:8080/api/comment/${params}`)
-        this.service.get.id
+        this.service.get(this.state.id)
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });
@@ -118,7 +119,7 @@ class ViewComments extends React.Component {
     findAll = () => {
 
         //axios.get(`http://localhost:8080/api/comment/all`)
-        this.service.findAll.id
+        this.service.get('/all')
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });

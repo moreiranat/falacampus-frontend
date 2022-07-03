@@ -25,10 +25,10 @@ class ViewDepartaments extends React.Component {
         this.find();
         
     }
-//departamentId
-    delete = () => {
+
+    delete = (departamentId) => {
        
-       this.service.delete(this.state.id)
+       this.service.delete(departamentId)
         .then(response => {
             this.find();
         }
@@ -40,6 +40,7 @@ class ViewDepartaments extends React.Component {
 
     edit = (departamentId) => {
         this.props.history.push(`/updateDepartament/${departamentId}`);
+        //this.service.edit(departamentId)
     }
 
     find = () => {
