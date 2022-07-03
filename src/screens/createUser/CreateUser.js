@@ -41,7 +41,7 @@ class CreateUser extends React.Component {
 
         if(!this.state.email){
             errors.push('Campo E-mail é obrigatório!');
-        } else if(!this.state.email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
+        } else if(!this.state.email.match(/[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
             errors.push('Informe um E-mail válido!');
         }
 
@@ -58,7 +58,7 @@ class CreateUser extends React.Component {
 
         if(!this.state.password){
             errors.push('Campo Senha é obrigatório!')
-        } else if(!this.state.password.match(/^(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
+        } else if(!this.state.password.match(/(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
             errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
             errors.push('A Senha deve ter somente letra, número e caractere especial(*!#@$%&).')
             errors.push('A Senha deve ter no mínimo uma letra maiúscula e uma minúscula.')
@@ -73,9 +73,10 @@ class CreateUser extends React.Component {
         return errors;
     };
 
-    create = async () => {
-
+    create =  () => {
         const errors = this.validate();
+        this.service.create(this.state)
+       
 
         if(errors.length > 0) {
             errors.forEach((message, index) => {
@@ -85,7 +86,8 @@ class CreateUser extends React.Component {
         }
 
 
-        await axios.post('http://localhost:8080/api/user',
+      //  await axios.post('http://localhost:8080/api/user',
+      this.service.create(this.id,
         
             {
                 name: this.state.name,
