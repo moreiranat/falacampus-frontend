@@ -28,10 +28,37 @@ class CreateAnswer extends React.Component {
         this.service = new AnswerApiService();
     }
 
+    validate = () => {
+        const errors = [];
 
-    create = () => {
+        if(!this.state.message){
+            errors.push('Campo Mensagem é obrigatório!');
+        } 
+
+        if(!this.state.commentId){
+            errors.push('É obrigatório informar o Comentário que será respondido!');
+        }
+
+        if(!this.state.authorId){
+            errors.push('É obrigatório informar o Autor da Resposta!');
+        }
         
-        this.service.create(this.state,
+        return errors;
+    };
+
+
+    create = async () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+        
+        this.service.create(this.state.id,
             {
                 message: this.state.message,
                 commentId: this.state.commentId,

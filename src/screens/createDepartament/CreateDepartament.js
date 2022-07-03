@@ -20,11 +20,29 @@ class CreateDepartament extends React.Component {
         super();
         this.service = new DepartamentApiService();
     }
-  
-//async
-    create = () => {
-      
-        this.service.create(this.state,
+
+    validate = () => {
+        const errors = [];
+    
+        if(!this.state.name){
+            errors.push('Campo Nome é obrigatório!');
+        }
+
+        return errors;
+    };
+
+    create = async () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+        
+        this.service.create(this.state.id,
             {
                 name: this.state.name
             }

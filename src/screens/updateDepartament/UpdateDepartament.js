@@ -6,8 +6,10 @@ import { withRouter } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 import DepartamentApiService from '../../services/DepartamentApiService';
+
 class UpdateDepartament extends React.Component {
 
     state = {
@@ -23,7 +25,6 @@ class UpdateDepartament extends React.Component {
         const id = params.id;
         this.findById(id);
     }
-
 
     findById = () => {
        // axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
@@ -42,9 +43,27 @@ class UpdateDepartament extends React.Component {
             );
     }
 
+    validate = () => {
+        const errors = [];
+    
+        if(!this.state.name){
+            errors.push('Campo Nome é obrigatório!');
+        }
 
+        return errors;
+    };
 
     update = () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+
         //await axios.put(`http://localhost:8080/api/departament/${this.state.id}`,
         this.service.update(this.state.id,
             {
@@ -52,10 +71,13 @@ class UpdateDepartament extends React.Component {
             }
         ).then(response => {
             console.log(response);
+            showSuccessMessage('Departamento atualizado com sucesso!');
+            this.props.history.push("/viewDepartaments");
 
         }
         ).catch(error => {
             console.log(error.response);
+            showErrorMessage('O Departamento não pode ser atualizado!');
         }
         );
 

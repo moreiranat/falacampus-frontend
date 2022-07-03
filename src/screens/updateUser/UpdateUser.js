@@ -7,6 +7,9 @@ import UserApiService from '../../services/UserApiService';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import SelectDepartament from '../../components/SelectDepartament';
+
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 
 class UpdateUser extends React.Component {
@@ -63,7 +66,49 @@ class UpdateUser extends React.Component {
             );
     }
 
+    validate = () => {
+        const errors = [];
+    
+        if(!this.state.name){
+            errors.push('Campo Nome é obrigatório!');
+        } 
+
+        if(!this.state.email){
+            errors.push('Campo E-mail é obrigatório!');
+        } else if(!this.state.email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
+            errors.push('Informe um E-mail válido!');
+        }
+
+        if(!this.state.registration){
+            errors.push('Campo Matrícula é obrigatório!');
+        } 
+
+        if(!this.state.role){
+            errors.push('É obrigatório informar o Papel!');
+        }
+
+        if(!this.state.password){
+            errors.push('Campo Senha é obrigatório!')
+        }
+
+        if(!this.state.departamentId){
+            errors.push('É obrigatório informar o Departamento!');
+        }
+        
+        return errors;
+    };
+
     update =  () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+        
        // await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
        this.service.update(this.state.id,
            {
@@ -76,10 +121,12 @@ class UpdateUser extends React.Component {
             }
         ).then(response => {
             console.log(response);
-            // this.find();
+            showSuccessMessage('Usuário atualizado com sucesso!');
+            this.props.history.push("/viewUsers");
         }
         ).catch(error => {
             console.log(error.response);
+            showErrorMessage('O usuário não pode ser atualizado!');
         }
         );
 
@@ -143,10 +190,11 @@ class UpdateUser extends React.Component {
                                                         <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
-                                                        <input type="long" id="inputDepartamentId" className="form-control" 
-                                                        value={this.state.departament.id} name="departamentId" onChange={(e) => { this.setState({ 'departament.id': e.target.value }) }} />
+                                                    <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
+                                                        <br />
+                                                        <SelectDepartament onChange={this.inputSelectDepartament}/>
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.update} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar
