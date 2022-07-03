@@ -87,6 +87,7 @@ class CreateUser extends React.Component {
 
 
       //  await axios.post('http://localhost:8080/api/user',
+      
       this.service.create(this.id,
         
             {
@@ -108,7 +109,7 @@ class CreateUser extends React.Component {
         }
         );
 
-        console.log('request finished');
+        console.log('request finished'); 
     }
 
     cancel = () => {
