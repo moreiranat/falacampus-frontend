@@ -35,9 +35,10 @@ class CreateUser extends React.Component {
     
         if(!this.state.name){
             errors.push('Campo Nome é obrigatório!');
-        } else if(!this.state.name.match(/^[a-z].{2,50}$/)) {
-            errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
-        }
+        } 
+        // else if(!this.state.name.match(/^[a-z].{2,50}$/)) {
+        //     errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
+        // }
 
         if(!this.state.email){
             errors.push('Campo E-mail é obrigatório!');
@@ -47,10 +48,10 @@ class CreateUser extends React.Component {
 
         if(!this.state.registration){
             errors.push('Campo Matrícula é obrigatório!');
-        } else if(!this.state.registration.match(/^(?=.*[0-9])$/)) {
-            errors.push('A Matrícula deve conter apenas números!');
-
-        }
+        } 
+        // else if(!this.state.registration.match(/^(?=.*[0-9])$/)) {
+        //     errors.push('A Matrícula deve conter apenas números!');
+        // }
 
         if(!this.state.role){
             errors.push('É obrigatório informar o Papel!');
@@ -58,13 +59,14 @@ class CreateUser extends React.Component {
 
         if(!this.state.password){
             errors.push('Campo Senha é obrigatório!')
-        } else if(!this.state.password.match(/^(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
-            errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
-            errors.push('A Senha deve ter somente letra, número e caractere especial(*!#@$%&).')
-            errors.push('A Senha deve ter no mínimo uma letra maiúscula e uma minúscula.')
-            errors.push('A Senha deve ter no mínimo um número.')
-            errors.push('A Senha deve ter no mínimo um caractere especial(*!#@$%&).');
         }
+        // else if(!this.state.password.match(/^(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
+        //     errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
+        //     errors.push('A Senha deve ter somente letra, número e caractere especial(*!#@$%&).')
+        //     errors.push('A Senha deve ter no mínimo uma letra maiúscula e uma minúscula.')
+        //     errors.push('A Senha deve ter no mínimo um número.')
+        //     errors.push('A Senha deve ter no mínimo um caractere especial(*!#@$%&).');
+        // }
 
         if(!this.state.departamentId){
             errors.push('É obrigatório informar o Departamento!');
