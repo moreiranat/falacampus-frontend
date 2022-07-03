@@ -96,7 +96,7 @@ class UpdateComment extends React.Component {
         }
 
         //await axios.put(`http://localhost:8080/api/comment/${this.state.id}`,
-        this.service.update(this.state,
+        this.service.update(this.state.id,
             {
                 title: this.state.title,
                 message: this.state.message,

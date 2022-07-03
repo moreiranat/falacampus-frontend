@@ -87,7 +87,6 @@ class CreateUser extends React.Component {
             return false
         }
 
-
         this.service.create(this.state.id,
         
             {

@@ -68,7 +68,7 @@ class CreateComment extends React.Component {
             return false
         }
         
-        this.service.create(this.state,
+        this.service.create(this.state.id,
             {
                 title: this.state.title,
                 message: this.state.message,
