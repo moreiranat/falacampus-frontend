@@ -9,7 +9,7 @@ import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
-import UserApiService from '../../services/UserApiService';
+
 import DepartamentApiService from '../../services/DepartamentApiService';
 class CreateDepartament extends React.Component {
 
@@ -23,7 +23,7 @@ class CreateDepartament extends React.Component {
   
 //async
     create = () => {
-        //await axios.post('http://localhost:8080/api/departament',
+      
         this.service.create(this.state,
             {
                 name: this.state.name

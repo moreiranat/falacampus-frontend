@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 //import axios from 'axios';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-import UserApiService from '../../services/UserApiService';
+import CommentApiService from '../../services/CommentApiService';
 
 class DeleteComment extends React.Component {
 
@@ -15,7 +15,7 @@ class DeleteComment extends React.Component {
     }
     constructor(){
       super();
-      this.service=new UserApiService();
+      this.service=new CommentApiService();
   }
 
     componentWillUnmount(){

@@ -40,7 +40,7 @@ class UpdateUser extends React.Component {
     // }
 
     findById = () => {
-        this.service.find.id(this.state.id)
+        this.service.find(this.state.id)
             .then(response => {
                 console.log(response);
                 const user = response.data;
@@ -106,9 +106,8 @@ class UpdateUser extends React.Component {
             return false
         }
         
-        //await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
-
-        this.service.update(this.state.id,
+       // await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
+       this.service.update(this.state.id,
            {
                 name: this.state.name,
                 email: this.state.email,

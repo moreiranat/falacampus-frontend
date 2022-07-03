@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
-import UserApiService from '../../services/UserApiService';
+import AnswerApiService from '../../services/AnswerApiService';
 class UpdateAnswer extends React.Component {
 
     state = {
@@ -24,7 +24,7 @@ class UpdateAnswer extends React.Component {
     }
     constructor(){
         super();
-        this.service=new UserApiService();
+        this.service=new AnswerApiService();
     }
 
     componentDidMount() {
