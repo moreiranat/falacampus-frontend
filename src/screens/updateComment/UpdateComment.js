@@ -1,12 +1,14 @@
 import React from 'react';
-// import './UpdateComment.css';
+import './UpdateComment.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
 //import axios from 'axios';
-
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
+
 import CommentApiService from '../../services/CommentApiService';
+
 class UpdateComment extends React.Component {
 
     state = {
@@ -64,7 +66,35 @@ class UpdateComment extends React.Component {
             );
     }
 
+    validate = () => {
+        const errors = [];
+    
+        if(!this.state.title){
+            errors.push('Campo Título é obrigatório!');
+        } 
+
+        if(!this.state.message){
+            errors.push('Campo Mensagem é obrigatório!');
+        } 
+
+        if(!this.state.commentType){
+            errors.push('É obrigatório informar o Tipo de Comentário!');
+        }
+        
+        return errors;
+    };
+
     update =  () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+
         //await axios.put(`http://localhost:8080/api/comment/${this.state.id}`,
         this.service.update(this.state,
             {
@@ -76,12 +106,12 @@ class UpdateComment extends React.Component {
             }
         ).then(response => {
             console.log(response);
-            // this.find();
-            alert("O comentário foi atualizado!")
+            showSuccessMessage('Comentário atualizado com sucesso!');
+            this.props.history.push("/viewComments");
         }
         ).catch(error => {
             console.log(error.response);
-            alert("O comentário não pode ser atualizado!")
+            showErrorMessage('O comentário não pode ser atualizado!');
         }
         );
 
@@ -115,10 +145,12 @@ class UpdateComment extends React.Component {
                                                             value={this.state.title} name="title" onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Mensagem: *" htmlFor="inputMessage">
-                                                        <input type="text" id="inputMessage" className="form-control"
-                                                            value={this.state.message} name="message" onChange={(e) => { this.setState({ message: e.target.value }) }} />
-                                                        <small id="messageHelp" className="form-text text-muted">A mensagem do comentário deve ter no mínimo 10 e no máximo 255 caracteres.</small>
+                                                    <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
+                                                        <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255" 
+                                                        placeholder="Digite a sugestão, crítica ou elogio" 
+                                                        value={this.state.message} 
+                                                        onChange={(e) => { this.setState({ message: e.target.value }) }} />
+                                                        <small id="messageHelp" className="form-text text-muted">Seja cordial ao escrever sua crítica, sugestão ou elogio.</small>
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">

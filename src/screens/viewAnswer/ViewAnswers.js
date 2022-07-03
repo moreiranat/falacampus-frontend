@@ -13,21 +13,21 @@ class ViewAnswers extends React.Component {
 
     state = {
         id: 0,
-        message:'' ,
+        message: '',
         comment: {
-            commentId:0
+            commentId: 0
 
         },
-        creationDate :Date,
-        user:{
+        creationDate: Date,
+        user: {
             authorId: 0
-           
+
         },
         answers: []
     }
-    constructor(){
+    constructor() {
         super();
-        this.service=new AnswerApiService();
+        this.service = new AnswerApiService();
     }
     componentDidMount() {
         this.findAll();
@@ -40,13 +40,13 @@ class ViewAnswers extends React.Component {
     delete = (answerId) => {
         //axios.delete(`http://localhost:8080/api/answer/${answerId}`,
         this.service.delete(answerId)
-        .then(response => {
-            this.find();
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
+            .then(response => {
+                this.find();
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
 
     edit = (answerId) => {
@@ -80,7 +80,7 @@ class ViewAnswers extends React.Component {
 
             params = `${params}commentId=${this.state.commentId}`;
         }
-           if (this.state.creationDate !== '') {
+        if (this.state.creationDate !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -96,12 +96,12 @@ class ViewAnswers extends React.Component {
             params = `${params}authorId=${this.state.authorId}`;
         }
 
-    
 
- 
-       this.service.get(this.state.id)
+
+
+        this.service.get(this.state.id)
             .then(response => {
-                const answers= response.data;
+                const answers = response.data;
                 this.setState({ answers });
                 console.log(answers);
             }
@@ -116,7 +116,7 @@ class ViewAnswers extends React.Component {
         this.service.get('/all')
             .then(response => {
                 const answers = response.data;
-                this.setState({ answers});
+                this.setState({ answers });
                 console.log(answers);
             }
             ).catch(error => {
@@ -134,31 +134,34 @@ class ViewAnswers extends React.Component {
                         <div className="bs-docs-section">
                             <Card title='Consulta de Respostas'>
                                 <form>
-                                    <fieldset>                                        
+                                    <fieldset>
                                         <FormGroup label="Id:" htmlFor="inputUserId">
                                             <input type="long" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label=" Mensagem:" htmlFor="inputAnswerMessage">
-                                            <input type="text" className="form-control" id="inputAnswerMessage" placeholder="Digite sua Resposta" value={this.state.message} onChange={(e) => { this.setState({ message: e.target.value }) }} />
+                                        <FormGroup label="Mensagem: *" htmlFor="MessageTextarea">
+                                            <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255"
+                                                placeholder="Incluir resposta"
+                                                value={this.state.message}
+                                                onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label=" Id de Comentário: *" htmlFor="inputCommentId">
-                                        <input type="long" className="form-control" id="inputCommentId" placeholder="Digite o Id do Comontário" value={this.state.commentId} onChange={(e) => { this.setState({ commentId: e.target.value }) }} />  
+                                        <FormGroup label=" Id do Comentário: *" htmlFor="inputCommentId">
+                                            <input type="long" className="form-control" id="inputCommentId" placeholder="Digite o Id do Comentário" value={this.state.commentId} onChange={(e) => { this.setState({ commentId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
                                         <FormGroup label="  Data De Criação: *" htmlFor="inputDataCriacao">
-                                        <input type="date" className="form-control" id="inputDataCriacao" placeholder="Digite a Data de Criação Respostas" value={this.state.creationDate} onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />  
+                                            <input type="date" className="form-control" id="inputDataCriacao" placeholder="Digite a Data de Criação Respostas" value={this.state.creationDate} onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
                                         <FormGroup label="  Id do Autor : *" htmlFor="inputAuthorId">
-                                        <input type="long" className="form-control" id="inputAuthorIdId" placeholder="Digite o Id do Author" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />  
+                                            <input type="long" className="form-control" id="inputAuthorIdId" placeholder="Digite o Id do Author" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
                                         <button onClick={this.find} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Filtrar
                                         </button>
-                                         <br />
+                                        <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Buscar Tudo

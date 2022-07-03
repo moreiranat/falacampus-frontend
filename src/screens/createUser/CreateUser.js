@@ -11,6 +11,7 @@ import SelectDepartament from '../../components/SelectDepartament';
 
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 import UserApiService from '../../services/UserApiService';
+
 class CreateUser extends React.Component {
 
     state = {
@@ -87,7 +88,7 @@ class CreateUser extends React.Component {
         }
 
 
-        await axios.post('http://localhost:8080/api/user',
+        this.service.create(this.state.id,
         
             {
                 name: this.state.name,

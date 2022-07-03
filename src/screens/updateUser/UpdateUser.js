@@ -7,6 +7,9 @@ import UserApiService from '../../services/UserApiService';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import SelectDepartament from '../../components/SelectDepartament';
+
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 
 class UpdateUser extends React.Component {
@@ -127,7 +130,7 @@ class UpdateUser extends React.Component {
         }
         );
 
-        //console.log('request finished');
+        console.log('request finished');
     }
 
     cancel = () => {
@@ -187,10 +190,11 @@ class UpdateUser extends React.Component {
                                                         <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
                                                     </FormGroup>
                                                     <br />
-                                                    <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
-                                                        <input type="long" id="inputDepartamentId" className="form-control" 
-                                                        value={this.state.departament.id} name="departamentId" onChange={(e) => { this.setState({ 'departament.id': e.target.value }) }} />
+                                                    <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
+                                                        <br />
+                                                        <SelectDepartament onChange={this.inputSelectDepartament}/>
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.update} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar

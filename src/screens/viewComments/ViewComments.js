@@ -18,7 +18,7 @@ class ViewComments extends React.Component {
         creationDate: Date,
         commentType: '',
         statusComment: '',
-        user:{
+        user: {
             authotId: 0,
             name: '',
             email: '',
@@ -26,7 +26,7 @@ class ViewComments extends React.Component {
             role: '',
             departamentId: 0
         },
-        departament:{
+        departament: {
             departamentId: 0,
             name: ''
         },
@@ -36,12 +36,12 @@ class ViewComments extends React.Component {
             commentId: '',
             creationDate: Date,
             authorId: 0
-        }, 
+        },
         comments: []
     }
-    constructor(){
+    constructor() {
         super();
-        this.service=new CommentApiService();
+        this.service = new CommentApiService();
     }
     componentDidMount() {
         this.findAll();
@@ -52,15 +52,15 @@ class ViewComments extends React.Component {
     // }
 
     delete = (commentId) => {
-      
-       this.service.delete(commentId)
-        .then(response => {
-            this.find();
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
+
+        this.service.delete(commentId)
+            .then(response => {
+                this.find();
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
 
     edit = (commentId) => {
@@ -87,7 +87,7 @@ class ViewComments extends React.Component {
             params = `${params}title=${this.state.title}`;
         }
 
-        if (this.state.message!== '') {
+        if (this.state.message !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -140,7 +140,7 @@ class ViewComments extends React.Component {
                         <div className="bs-docs-section">
                             <Card title='Consulta de Comentários'>
                                 <form>
-                                    <fieldset>                                        
+                                    <fieldset>
                                         <FormGroup label="Id: *" htmlFor="inputId">
                                             <input type="long" className="form-control" id="inputId" placeholder="Digite o Id do Comentário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
@@ -150,9 +150,12 @@ class ViewComments extends React.Component {
                                             <small id="titleHelp" className="form-text text-muted">O título do comentário deve ter no mínimo 5 e no máximo 50 caracteres.</small>
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label="Mensagem: *" htmlFor="inputMessage">
-                                            <input type="text" className="form-control" id="inputMessage" placeholder="Digite a Mensagem do Comentário" value={this.state.message} onChange={(e) => { this.setState({ message: e.target.value }) }} />
-                                            <small id="messageHelp" className="form-text text-muted">A mensagem do comentário deve ter no mínimo 10 e no máximo 255 caracteres.</small>
+                                        <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
+                                            <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255"
+                                                placeholder="Digite a sugestão, crítica ou elogio"
+                                                value={this.state.message}
+                                                onChange={(e) => { this.setState({ message: e.target.value }) }} />
+                                            <small id="messageHelp" className="form-text text-muted">Seja cordial ao escrever sua crítica, sugestão ou elogio.</small>
                                         </FormGroup>
                                         <br />
                                         <FormGroup label="Data de Criação: *" htmlFor="inputCreationDate">

@@ -31,7 +31,43 @@ class CreateComment extends React.Component {
         this.clear();
     }
 
-    create = () => {
+    validate = () => {
+        const errors = [];
+    
+        if(!this.state.title){
+            errors.push('Campo Título é obrigatório!');
+        } 
+
+        if(!this.state.message){
+            errors.push('Campo Mensagem é obrigatório!');
+        } 
+
+        if(!this.state.commentType){
+            errors.push('É obrigatório informar o Tipo de Comentário!');
+        }
+
+        if(!this.state.authorId){
+            errors.push('É obrigatório informar o Autor do Comentário!');
+        }
+
+        if(!this.state.departamentId){
+            errors.push('É obrigatório informar o Departamento para o qual será direcionada a crítica, sugestão ou elogio!');
+        }
+        
+        return errors;
+    };
+
+    create = async () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0) {
+            errors.forEach((message, index) => {
+                showErrorMessage(message);
+            });
+            return false
+        }
+        
         this.service.create(this.state,
             {
                 title: this.state.title,
