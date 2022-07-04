@@ -152,7 +152,7 @@ class UpdateUser extends React.Component {
                                             <form>
                                                 <fieldset>                                                  
                                                     <FormGroup label="Id: *" htmlFor="inputUserId">
-                                                        <input type="long" id="inputUserId" disabled={true} className="form-control" 
+                                                        <input type="number" id="inputUserId" disabled={true} className="form-control" 
                                                         value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value })}} />                                                            
                                                     </FormGroup>
                                                     <br />
@@ -164,11 +164,11 @@ class UpdateUser extends React.Component {
                                                     <FormGroup label="E-mail: *" htmlFor="inputEmail">
                                                         <input type="email" id="inputEmail" className="form-control" aria-describedby="emailHelp" 
                                                         value={this.state.email} name="email" onChange={(e) => { this.setState({ email: e.target.value }) }} />
-                                                        <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
+                                                        {/* <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
-                                                        <input type="long" id="inputRegistration" className="form-control" 
+                                                        <input type="number" id="inputRegistration" className="form-control" 
                                                         value={this.state.registration} name="registration" onChange={(e) => { this.setState({ registration: e.target.value }) }} />
                                                         <small id="registrationHelp" className="form-text text-muted">Apenas números.</small>
                                                     </FormGroup>
@@ -187,7 +187,7 @@ class UpdateUser extends React.Component {
                                                     <FormGroup label="Senha: *" htmlFor="inputPassword">
                                                         <input type="password" id="inputPassword" className="form-control" 
                                                         value={this.state.password} name="password" onChange={(e) => { this.setState({ password: e.target.value }) }} />
-                                                        <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
+                                                        {/* <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">

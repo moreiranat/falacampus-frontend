@@ -11,8 +11,8 @@ export default props => {
                 <td>{user.email}</td>
                 <td>{user.registration}</td>
                 <td>{user.role}</td>
-                <td>{user.departament.id}</td>
-                <td>
+                <td className="col-md-2">{user.departament.id}</td>
+                <td className="col-md-2">
                     <button type="button" title="Editar"
                         className="btn btn-warning"
                         onClick={e => props.edit(user.id)}>

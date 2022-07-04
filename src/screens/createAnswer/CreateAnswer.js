@@ -58,7 +58,7 @@ class CreateAnswer extends React.Component {
             return false
         }
         
-        this.service.create(this.state.id,
+        this.service.create(
             {
                 message: this.state.message,
                 commentId: this.state.commentId,

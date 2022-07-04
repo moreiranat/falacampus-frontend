@@ -9,6 +9,7 @@ import FormGroup from '../../components/FormGroup';
 
 import AnswersTable from '../../components/AnswersTable';
 import AnswerApiService from '../../services/AnswerApiService';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 class ViewAnswers extends React.Component {
 
     state = {
@@ -16,12 +17,10 @@ class ViewAnswers extends React.Component {
         message: '',
         comment: {
             commentId: 0
-
         },
         creationDate: Date,
         user: {
             authorId: 0
-
         },
         answers: []
     }
@@ -95,9 +94,6 @@ class ViewAnswers extends React.Component {
 
             params = `${params}authorId=${this.state.authorId}`;
         }
-
-
-
 
         this.service.get(this.state.id)
             .then(response => {

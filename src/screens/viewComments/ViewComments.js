@@ -67,6 +67,10 @@ class ViewComments extends React.Component {
         this.props.history.push(`/updateComment/${commentId}`);
     }
 
+    answer = (commentId) => {
+        this.props.history.push(`/createAnswer`);
+    }
+
     find = () => {
         this.service.find(this.state.id)
         var params = '?';
@@ -141,27 +145,27 @@ class ViewComments extends React.Component {
                             <Card title='Consulta de Comentários'>
                                 <form>
                                     <fieldset>
-                                        <FormGroup label="Id: *" htmlFor="inputId">
+                                        {/* <FormGroup label="Id: *" htmlFor="inputId">
                                             <input type="long" className="form-control" id="inputId" placeholder="Digite o Id do Comentário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
-                                        <br />
-                                        <FormGroup label="Título: *" htmlFor="inputTitle">
+                                        <br /> */}
+                                        <FormGroup label="Título: *" htmlFor="inputTitle"><br/>
                                             <input type="text" className="form-control" id="inputTitle" placeholder="Digite o Título do Comentário" value={this.state.title} onChange={(e) => { this.setState({ title: e.target.value }) }} />
-                                            <small id="titleHelp" className="form-text text-muted">O título do comentário deve ter no mínimo 5 e no máximo 50 caracteres.</small>
+                                            {/* <small id="titleHelp" className="form-text text-muted">O título do comentário deve ter no mínimo 5 e no máximo 50 caracteres.</small> */}
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
+                                        {/* <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
                                             <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255"
                                                 placeholder="Digite a sugestão, crítica ou elogio"
                                                 value={this.state.message}
                                                 onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                             <small id="messageHelp" className="form-text text-muted">Seja cordial ao escrever sua crítica, sugestão ou elogio.</small>
                                         </FormGroup>
-                                        <br />
-                                        <FormGroup label="Data de Criação: *" htmlFor="inputCreationDate">
+                                        <br /> */}
+                                        {/* <FormGroup label="Data de Criação: *" htmlFor="inputCreationDate">
                                             <input type="date" className="form-control" id="inputCreationDate" placeholder="Digite a Data de Criação do Comentário" value={this.state.creationDate} onChange={(e) => { this.setState({ creationDate: e.target.value }) }} />
                                         </FormGroup>
-                                        <br />
+                                        <br /> */}
                                         {/* <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                             <select className="form-select" id="selectCommentType" value={this.state.commentType} onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                 <option>Selecione uma opção</option>
@@ -192,13 +196,13 @@ class ViewComments extends React.Component {
                                         </FormGroup>
                                         <br />  */}
                                         <button onClick={this.find} type="button" className="btn btn-primary">
-                                            <i className="pi pi-search"></i> Filtrar
+                                            <i className="pi pi-search"></i> Pesquisar
                                         </button>
                                         <br />
                                         <br />
-                                        <button onClick={this.findAll} type="button" className="btn btn-success">
+                                        {/* <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo
-                                        </button>
+                                        </button> */}
                                     </fieldset>
                                 </form>
                             </Card>
@@ -209,7 +213,8 @@ class ViewComments extends React.Component {
                                 <div className='bs-component'>
                                     <CommentsTable comments={this.state.comments}
                                         delete={this.delete}
-                                        edit={this.edit} />
+                                        edit={this.edit}
+                                        answer={this.answer} />
                                 </div>
                             </div>
                         </div>

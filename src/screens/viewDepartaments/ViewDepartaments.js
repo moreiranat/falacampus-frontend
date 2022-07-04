@@ -40,7 +40,7 @@ class ViewDepartaments extends React.Component {
 
     edit = (departamentId) => {
         this.props.history.push(`/updateDepartament/${departamentId}`);
-        //this.service.edit(departamentId)
+        this.service.edit(departamentId)
     }
 
     find = () => {

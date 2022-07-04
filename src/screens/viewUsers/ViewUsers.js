@@ -152,7 +152,7 @@ class ViewUsers extends React.Component {
                                         <br />
                                         <FormGroup label="E-mail: *" htmlFor="inputEmail">
                                             <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o E-mail Acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
-                                            <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
+                                            {/* <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small> */}
                                         </FormGroup>
                                         <br />
                                         <FormGroup label="Matrícula: *" htmlFor="inputRegistration">

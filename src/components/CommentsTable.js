@@ -10,12 +10,17 @@ export default props => {
                 <td>{comment.title}</td>
                 <td>{comment.message}</td>
                 <td>{comment.creationDate}</td>
-                <td>{comment.commentType}</td>
-                <td>{comment.statusComment}</td>
+                <td className="col-md-2">{comment.commentType}</td>
+                <td className="col-md-2">{comment.statusComment}</td>
                 {/* <td>{comment.authorId.id}</td>
                 <td>{comment.departamentId.id}</td> */}
                 {/* <td>{comment.answerId.id}</td> */}
-                <td>
+                <td className="col-md-2">
+                    <button type="button" title="Responder"
+                        className="btn btn-info"
+                        onClick={e => props.answer(comment.id)}>
+                        <i className="pi pi-comment"></i>
+                    </button>
                     <button type="button" title="Editar"
                         className="btn btn-warning"
                         onClick={e => props.edit(comment.id)}>

@@ -42,7 +42,7 @@ class CreateDepartament extends React.Component {
             return false
         }
         
-        this.service.create(this.state.id,
+        this.service.create(this.state,
             {
                 name: this.state.name
             }

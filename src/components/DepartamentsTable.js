@@ -8,7 +8,7 @@ export default props => {
             <tr key={departament.id}>
                 <td>{departament.id}</td>
                 <td>{departament.name}</td>
-                <td>
+                <td className="col-md-2">
                     <button type="button" title="Editar"
                         className="btn btn-warning"
                         onClick={e => props.edit(departament.id)}>

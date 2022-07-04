@@ -49,6 +49,7 @@ class CreateUser extends React.Component {
 
         if(!this.state.registration){
             errors.push('Campo Matrícula é obrigatório!');
+            errors.push('A Matrícula deve conter apenas números!');
         } 
         // else if(!this.state.registration.match(/^(?=.*[0-9])$/)) {
         //     errors.push('A Matrícula deve conter apenas números!');
@@ -60,13 +61,6 @@ class CreateUser extends React.Component {
 
         if(!this.state.password){
             errors.push('Campo Senha é obrigatório!')
-
-        } else if(!this.state.password.match(/(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
-            errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
-            errors.push('A Senha deve ter somente letra, número e caractere especial(*!#@$%&).')
-            errors.push('A Senha deve ter no mínimo uma letra maiúscula e uma minúscula.')
-            errors.push('A Senha deve ter no mínimo um número.')
-            errors.push('A Senha deve ter no mínimo um caractere especial(*!#@$%&).');
 
         }
         // else if(!this.state.password.match(/^(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
@@ -84,26 +78,18 @@ class CreateUser extends React.Component {
         return errors;
     };
 
-    create =  () => {
+    create = () => {
         const errors = this.validate();
-        this.service.create(this.state)
-       
-
+        //this.service.create(this.state)
         if(errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-
-
-
       //  await axios.post('http://localhost:8080/api/user',
-      
-      
-        this.service.create(this.state.id,
-
-        
+       
+        this.service.create(
             {
                 name: this.state.name,
                 email: this.state.email,
@@ -115,7 +101,7 @@ class CreateUser extends React.Component {
         ).then(response => {
             console.log(response);
             showSuccessMessage('Usuário criado com sucesso!');
-            this.props.history.push("/login");
+            // this.props.history.push("/login");
         }
         ).catch(error => {
             console.log(error.response);
@@ -158,11 +144,11 @@ class CreateUser extends React.Component {
                                                     <br />
                                                     <FormGroup label="E-mail: *" htmlFor="inputEmail">
                                                         <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
-                                                        <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
+                                                        {/* <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
-                                                        <input type="long" className="form-control" id="inputRegistration" placeholder="Digite o Número da sua Matrícula" value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
+                                                        <input type="number" className="form-control" id="inputRegistration" placeholder="Digite o Número da sua Matrícula" value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
                                                         <small id="registrationHelp" className="form-text text-muted">Apenas números.</small>
                                                     </FormGroup>
                                                     <br />
@@ -178,7 +164,7 @@ class CreateUser extends React.Component {
                                                     <br />
                                                     <FormGroup label="Senha: *" htmlFor="inputPassword">
                                                         <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
-                                                        <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small>
+                                                        {/* <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
