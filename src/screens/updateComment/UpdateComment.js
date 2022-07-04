@@ -38,15 +38,17 @@ class UpdateComment extends React.Component {
         const params = this.props.match.params;
         const id = params.id;
         this.findById(id);
+        // this.service.findById(this.props.match.params.id)
+        
     }
 
     // componentWillUnmount(){
     //     this.clear();
     // }
 
-    findById = () => {
+    findById = (commentId) => {
         //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
-        this.service.find(this.state.id)
+        this.service.find(commentId)
 
             .then(response => {
                 const comment = response.data[0];

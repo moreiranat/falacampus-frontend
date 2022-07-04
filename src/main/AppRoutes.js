@@ -41,7 +41,7 @@ function AppRoutes() {
 
             <Route component = { CreateComment } path="/createComment" />
             <Route component = { ViewComments } path="/viewComments" />
-            <Route component = { UpdateComment } path="/UpdateComment/:id" />
+            <Route component = { UpdateComment } path="/updateComment/:id" />
             <Route component = { DeleteComment } path="/DeleteComment" />
 
              <Route component = { CreateAnswer } path="/createAnswer" />

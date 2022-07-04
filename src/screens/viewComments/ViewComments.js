@@ -71,6 +71,10 @@ class ViewComments extends React.Component {
         this.props.history.push(`/createAnswer`);
     }
 
+    createComment = () => {
+        this.props.history.push(`/createComment/`);
+    }
+
     find = () => {
         this.service.find(this.state.id)
         var params = '?';
@@ -205,6 +209,13 @@ class ViewComments extends React.Component {
                                         </button> */}
                                     </fieldset>
                                 </form>
+                                <div className="row">
+                                <div className="col-md-8">
+                                    <button onClick={this.createComment} type="button" className="btn btn-success">
+                                        <i className="pi pi-plus"></i> Cadastrar comentário
+                                    </button>
+                                </div>
+                                </div>
                             </Card>
                         </div>
                         <br />
