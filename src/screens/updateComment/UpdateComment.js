@@ -38,6 +38,7 @@ class UpdateComment extends React.Component {
         const params = this.props.match.params;
         const id = params.id;
         this.findById(id);
+        
         // this.service.findById(this.props.match.params.id)
         
     }
@@ -102,14 +103,14 @@ class UpdateComment extends React.Component {
             {
                 title: this.state.title,
                 message: this.state.message,
-                commentType: this.state.commentType,
+                commentType: this.state.commentType
                 // user: this.state.user.id,
                 // departamentId: this.state.departament.id
             }
         ).then(response => {
             console.log(response);
             showSuccessMessage('Comentário atualizado com sucesso!');
-            this.props.history.push("/viewComments");
+            this.props.history.push('/viewComments');
         }
         ).catch(error => {
             console.log(error.response);
@@ -137,11 +138,11 @@ class UpdateComment extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label="Id: *" htmlFor="inputId">
+                                                    {/* <FormGroup label="Id: *" htmlFor="inputId">
                                                         <input type="long" id="inputId" disabled={true} className="form-control"
                                                             value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
-                                                    <br />
+                                                    <br /> */}
                                                     <FormGroup label="Título: *" htmlFor="inputTitle">
                                                         <input type="text" id="inputTitle" className="form-control"
                                                             value={this.state.title} name="title" onChange={(e) => { this.setState({ title: e.target.value }) }} />

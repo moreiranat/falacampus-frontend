@@ -65,6 +65,7 @@ class ViewComments extends React.Component {
 
     edit = (commentId) => {
         this.props.history.push(`/updateComment/${commentId}`);
+        this.service.edit(commentId);
     }
 
     answer = (commentId) => {
@@ -72,7 +73,7 @@ class ViewComments extends React.Component {
     }
 
     createComment = () => {
-        this.props.history.push(`/createComment/`);
+        this.props.history.push(`/createComment`);
     }
 
     find = () => {
@@ -210,11 +211,12 @@ class ViewComments extends React.Component {
                                     </fieldset>
                                 </form>
                                 <div className="row">
-                                <div className="col-md-8">
+                                <div className="col-md-6">
                                     <button onClick={this.createComment} type="button" className="btn btn-success">
                                         <i className="pi pi-plus"></i> Cadastrar comentário
                                     </button>
                                 </div>
+                                
                                 </div>
                             </Card>
                         </div>
