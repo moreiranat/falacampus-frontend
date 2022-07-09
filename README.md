@@ -1,11 +1,12 @@
-# Projeto Fala Campus
+# Fala Campus
 
 
 
 ## IFPB Campus Monteiro - DAC - 2022.1
 
-Este repositório armazena o código da aplicação front-end do projeto da disciplina de Desenvolvimento de Aplicações Corporativas.
-Esse repositório para funcionamento completo desse sistema, é necessário que o aplicativo que está armazenado nesse repositório esteja sendo executado em segundo plano.
+Sistema de sugestões, críticas e elogios Fala Campus, voltado para a comunidade acadêmica do Instituto Federal da Paraíba, Campus Monteiro - PB.
+
+Projeto apresentado na Disciplina de Desenvolvimento de Aplicações Corporativas, no 5° período do curso de Análise e Desenvolvimento de Sistemas, com o professor Elenilson Vieira
 
 ## Dependências para instalação:
 Node.js (versão 16.15.0 foi utilizada durante o desenvolvimento);
