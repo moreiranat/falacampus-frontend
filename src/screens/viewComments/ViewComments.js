@@ -77,7 +77,7 @@ class ViewComments extends React.Component {
     }
 
     find = () => {
-        this.service.find(this.state.id)
+        this.service.find('')
         var params = '?';
 
         if (this.state.id !== 0) {
@@ -113,7 +113,7 @@ class ViewComments extends React.Component {
         }
 
         //axios.get(`http://localhost:8080/api/comment/${params}`)
-        this.service.get(this.state.id)
+        this.service.find(this.state.id)
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });
@@ -128,7 +128,7 @@ class ViewComments extends React.Component {
     findAll = () => {
 
         //axios.get(`http://localhost:8080/api/comment/all`)
-        this.service.get('/all')
+        this.service.findAll('/all')
             .then(response => {
                 const comments = response.data;
                 this.setState({ comments });
@@ -147,14 +147,14 @@ class ViewComments extends React.Component {
                 <div className='row'>
                     <div className='col-md-12' style={this.styles.colMd12}>
                         <div className="bs-docs-section">
-                            <Card title='Consulta de Comentários'>
+                            <Card title='Comentários'>
                                 <form>
                                     <fieldset>
                                         {/* <FormGroup label="Id: *" htmlFor="inputId">
                                             <input type="long" className="form-control" id="inputId" placeholder="Digite o Id do Comentário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
                                         <br /> */}
-                                        <FormGroup label="Título: *" htmlFor="inputTitle"><br/>
+                                        <FormGroup label="Título:" htmlFor="inputTitle"><br />
                                             <input type="text" className="form-control" id="inputTitle" placeholder="Digite o Título do Comentário" value={this.state.title} onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                             {/* <small id="titleHelp" className="form-text text-muted">O título do comentário deve ter no mínimo 5 e no máximo 50 caracteres.</small> */}
                                         </FormGroup>
@@ -200,25 +200,25 @@ class ViewComments extends React.Component {
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id da Resposta do Comentário" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />  */}
-                                        <button onClick={this.find} type="button" className="btn btn-primary">
+                                        <button onClick={this.find} type="button" className="btn btn-info">
                                             <i className="pi pi-search"></i> Pesquisar
                                         </button>
+                                        {/* <br />
                                         <br />
-                                        <br />
-                                        {/* <button onClick={this.findAll} type="button" className="btn btn-success">
+                                        <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo
                                         </button> */}
                                     </fieldset>
                                 </form>
-                                <div className="row">
-                                <div className="col-md-6">
-                                    <button onClick={this.createComment} type="button" className="btn btn-success">
-                                        <i className="pi pi-plus"></i> Cadastrar comentário
-                                    </button>
-                                </div>
-                                
-                                </div>
                             </Card>
+                        </div>
+                        <br />
+                        <div className="row">
+                            <div className="col-md-6">
+                                <button onClick={this.createComment} type="button" className="btn btn-success">
+                                    <i className="pi pi-plus"></i> Cadastrar Novo Comentário
+                                </button>
+                            </div>
                         </div>
                         <br />
                         <div className='row'>

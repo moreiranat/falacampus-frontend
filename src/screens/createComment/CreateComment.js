@@ -121,7 +121,7 @@ class CreateComment extends React.Component {
                                                 <fieldset>
                                                     <p>
                                                         <small id="messageHelp" className="form-text text-muted">
-                                                            * Todos os campos são obrigatórios para o envio de críticas, sugestões ou elogios.
+                                                            * Todos os campos são obrigatórios.
                                                         </small>
                                                     </p>
                                                     <FormGroup label="Título: *" htmlFor="inputCommentTitle">

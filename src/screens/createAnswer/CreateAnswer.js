@@ -31,18 +31,18 @@ class CreateAnswer extends React.Component {
     validate = () => {
         const errors = [];
 
-        if(!this.state.message){
+        if (!this.state.message) {
             errors.push('Campo Mensagem é obrigatório!');
-        } 
+        }
 
-        if(!this.state.commentId){
+        if (!this.state.commentId) {
             errors.push('É obrigatório informar o Comentário que será respondido!');
         }
 
-        if(!this.state.authorId){
+        if (!this.state.authorId) {
             errors.push('É obrigatório informar o Autor da Resposta!');
         }
-        
+
         return errors;
     };
 
@@ -51,13 +51,13 @@ class CreateAnswer extends React.Component {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-        
+
         this.service.create(
             {
                 message: this.state.message,
@@ -100,12 +100,17 @@ class CreateAnswer extends React.Component {
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className="bs-docs-section">
-                            <Card title='Responder Comentário'>
+                            <Card title='Cadastrar Resposta'>
                                 <div className='row'>
                                     <div className='col-lg-12' >
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label="Selecione o Comentário para o envio da resposta: *" htmlFor="inputDepartamentDestination">
                                                         <br />
                                                         <SelectComment onChange={this.handleInputSelectComment} />
