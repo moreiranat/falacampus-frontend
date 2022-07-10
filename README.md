@@ -13,6 +13,16 @@ Node.js (versão 16.15.0 foi utilizada durante o desenvolvimento);
 
 Git.
 
+npm install -g yarn
+
+yarn add bootswatch.
+
+yarn add react-router-dom@5.1.2 (versão 5.1.2 utilizada)
+
+yarn add axios
+
+yarn add toastr
+
 ## Obtendo o código-fonte:
 Com o Git instalado em seu computador, abre um terminal de linha de comando (no Windows o Git Bash ou Terminal) .
 
