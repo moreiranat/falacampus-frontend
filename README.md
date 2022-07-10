@@ -27,6 +27,7 @@ yarn add toastr
 Com o Git instalado em seu computador, abre um terminal de linha de comando (no Windows o Git Bash ou Terminal) .
 
 Cole o comando descrito abaixo:
+
 git clone https://github.com/moreiranat/falacampus-frontend.git
 
 ## Configurando e executando:
