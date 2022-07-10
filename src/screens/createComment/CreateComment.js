@@ -126,7 +126,7 @@ class CreateComment extends React.Component {
                                                     </p>
                                                     <FormGroup label="Título: *" htmlFor="inputCommentTitle">
                                                         <input type="text" className="form-control" id="inputCommentTitle"  minLength="5" maxlength="50"
-                                                        placeholder="Digite o título da mensagem" 
+                                                        placeholder="Digite o título do comentário" 
                                                         value={this.state.title} 
                                                         onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
