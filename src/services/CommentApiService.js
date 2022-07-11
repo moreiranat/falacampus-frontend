@@ -16,7 +16,7 @@ export default class CommentApiService extends ApiService{
     find(params){
         return this.get(`${params}`);
     }
-    findAll(params){
+    findAll(){
         return this.getAll('');
     }
 }

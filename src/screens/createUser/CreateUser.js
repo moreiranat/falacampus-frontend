@@ -105,7 +105,7 @@ class CreateUser extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage('O usuário não pode ser salvo!');
+            // showErrorMessage('O usuário não pode ser salvo!');
         }
         );
 

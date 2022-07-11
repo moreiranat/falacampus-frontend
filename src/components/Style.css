@@ -5,3 +5,9 @@
 .btn-delete{
     margin-left: 10px;
 }
+
+.btn-cadastrar {
+    float:right;
+    width: 280px;
+    height: 35px;
+}

@@ -31,6 +31,11 @@ export default class ApiService{
         return httpClient.get(url);
     }
 
+    patch(url, params) {
+        url = this.builderUrl(url);
+        return httpClient.patch(url, params);
+    }
+
     buildUrl(url){
         return `${this.endpoint}${url}`;
     }

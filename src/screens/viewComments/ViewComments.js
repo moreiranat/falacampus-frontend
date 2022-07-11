@@ -46,7 +46,7 @@ class ViewComments extends React.Component {
     componentDidMount() {
         this.findAll();
     }
-
+    
     // componentWillUnmount() {
     //     this.clear();
     // }
@@ -69,7 +69,7 @@ class ViewComments extends React.Component {
     }
 
     answer = (commentId) => {
-        this.props.history.push(`/createAnswer`);
+        this.props.history.push(`/createAnswer/${commentId}`);
     }
 
     createComment = () => {
@@ -214,8 +214,8 @@ class ViewComments extends React.Component {
                         </div>
                         <br />
                         <div className="row">
-                            <div className="col-md-6">
-                                <button onClick={this.createComment} type="button" className="btn btn-success">
+                            <div className="col-md-12">
+                                <button onClick={this.createComment} type="button" className="btn btn-success btn-cadastrar">
                                     <i className="pi pi-plus"></i> Cadastrar Novo Comentário
                                 </button>
                             </div>

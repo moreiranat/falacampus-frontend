@@ -83,7 +83,7 @@ class CreateComment extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage("O comentário não pode ser criado!")
+            // showErrorMessage("O comentário não pode ser criado!")
         }
         );
 

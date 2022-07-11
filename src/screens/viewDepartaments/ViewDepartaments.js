@@ -121,8 +121,8 @@ class ViewDepartaments extends React.Component {
                         </div>
                         <br />
                         <div className="row">
-                            <div className="col-md-6">
-                                <button onClick={this.createDepartament} type="button" className="btn btn-success">
+                            <div className="col-md-12">
+                                <button onClick={this.createDepartament} type="button" className="btn btn-success btn-cadastrar">
                                     <i className="pi pi-plus"></i> Cadastrar Novo Departamento
                                 </button>
                             </div>

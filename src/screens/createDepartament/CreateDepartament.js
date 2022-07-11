@@ -52,7 +52,7 @@ class CreateDepartament extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage('O Departamento não pode ser criado!');
+            // showErrorMessage('O Departamento não pode ser criado!');
         }
         );
 
@@ -86,6 +86,7 @@ class CreateDepartament extends React.Component {
                                                             placeholder="Digite o Nome do Departamento"
                                                             value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar

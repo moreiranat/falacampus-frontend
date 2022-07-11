@@ -44,7 +44,7 @@ function AppRoutes() {
             <Route component = { UpdateComment } path="/updateComment/:id" />
             <Route component = { DeleteComment } path="/DeleteComment" />
 
-             <Route component = { CreateAnswer } path="/createAnswer" />
+             <Route component = { CreateAnswer } path="/createAnswer/:id" />
             <Route component = { ViewAnswers } path="/ViewAnswer" /> 
             <Route component = { UpdateAnswer } path="/UpdateAnswer/:id" />
         </BrowserRouter>

@@ -32,6 +32,21 @@ class ViewAnswers extends React.Component {
         this.findAll();
     }
 
+    // async componentDidMount() {
+    //     await this.service.find('comment')
+    //     .then(response => {
+    //         const answer = response.data;
+    //         this.setState({
+    //             message: answer.message,
+    //             commentId: answer.commentId,
+    //             creationDate: answer.creationDate,
+    //             authorId: answer.authorId
+    //         });
+    //     }).catch(error => {
+    //         console.log(error);
+    //     })
+    // }
+
     // componentWillUnmount() {
     //     this.clear();
     // }
@@ -172,8 +187,8 @@ class ViewAnswers extends React.Component {
                         </div>
                         <br />
                         <div className="row">
-                            <div className="col-md-6">
-                                <button onClick={this.createAnswer} type="button" className="btn btn-success">
+                            <div className="col-md-12">
+                                <button onClick={this.createAnswer} type="button" className="btn btn-success btn-cadastrar">
                                     <i className="pi pi-plus"></i> Cadastrar Nova Resposta
                                 </button>
                             </div>

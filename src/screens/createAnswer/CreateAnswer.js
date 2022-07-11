@@ -20,12 +20,40 @@ class CreateAnswer extends React.Component {
         authorId: 0,
     }
 
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
+
     // componentWillUnmount() {
     //     this.clear();
     // }
     constructor() {
         super();
         this.service = new AnswerApiService();
+    }
+
+    findById = (commentId) => {
+        //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
+        this.service.find(commentId)
+
+            .then(response => {
+                const comment = response.data[0];
+                const id = comment.id;
+                const title = comment.title;
+                const message = comment.message;
+                const commentType = comment.commentType;
+                const user = comment.user;
+                const departament = comment.departament;
+
+                this.setState({ id, title, message, commentType, user, departament });
+            }
+
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
 
     validate = () => {
@@ -70,7 +98,7 @@ class CreateAnswer extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage("O comentário não pode ser respondido!")
+            // showErrorMessage("O comentário não pode ser respondido!")
         }
         );
 
@@ -142,7 +170,6 @@ class CreateAnswer extends React.Component {
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Responder
                                                     </button>
@@ -156,7 +183,6 @@ class CreateAnswer extends React.Component {
                                 </div>
                             </Card>
                         </div>
-
                     </div>
                 </div>
             </div>
