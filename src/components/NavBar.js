@@ -36,14 +36,14 @@ function NavBar(props) {
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Comentário</a>
                             <ul className="dropdown-menu">
-                                <li><NavBarItem href="/createComment" label="Criar Comentário" /></li>
+                                <li><NavBarItem href="/createComment" label="Cadastrar Comentário" /></li>
                                 <li><NavBarItem href="/viewComments" label="Listar Comentários" /></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resposta</a>
                             <ul className="dropdown-menu">
-                                <li><NavBarItem href="/CreateAnswer" label="Responder Comentário" /></li>
+                                <li><NavBarItem href="/CreateAnswer" label="Cadastrar Resposta" /></li>
                                 <li><NavBarItem href="/ViewAnswer" label="Listar Respostas" /></li>
                             </ul>
                         </li>

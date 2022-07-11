@@ -107,6 +107,11 @@ class UpdateDepartament extends React.Component {
                                                             value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br /> */}
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * O campo é obrigatório.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label='Nome: *'>
                                                         <input type="text" className="form-control" id="inputDepartamentName"
                                                             placeholder="Digite o Nome do Departamento"

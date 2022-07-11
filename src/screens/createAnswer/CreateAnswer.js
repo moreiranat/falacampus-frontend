@@ -20,6 +20,12 @@ class CreateAnswer extends React.Component {
         authorId: 0,
     }
 
+    componentDidMount() {
+        const params = this.props.match.params;
+        const id = params.id;
+        this.findById(id);
+    }
+
     // componentWillUnmount() {
     //     this.clear();
     // }
@@ -28,21 +34,43 @@ class CreateAnswer extends React.Component {
         this.service = new AnswerApiService();
     }
 
+    findById = (commentId) => {
+        //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
+        this.service.find(commentId)
+
+            .then(response => {
+                const comment = response.data[0];
+                const id = comment.id;
+                const title = comment.title;
+                const message = comment.message;
+                const commentType = comment.commentType;
+                const user = comment.user;
+                const departament = comment.departament;
+
+                this.setState({ id, title, message, commentType, user, departament });
+            }
+
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
+    }
+
     validate = () => {
         const errors = [];
 
-        if(!this.state.message){
+        if (!this.state.message) {
             errors.push('Campo Mensagem é obrigatório!');
-        } 
+        }
 
-        if(!this.state.commentId){
+        if (!this.state.commentId) {
             errors.push('É obrigatório informar o Comentário que será respondido!');
         }
 
-        if(!this.state.authorId){
+        if (!this.state.authorId) {
             errors.push('É obrigatório informar o Autor da Resposta!');
         }
-        
+
         return errors;
     };
 
@@ -51,13 +79,13 @@ class CreateAnswer extends React.Component {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-        
+
         this.service.create(
             {
                 message: this.state.message,
@@ -70,7 +98,7 @@ class CreateAnswer extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage("O comentário não pode ser respondido!")
+            // showErrorMessage("O comentário não pode ser respondido!")
         }
         );
 
@@ -100,12 +128,17 @@ class CreateAnswer extends React.Component {
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className="bs-docs-section">
-                            <Card title='Responder Comentário'>
+                            <Card title='Cadastrar Resposta'>
                                 <div className='row'>
                                     <div className='col-lg-12' >
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label="Selecione o Comentário para o envio da resposta: *" htmlFor="inputDepartamentDestination">
                                                         <br />
                                                         <SelectComment onChange={this.handleInputSelectComment} />
@@ -137,7 +170,6 @@ class CreateAnswer extends React.Component {
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Responder
                                                     </button>
@@ -151,7 +183,6 @@ class CreateAnswer extends React.Component {
                                 </div>
                             </Card>
                         </div>
-
                     </div>
                 </div>
             </div>

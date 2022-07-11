@@ -16,15 +16,15 @@ class CreateDepartament extends React.Component {
     state = {
         name: ''
     }
-    constructor(){
+    constructor() {
         super();
         this.service = new DepartamentApiService();
     }
 
     validate = () => {
         const errors = [];
-    
-        if(!this.state.name){
+
+        if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
         }
 
@@ -35,13 +35,13 @@ class CreateDepartament extends React.Component {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-        
+
         this.service.create(this.state,
             {
                 name: this.state.name
@@ -52,7 +52,7 @@ class CreateDepartament extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage('O Departamento não pode ser criado!');
+            // showErrorMessage('O Departamento não pode ser criado!');
         }
         );
 
@@ -76,12 +76,17 @@ class CreateDepartament extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                   
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * O campo é obrigatório.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label='Nome: *'>
                                                         <input type="text" className="form-control" id="inputDepartamentName" minLength="2" maxlength="255"
-                                                        placeholder="Digite o Nome do Departamento" 
-                                                        value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                                                            placeholder="Digite o Nome do Departamento"
+                                                            value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
+                                                    <br />
                                                     <br />
                                                     <button onClick={this.create} type="button" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar

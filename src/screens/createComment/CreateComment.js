@@ -83,7 +83,7 @@ class CreateComment extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage("O comentário não pode ser criado!")
+            // showErrorMessage("O comentário não pode ser criado!")
         }
         );
 
@@ -121,12 +121,12 @@ class CreateComment extends React.Component {
                                                 <fieldset>
                                                     <p>
                                                         <small id="messageHelp" className="form-text text-muted">
-                                                            * Todos os campos são obrigatórios para o envio de críticas, sugestões ou elogios.
+                                                            * Todos os campos são obrigatórios.
                                                         </small>
                                                     </p>
                                                     <FormGroup label="Título: *" htmlFor="inputCommentTitle">
                                                         <input type="text" className="form-control" id="inputCommentTitle"  minLength="5" maxlength="50"
-                                                        placeholder="Digite o título da mensagem" 
+                                                        placeholder="Digite o título do comentário" 
                                                         value={this.state.title} 
                                                         onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>

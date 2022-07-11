@@ -32,24 +32,43 @@ class ViewAnswers extends React.Component {
         this.findAll();
     }
 
+    // async componentDidMount() {
+    //     await this.service.find('comment')
+    //     .then(response => {
+    //         const answer = response.data;
+    //         this.setState({
+    //             message: answer.message,
+    //             commentId: answer.commentId,
+    //             creationDate: answer.creationDate,
+    //             authorId: answer.authorId
+    //         });
+    //     }).catch(error => {
+    //         console.log(error);
+    //     })
+    // }
+
     // componentWillUnmount() {
     //     this.clear();
     // }
 
-    delete = (answerId) => {
-        //axios.delete(`http://localhost:8080/api/answer/${answerId}`,
-        this.service.delete(answerId)
-            .then(response => {
-                this.find();
-            }
-            ).catch(error => {
-                console.log(error.response);
-            }
-            );
-    }
+    // delete = (answerId) => {
+    //     //axios.delete(`http://localhost:8080/api/answer/${answerId}`,
+    //     this.service.delete(answerId)
+    //         .then(response => {
+    //             this.find();
+    //         }
+    //         ).catch(error => {
+    //             console.log(error.response);
+    //         }
+    //         );
+    // }
 
-    edit = (answerId) => {
-        this.props.history.push(`/updateAnswer/${answerId}`);
+    // edit = (answerId) => {
+    //     this.props.history.push(`/updateAnswer/${answerId}`);
+    // }
+
+    createAnswer = () => {
+        this.props.history.push(`/createAnswer`);
     }
 
     find = () => {
@@ -128,21 +147,21 @@ class ViewAnswers extends React.Component {
                 <div className='row'>
                     <div className='col-md-12'>
                         <div className="bs-docs-section">
-                            <Card title='Consulta de Respostas'>
+                            <Card title='Respostas'>
                                 <form>
                                     <fieldset>
-                                        <FormGroup label="Id:" htmlFor="inputUserId">
+                                        {/* <FormGroup label="Id:" htmlFor="inputUserId">
                                             <input type="long" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
-                                        <br />
-                                        <FormGroup label="Mensagem: *" htmlFor="MessageTextarea">
+                                        <br /> */}
+                                        <FormGroup label="Mensagem:" htmlFor="MessageTextarea">
                                             <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255"
                                                 placeholder="Incluir resposta"
                                                 value={this.state.message}
                                                 onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <FormGroup label=" Id do Comentário: *" htmlFor="inputCommentId">
+                                        {/* <FormGroup label=" Id do Comentário: *" htmlFor="inputCommentId">
                                             <input type="long" className="form-control" id="inputCommentId" placeholder="Digite o Id do Comentário" value={this.state.commentId} onChange={(e) => { this.setState({ commentId: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
@@ -153,18 +172,26 @@ class ViewAnswers extends React.Component {
                                         <FormGroup label="  Id do Autor : *" htmlFor="inputAuthorId">
                                             <input type="long" className="form-control" id="inputAuthorIdId" placeholder="Digite o Id do Author" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                         </FormGroup>
-                                        <br />
-                                        <button onClick={this.find} type="button" className="btn btn-success">
-                                            <i className="pi pi-search"></i> Filtrar
+                                        <br /> */}
+                                        <button onClick={this.find} type="button" className="btn btn-info">
+                                            <i className="pi pi-search"></i> Pesquisar
                                         </button>
-                                        <br />
+                                        {/* <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-primary">
                                             <i className="pi pi-search"></i> Buscar Tudo
-                                        </button>
+                                        </button> */}
                                     </fieldset>
                                 </form>
                             </Card>
+                        </div>
+                        <br />
+                        <div className="row">
+                            <div className="col-md-12">
+                                <button onClick={this.createAnswer} type="button" className="btn btn-success btn-cadastrar">
+                                    <i className="pi pi-plus"></i> Cadastrar Nova Resposta
+                                </button>
+                            </div>
                         </div>
                         <br />
                         <div className='row'>

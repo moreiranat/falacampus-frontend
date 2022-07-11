@@ -22,7 +22,7 @@ class CreateUser extends React.Component {
         password: '',
         departamentId: 0
     }
-    constructor(){
+    constructor() {
         super();
         this.service = new UserApiService();
     }
@@ -33,33 +33,33 @@ class CreateUser extends React.Component {
 
     validate = () => {
         const errors = [];
-    
-        if(!this.state.name){
+
+        if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
-        } 
+        }
         // else if(!this.state.name.match(/^[a-z].{2,50}$/)) {
         //     errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
         // }
 
-        if(!this.state.email){
+        if (!this.state.email) {
             errors.push('Campo E-mail é obrigatório!');
-        } else if(!this.state.email.match(/[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
+        } else if (!this.state.email.match(/[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
             errors.push('Informe um E-mail válido!');
         }
 
-        if(!this.state.registration){
+        if (!this.state.registration) {
             errors.push('Campo Matrícula é obrigatório!');
             errors.push('A Matrícula deve conter apenas números!');
-        } 
+        }
         // else if(!this.state.registration.match(/^(?=.*[0-9])$/)) {
         //     errors.push('A Matrícula deve conter apenas números!');
         // }
 
-        if(!this.state.role){
+        if (!this.state.role) {
             errors.push('É obrigatório informar o Papel!');
         }
 
-        if(!this.state.password){
+        if (!this.state.password) {
             errors.push('Campo Senha é obrigatório!')
 
         }
@@ -71,24 +71,24 @@ class CreateUser extends React.Component {
         //     errors.push('A Senha deve ter no mínimo um caractere especial(*!#@$%&).');
         // }
 
-        if(!this.state.departamentId){
+        if (!this.state.departamentId) {
             errors.push('É obrigatório informar o Departamento!');
         }
-        
+
         return errors;
     };
 
     create = () => {
         const errors = this.validate();
         //this.service.create(this.state)
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-      //  await axios.post('http://localhost:8080/api/user',
-       
+        //  await axios.post('http://localhost:8080/api/user',
+
         this.service.create(
             {
                 name: this.state.name,
@@ -105,11 +105,11 @@ class CreateUser extends React.Component {
         }
         ).catch(error => {
             console.log(error.response);
-            showErrorMessage('O usuário não pode ser salvo!');
+            // showErrorMessage('O usuário não pode ser salvo!');
         }
         );
 
-        console.log('request finished'); 
+        console.log('request finished');
     }
 
     cancel = () => {
@@ -117,7 +117,7 @@ class CreateUser extends React.Component {
     }
 
     inputSelectDepartament = (e) => {
-        this.setState({departamentId: e.target.value}, () => {
+        this.setState({ departamentId: e.target.value }, () => {
             console.log("Id do Departamento Destinatário: ", this.state.departamentId);
         });
     }
@@ -135,9 +135,11 @@ class CreateUser extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <small id="messageHelp" className="form-text text-muted">
-                                                        * Todos os campos são obrigatórios.
-                                                    </small>
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label="Nome:" htmlFor="inputUserName">
                                                         <input type="text" className="form-control" id="inputUserName" placeholder="Digite o seu Nome" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
@@ -160,7 +162,7 @@ class CreateUser extends React.Component {
                                                             <option value="TEACHER">PROFESSOR</option>
                                                             <option value="ADMINISTRATOR">ADMINISTRADOR</option>
                                                         </select>
-                                                    </FormGroup>                                                    
+                                                    </FormGroup>
                                                     <br />
                                                     <FormGroup label="Senha: *" htmlFor="inputPassword">
                                                         <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
@@ -169,7 +171,7 @@ class CreateUser extends React.Component {
                                                     <br />
                                                     <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
                                                         <br />
-                                                        <SelectDepartament onChange={this.inputSelectDepartament}/>
+                                                        <SelectDepartament onChange={this.inputSelectDepartament} />
                                                     </FormGroup>
                                                     <br />
                                                     <br />

@@ -16,7 +16,7 @@ class UpdateComment extends React.Component {
         title: '',
         message: '',
         commentType: '',
-        user:{
+        user: {
             id: 0
             // name: '',
             // email: '',
@@ -24,12 +24,12 @@ class UpdateComment extends React.Component {
             // role: '',
             // departamentId: 0
         },
-        departament:{
+        departament: {
             departamentId: 0
             // name:''
-        } 
+        }
     }
-    constructor(){
+    constructor() {
         super();
         this.service = new CommentApiService();
     }
@@ -38,9 +38,9 @@ class UpdateComment extends React.Component {
         const params = this.props.match.params;
         const id = params.id;
         this.findById(id);
-        
+
         // this.service.findById(this.props.match.params.id)
-        
+
     }
 
     // componentWillUnmount(){
@@ -71,27 +71,27 @@ class UpdateComment extends React.Component {
 
     validate = () => {
         const errors = [];
-    
-        if(!this.state.title){
+
+        if (!this.state.title) {
             errors.push('Campo Título é obrigatório!');
-        } 
+        }
 
-        if(!this.state.message){
+        if (!this.state.message) {
             errors.push('Campo Mensagem é obrigatório!');
-        } 
+        }
 
-        if(!this.state.commentType){
+        if (!this.state.commentType) {
             errors.push('É obrigatório informar o Tipo de Comentário!');
         }
-        
+
         return errors;
     };
 
-    update =  () => {
+    update = () => {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
@@ -143,25 +143,30 @@ class UpdateComment extends React.Component {
                                                             value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br /> */}
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios.
+                                                        </small>
+                                                    </p>
                                                     <FormGroup label="Título: *" htmlFor="inputTitle">
-                                                        <input type="text" id="inputTitle" className="form-control"
+                                                        <input type="text" id="inputTitle" className="form-control"  placeholder="Digite o título do comentário" 
                                                             value={this.state.title} name="title" onChange={(e) => { this.setState({ title: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Mensagem: *" htmlFor="MessageTextarea" className="form-label mt-4">
-                                                        <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255" 
-                                                        placeholder="Digite a sugestão, crítica ou elogio" 
-                                                        value={this.state.message} 
-                                                        onChange={(e) => { this.setState({ message: e.target.value }) }} />
+                                                        <textarea type="text" className="form-control" id="MessageTextarea" rows="3" minLength="10" maxlength="255"
+                                                            placeholder="Digite a sugestão, crítica ou elogio"
+                                                            value={this.state.message}
+                                                            onChange={(e) => { this.setState({ message: e.target.value }) }} />
                                                         <small id="messageHelp" className="form-text text-muted">Seja cordial ao escrever sua crítica, sugestão ou elogio.</small>
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Tipo de Comentário: *" htmlFor="selectCommentType" className="form-label mt-4">
                                                         <select className="form-select" id="selectCommentType" value={this.state.commentType} name="commentType" onChange={(e) => { this.setState({ commentType: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
-                                                            <option value = "REVIEW">CRÍTICA</option>
-                                                            <option value = "SUGGESTION">SUGESTÃO</option>
-                                                            <option value = "COMPLIMENT">ELOGIO</option>
+                                                            <option value="REVIEW">CRÍTICA</option>
+                                                            <option value="SUGGESTION">SUGESTÃO</option>
+                                                            <option value="COMPLIMENT">ELOGIO</option>
                                                         </select>
                                                     </FormGroup>
                                                     <br />

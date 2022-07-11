@@ -21,15 +21,15 @@ class UpdateUser extends React.Component {
         registration: 0,
         role: '',
         password: '',
-        departament:{
+        departament: {
             departamentId: 0,
-            name:''
-        } 
-      
+            name: ''
+        }
+
     }
-    constructor(){
+    constructor() {
         super();
-        this.service=new UserApiService();
+        this.service = new UserApiService();
     }
 
     componentDidMount() {
@@ -55,8 +55,8 @@ class UpdateUser extends React.Component {
                 const password = user.password;
                 const departament = user.departament;
 
-                this.setState({ id, name, email, registration, role, password, departament});
-                
+                this.setState({ id, name, email, registration, role, password, departament });
+
             }
 
             ).catch(error => {
@@ -68,50 +68,50 @@ class UpdateUser extends React.Component {
 
     validate = () => {
         const errors = [];
-    
-        if(!this.state.name){
-            errors.push('Campo Nome é obrigatório!');
-        } 
 
-        if(!this.state.email){
+        if (!this.state.name) {
+            errors.push('Campo Nome é obrigatório!');
+        }
+
+        if (!this.state.email) {
             errors.push('Campo E-mail é obrigatório!');
-        } else if(!this.state.email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
+        } else if (!this.state.email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]/)) {
             errors.push('Informe um E-mail válido!');
         }
 
-        if(!this.state.registration){
+        if (!this.state.registration) {
             errors.push('Campo Matrícula é obrigatório!');
-        } 
+        }
 
-        if(!this.state.role){
+        if (!this.state.role) {
             errors.push('É obrigatório informar o Papel!');
         }
 
-        if(!this.state.password){
+        if (!this.state.password) {
             errors.push('Campo Senha é obrigatório!')
         }
 
-        if(!this.state.departamentId){
+        if (!this.state.departamentId) {
             errors.push('É obrigatório informar o Departamento!');
         }
-        
+
         return errors;
     };
 
-    update =  () => {
+    update = () => {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
             return false
         }
-        
-       // await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
-       this.service.update(this.state.id,
-           {
+
+        // await axios.put(`http://localhost:8080/api/user/${this.state.id}`,
+        this.service.update(this.state.id,
+            {
                 name: this.state.name,
                 email: this.state.email,
                 registration: this.state.registration,
@@ -150,32 +150,37 @@ class UpdateUser extends React.Component {
                                     <div className='col-lg-12' >
                                         <div className='bs-component'>
                                             <form>
-                                                <fieldset>                                                  
-                                                    <FormGroup label="Id: *" htmlFor="inputUserId">
-                                                        <input type="number" id="inputUserId" disabled={true} className="form-control" 
-                                                        value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value })}} />                                                            
+                                                <fieldset>
+                                                    <p>
+                                                        <small id="messageHelp" className="form-text text-muted">
+                                                            * Todos os campos são obrigatórios.
+                                                        </small>
+                                                    </p>
+                                                    {/* <FormGroup label="Id: *" htmlFor="inputUserId">
+                                                        <input type="number" id="inputUserId" disabled={true} className="form-control"
+                                                            value={this.state.id} name="id" onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                                     </FormGroup>
-                                                    <br />
+                                                    <br /> */}
                                                     <FormGroup label="Nome: *" htmlFor="inputUserName">
-                                                        <input type="text" id="inputUserName" className="form-control" 
-                                                        value={this.state.name} name="name" onChange={(e) => { this.setState({ name: e.target.value }) }} />  
+                                                        <input type="text" id="inputUserName" className="form-control"
+                                                            value={this.state.name} name="name" onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="E-mail: *" htmlFor="inputEmail">
-                                                        <input type="email" id="inputEmail" className="form-control" aria-describedby="emailHelp" 
-                                                        value={this.state.email} name="email" onChange={(e) => { this.setState({ email: e.target.value }) }} />
+                                                        <input type="email" id="inputEmail" className="form-control" aria-describedby="emailHelp"
+                                                            value={this.state.email} name="email" onChange={(e) => { this.setState({ email: e.target.value }) }} />
                                                         {/* <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
-                                                        <input type="number" id="inputRegistration" className="form-control" 
-                                                        value={this.state.registration} name="registration" onChange={(e) => { this.setState({ registration: e.target.value }) }} />
+                                                        <input type="number" id="inputRegistration" className="form-control"
+                                                            value={this.state.registration} name="registration" onChange={(e) => { this.setState({ registration: e.target.value }) }} />
                                                         <small id="registrationHelp" className="form-text text-muted">Apenas números.</small>
                                                     </FormGroup>
                                                     <div className="form-group">
                                                         <label htmlFor="selectRole" className="form-label mt-4">Papel: *</label>
-                                                        <select className="form-select" id="selectRole" 
-                                                        value={this.state.role} name="role" onChange={(e) => { this.setState({ role: e.target.value }) }}>
+                                                        <select className="form-select" id="selectRole"
+                                                            value={this.state.role} name="role" onChange={(e) => { this.setState({ role: e.target.value }) }}>
                                                             <option>Selecione uma opção</option>
                                                             <option value="STUDENT" >ESTUDANTE</option>
                                                             <option value="TECHNICIAN">TÉCNICO</option>
@@ -185,14 +190,14 @@ class UpdateUser extends React.Component {
                                                     </div>
                                                     <br />
                                                     <FormGroup label="Senha: *" htmlFor="inputPassword">
-                                                        <input type="password" id="inputPassword" className="form-control" 
-                                                        value={this.state.password} name="password" onChange={(e) => { this.setState({ password: e.target.value }) }} />
+                                                        <input type="password" id="inputPassword" className="form-control"
+                                                            value={this.state.password} name="password" onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                         {/* <small id="passwordHelp" className="form-text text-muted">A senha deve ter no mínimo 8 e no máximo 30 caracteres.</small> */}
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
                                                         <br />
-                                                        <SelectDepartament onChange={this.inputSelectDepartament}/>
+                                                        <SelectDepartament onChange={this.inputSelectDepartament} />
                                                     </FormGroup>
                                                     <br />
                                                     <br />

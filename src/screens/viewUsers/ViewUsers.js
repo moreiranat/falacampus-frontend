@@ -24,7 +24,7 @@ class ViewUsers extends React.Component {
         },
         users: []
     }
-    constructor(){
+    constructor() {
         super();
         this.service = new UserApiService();
     }
@@ -39,17 +39,21 @@ class ViewUsers extends React.Component {
     delete = (userId) => {
         //axios.delete(`http://localhost:8080/api/user/${userId}`,
         this.service.delete(userId)
-        .then(response => {
-            this.find();
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
+            .then(response => {
+                this.find();
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
 
     edit = (userId) => {
         this.props.history.push(`/updateUser/${userId}`);
+    }
+
+    createUser = () => {
+        this.props.history.push(`/createUser`);
     }
 
     find = () => {
@@ -139,10 +143,14 @@ class ViewUsers extends React.Component {
                 <div className='row'>
                     <div className='col-md-12' style={this.styles.colMd12}>
                         <div className="bs-docs-section">
-                            <Card title='Consulta de Usuários'>
+                            <Card title='Usuários'>
                                 <form>
                                     <fieldset>
-                                        <FormGroup label="Id:" htmlFor="inputUserId">
+                                        <FormGroup label="Nome:" htmlFor="inputUserName">
+                                            <input type="text" className="form-control" id="inputUserName" placeholder="Digite o Nome do Usuário" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                                        </FormGroup>
+
+                                        {/* <FormGroup label="Id:" htmlFor="inputUserId">
                                             <input type="long" className="form-control" id="inputUserId" placeholder="Digite o Id do Usuário" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
@@ -152,7 +160,7 @@ class ViewUsers extends React.Component {
                                         <br />
                                         <FormGroup label="E-mail: *" htmlFor="inputEmail">
                                             <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o E-mail Acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
-                                            {/* <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small> */}
+                                            <small id="emailHelp" className="form-text text-muted">É obrigatório o uso do e-mail acadêmico.</small>
                                         </FormGroup>
                                         <br />
                                         <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
@@ -172,21 +180,28 @@ class ViewUsers extends React.Component {
                                         <br />
                                         <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.departamentId} onChange={(e) => { this.setState({ departamentId: e.target.value }) }} />
-                                        </FormGroup>
-
+                                        </FormGroup> */}
                                         <br />
-                                        <button onClick={this.find} type="button" className="btn btn-primary">
+                                        <button onClick={this.find} type="button" className="btn btn-info">
 
-                                            <i className="pi pi-search"></i> Filtrar
+                                            <i className="pi pi-search"></i> Pesquisar
                                         </button>
-                                        <br />
+                                        {/* <br />
                                         <br />
                                         <button onClick={this.findAll} type="button" className="btn btn-success">
                                             <i className="pi pi-search"></i> Buscar Tudo
-                                        </button>
+                                        </button> */}
                                     </fieldset>
                                 </form>
                             </Card>
+                        </div>
+                        <br />
+                        <div className="row">
+                            <div className="col-md-12">
+                                <button onClick={this.createUser} type="button" className="btn btn-success btn-cadastrar">
+                                    <i className="pi pi-plus"></i> Cadastrar Novo Usuário
+                                </button>
+                            </div>
                         </div>
                         <br />
                         <div className='row'>

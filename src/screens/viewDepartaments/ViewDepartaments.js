@@ -16,26 +16,26 @@ class ViewDepartaments extends React.Component {
         id: '',
         departaments: []
     }
-    constructor(){
+    constructor() {
         super();
-        this.service=new DepartamentApiService();
+        this.service = new DepartamentApiService();
     }
 
     componentDidMount() {
         this.find();
-        
+
     }
 
     delete = (departamentId) => {
-       
-       this.service.delete(departamentId)
-        .then(response => {
-            this.find();
-        }
-        ).catch(error => {
-            console.log(error.response);
-        }
-        );
+
+        this.service.delete(departamentId)
+            .then(response => {
+                this.find();
+            }
+            ).catch(error => {
+                console.log(error.response);
+            }
+            );
     }
 
     edit = (departamentId) => {
@@ -43,11 +43,15 @@ class ViewDepartaments extends React.Component {
         this.service.edit(departamentId)
     }
 
+    createDepartament = () => {
+        this.props.history.push(`/createDepartament`);
+    }
+
     find = () => {
         this.service.find(this.state.id)
         var params = '?';
-       
-        if ( this.state.id!== '') {
+
+        if (this.state.id !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -97,23 +101,31 @@ class ViewDepartaments extends React.Component {
                 <div className='row'>
                     <div className='col-md-12' style={this.styles.colMd612}>
                         <div className="bs-docs-section">
-                            <Card title='Consulta de Departamentos'>
+                            <Card title='Departamentos'>
                                 <form>
                                     <fieldset>
-                                        <FormGroup label='Id:'>
+                                        {/* <FormGroup label='Id:'>
                                             <input type="long" className="form-control" id="inputDepartamentId" placeholder="Digite o Id do Departamento" value={this.state.id} onChange={(e) => { this.setState({ id: e.target.value }) }} />
                                         </FormGroup>
-                                        <br />
+                                        <br /> */}
                                         <FormGroup label='Nome:'>
                                             <input type="text" className="form-control" id="inputDepartamentName" placeholder="Digite o Nome do Departamento" value={this.state.name} onChange={(e) => { this.setState({ name: e.target.value }) }} />
                                         </FormGroup>
                                         <br />
-                                        <button onClick={this.find} type="button" className="btn btn-success">
-                                            <i className="pi pi-search"></i> Buscar
+                                        <button onClick={this.find} type="button" className="btn btn-info">
+                                            <i className="pi pi-search"></i> Pesquisar
                                         </button>
                                     </fieldset>
                                 </form>
                             </Card>
+                        </div>
+                        <br />
+                        <div className="row">
+                            <div className="col-md-12">
+                                <button onClick={this.createDepartament} type="button" className="btn btn-success btn-cadastrar">
+                                    <i className="pi pi-plus"></i> Cadastrar Novo Departamento
+                                </button>
+                            </div>
                         </div>
                         <br />
                         <div className='row'>

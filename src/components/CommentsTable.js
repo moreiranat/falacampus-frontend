@@ -6,7 +6,7 @@ export default props => {
     const rows = props.comments.map(comment => {
         return (
             <tr key={comment.id}>
-                <td>{comment.id}</td>
+                {/* <td>{comment.id}</td> */}
                 <td>{comment.title}</td>
                 <td>{comment.message}</td>
                 <td>{comment.creationDate}</td>
@@ -17,7 +17,7 @@ export default props => {
                 {/* <td>{comment.answerId.id}</td> */}
                 <td className="col-md-2">
                     <button type="button" title="Responder"
-                        className="btn btn-info"
+                        className="btn btn-danger"
                         onClick={e => props.answer(comment.id)}>
                         <i className="pi pi-comment"></i>
                     </button>
@@ -27,7 +27,7 @@ export default props => {
                         <i className="pi pi-pencil"></i>
                     </button>
                     <button type="button" title="Excluir"
-                        className="btn btn-danger btn-delete"
+                        className="btn btn-primary btn-delete"
                         onClick={e => props.delete(comment.id)}>
                         <i className="pi pi-trash"></i>
                     </button>
@@ -42,7 +42,7 @@ export default props => {
         <table className="table table-hover">
             <thead>
                 <tr className="table-active">
-                    <th scope="col">Id</th>
+                    {/* <th scope="col">Id</th> */}
                     <th scope="col">Título</th>
                     <th scope="col">Mensagem</th>
                     <th scope="col">Data/Hora de Criação</th>
