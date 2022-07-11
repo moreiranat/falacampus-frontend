@@ -2,7 +2,7 @@ import React from 'react';
 import './ViewComments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-
+import CommentsCard from '../../components/CommentsCard';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
@@ -62,6 +62,12 @@ class ViewComments extends React.Component {
             }
             );
     }
+
+    card= (commentId) => {
+       
+    
+    }
+
 
     edit = (commentId) => {
         this.props.history.push(`/updateComment/${commentId}`);
@@ -227,10 +233,14 @@ class ViewComments extends React.Component {
                                     <CommentsTable comments={this.state.comments}
                                         delete={this.delete}
                                         edit={this.edit}
-                                        answer={this.answer} />
+                                        answer={this.answer} 
+                                        card= {this.card}/>
                                 </div>
                             </div>
                         </div>
+
+                   
+                     
                     </div >
                 </div >
             </div >
