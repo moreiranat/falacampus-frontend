@@ -31,6 +31,7 @@ export default props => {
                         onClick={e => props.delete(comment.id)}>
                         <i className="pi pi-trash"></i>
                     </button>
+
                 </td>
             </tr>
         )
