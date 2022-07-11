@@ -17,17 +17,17 @@ export default props => {
                 {/* <td>{comment.answerId.id}</td> */}
                 <td className="col-md-2">
                     <button type="button" title="Responder"
-                        className="btn btn-danger"
+                        className="btn btn-danger btn-space"
                         onClick={e => props.answer(comment.id)}>
                         <i className="pi pi-comment"></i>
                     </button>
                     <button type="button" title="Editar"
-                        className="btn btn-warning"
+                        className="btn btn-warning btn-space"
                         onClick={e => props.edit(comment.id)}>
                         <i className="pi pi-pencil"></i>
                     </button>
                     <button type="button" title="Excluir"
-                        className="btn btn-primary btn-delete"
+                        className="btn btn-primary btn-space"
                         onClick={e => props.delete(comment.id)}>
                         <i className="pi pi-trash"></i>
                     </button>

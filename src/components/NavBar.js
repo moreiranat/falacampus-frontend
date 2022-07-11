@@ -9,7 +9,7 @@ function NavBar(props) {
 
         <nav className="navbar navbar-expand-lg navbar-light bg-nav">
             <div className="container-fluid">
-                <div className="col-md-3"><a href="/" className="navbar-brand"><Logo imageSrc={FalaCampus} /></a></div>
+                <div className="col-md-4"><a href="/" className="navbar-brand"><Logo imageSrc={FalaCampus} /></a></div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
