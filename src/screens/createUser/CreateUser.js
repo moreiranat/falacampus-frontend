@@ -36,10 +36,15 @@ class CreateUser extends React.Component {
 
         if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
+        } else if(!this.state.name.match(/[A-Z][a-z]*.{1,50}$/)) {
+            errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
         }
+
         // else if(!this.state.name.match(/^[a-z].{2,50}$/)) {
         //     errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
         // }
+
+        // else if(!this.state.name.match(/[A-Z][a-z]* [A-Z][a-z]*.{2,50}$/)) {
 
         if (!this.state.email) {
             errors.push('Campo E-mail é obrigatório!');
@@ -61,8 +66,16 @@ class CreateUser extends React.Component {
 
         if (!this.state.password) {
             errors.push('Campo Senha é obrigatório!')
+        } 
+        // else if(!this.state.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,30}$/)) {
+        //     errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
+        //     errors.push('A Senha deve conter ao menos um número.')
+        //     errors.push('A Senha deve conter ao menos uma letra minúscula.')
+        //     errors.push('A Senha deve conter ao menos uma letra maiúscula.')
+        //     errors.push('A Senha deve conter ao menos um caractere especial.')
+        // }
 
-        }
+
         // else if(!this.state.password.match(/^(?=.*[A-Z])(?=.*[*!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,30}$/)) {
         //     errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
         //     errors.push('A Senha deve ter somente letra, número e caractere especial(*!#@$%&).')

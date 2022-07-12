@@ -26,6 +26,8 @@ class CreateDepartament extends React.Component {
 
         if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
+        } else if(!this.state.name.match(/[A-Z][a-z]*.{1,100}$/)) {
+            errors.push('O Nome do Departamento deve ter no mínimo 2 e no máximo 100 caracteres!');
         }
 
         return errors;

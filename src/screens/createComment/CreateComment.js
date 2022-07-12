@@ -36,11 +36,15 @@ class CreateComment extends React.Component {
     
         if(!this.state.title){
             errors.push('Campo Título é obrigatório!');
-        } 
+        } else if(!this.state.name.match(/[A-Z][a-z]*.{4,50}$/)) {
+            errors.push('O Título do Comentário deve ter no mínimo 5 e no máximo 50 caracteres!');
+        }
 
         if(!this.state.message){
             errors.push('Campo Mensagem é obrigatório!');
-        } 
+        } else if(!this.state.name.match(/[A-Z][a-z]*.{9,255}$/)) {
+            errors.push('A mensagem do Comentário deve ter no mínimo 10 e no máximo 255 caracteres!');
+        }
 
         if(!this.state.commentType){
             errors.push('É obrigatório informar o Tipo de Comentário!');
