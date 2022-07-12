@@ -71,6 +71,8 @@ class UpdateUser extends React.Component {
 
         if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
+        } else if(!this.state.name.match(/[A-z ]{2,50}$/)) {
+            errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
         }
 
         if (!this.state.email) {
@@ -89,6 +91,12 @@ class UpdateUser extends React.Component {
 
         if (!this.state.password) {
             errors.push('Campo Senha é obrigatório!')
+        } else if(!this.state.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,30}$/)) {
+            errors.push('A Senha deve ter no mínimo 8 e no máximo 30 caracteres.')
+            errors.push('A Senha deve conter ao menos um número.')
+            errors.push('A Senha deve conter ao menos uma letra minúscula.')
+            errors.push('A Senha deve conter ao menos uma letra maiúscula.')
+            errors.push('A Senha deve conter ao menos um caractere especial.')
         }
 
         if (!this.state.departamentId) {
