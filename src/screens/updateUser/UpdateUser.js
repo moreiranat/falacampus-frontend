@@ -71,7 +71,7 @@ class UpdateUser extends React.Component {
 
         if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
-        } else if(!this.state.name.match(/[A-Z][a-z]*.{1,50}$/)) {
+        } else if(!this.state.name.match(/[A-z ]{2,50}$/)) {
             errors.push('O Nome deve ter no mínimo 2 e no máximo 50 caracteres!');
         }
 
