@@ -23,6 +23,8 @@ yarn add axios
 
 yarn add toastr
 
+yarn add primeicons
+
 ## Obtendo o código-fonte:
 Com o Git instalado em seu computador, abre um terminal de linha de comando (no Windows o Git Bash ou Terminal) .
 
