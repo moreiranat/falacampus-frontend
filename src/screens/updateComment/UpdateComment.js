@@ -12,35 +12,36 @@ import CommentApiService from '../../services/CommentApiService';
 class UpdateComment extends React.Component {
 
     state = {
-        id: 0,
-        title: '',
-        message: '',
-        commentType: '',
-        user: {
-            id: 0
-            // name: '',
-            // email: '',
-            // registration: 0,
-            // role: '',
-            // departamentId: 0
-        },
-        departament: {
-            departamentId: 0
-            // name:''
-        }
-    }
-    constructor() {
-        super();
-        this.service = new CommentApiService();
-    }
-
+         id: 0,
+         title: '',
+         message: '',
+         commentType: '',
+         user: {
+             id: 0,
+             name: '',
+             email: '',
+             registration: 0,
+             role: '',
+             departamentId: 0
+         },
+         departament: {
+             departamentId: 0,
+             name:''
+         }
+     }
+    
     componentDidMount() {
         const params = this.props.match.params;
         const id = params.id;
         this.findById(id);
 
-        // this.service.findById(this.props.match.params.id)
+         //this.service.findById(this.props.match.params.id)
 
+    }
+    constructor() {
+        super();
+        this.service = new CommentApiService();
+       
     }
 
     // componentWillUnmount(){

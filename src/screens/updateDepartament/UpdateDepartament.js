@@ -16,7 +16,7 @@ class UpdateDepartament extends React.Component {
         id: "",
         name: '',
     }
-    constructor(){
+    constructor() {
         super();
         this.service = new DepartamentApiService();
     }
@@ -27,8 +27,8 @@ class UpdateDepartament extends React.Component {
     }
 
     findById = () => {
-       // axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
-       this.service.find(this.state.id)
+        // axios.get(`http://localhost:8080/api/departament?id=${departamentId}`)
+        this.service.find(this.state.id)
             .then(response => {
                 const departament = response.data[0];
                 const id = departament.id;
@@ -45,8 +45,8 @@ class UpdateDepartament extends React.Component {
 
     validate = () => {
         const errors = [];
-    
-        if(!this.state.name){
+
+        if (!this.state.name) {
             errors.push('Campo Nome é obrigatório!');
         }
 
@@ -57,7 +57,7 @@ class UpdateDepartament extends React.Component {
 
         const errors = this.validate();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             errors.forEach((message, index) => {
                 showErrorMessage(message);
             });
