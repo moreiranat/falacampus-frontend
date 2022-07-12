@@ -1,0 +1,21 @@
+export type Comment = {
+    id: number;
+    title: string;
+    message: string;
+    commentType: string;
+    creationDate: Date;
+    authorId: number;
+    departamentId: number;
+}
+
+export type CommentPage = {
+    content: Comment[];
+    last: boolean;
+    totalPages: number;
+    totalElements: number;
+    size: number;
+    number: number;
+    first: boolean;
+    numberOfElements: number;
+    empty: boolean;
+}

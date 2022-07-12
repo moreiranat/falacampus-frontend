@@ -11,6 +11,7 @@ import CommentsTable from '../../components/CommentsTable'
 import CommentApiService from '../../services/CommentApiService';
 class ViewComments extends React.Component {
 
+
     state = {
         title: '',
         id: 0,

@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
+import Pagination from './Pagination';
 import './Style.css';
+
+let PageSize = 10;
+//let data = 30;
 
 export default props => {
 
+    const [currentPage, setCurrentPage] = useState(1);
+    //let rows;
+    
     const rows = props.comments.map(comment => {
+        
+        // const currentTableData = useMemo(() => {
+        // const firstPageIndex = (currentPage - 1) * PageSize;
+        // const lastPageIndex = firstPageIndex + PageSize;
+        // return data.slice(firstPageIndex, lastPageIndex);
+        // }, [currentPage]);
+            
         return (
+            
             <tr key={comment.id}>
                 {/* <td>{comment.id}</td> */}
                 <td>{comment.title}</td>
@@ -38,6 +53,7 @@ export default props => {
     } )
 
     return (
+    <>
 
         <table className="table table-hover">
             <thead>
@@ -58,5 +74,17 @@ export default props => {
                 {rows}
             </tbody>
         </table>
+
+        {/* <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={data.length}
+            pageSize={PageSize}
+            onPageChange={page => setCurrentPage(page)}
+        /> */}
+
+    </>
     )
+
+    
 }
