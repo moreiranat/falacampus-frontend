@@ -55,7 +55,7 @@ class UpdateUser extends React.Component {
                 const password = user.password;
                 const departament = user.departament;
 
-                this.setState({ id, name, email, registration, role, password, departament });
+                this.setState({ id:id, name:name, email:email, registration:registration, role:role, password:password, departament:departament });
 
             }
 

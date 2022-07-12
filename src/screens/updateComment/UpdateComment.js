@@ -53,7 +53,7 @@ class UpdateComment extends React.Component {
         this.service.find(commentId)
 
             .then(response => {
-                const comment = response.data[0];
+                const comment = response.data;
                 const id = comment.id;
                 const title = comment.title;
                 const message = comment.message;
@@ -61,7 +61,8 @@ class UpdateComment extends React.Component {
                 const user = comment.user;
                 const departament = comment.departament;
 
-                this.setState({ id, title, message, commentType, user, departament });
+                this.setState({ id:id, title:title, message:message, commentType:commentType, user:user, departament:departament});
+                console.log(this.state.id,this.state.departament);
             }
 
             ).catch(error => {
@@ -104,9 +105,9 @@ class UpdateComment extends React.Component {
             {
                 title: this.state.title,
                 message: this.state.message,
-                commentType: this.state.commentType
-                // user: this.state.user.id,
-                // departamentId: this.state.departament.id
+                commentType: this.state.commentType,
+                 user: this.state.user.id,
+                 departamentId: this.state.departament.id
             }
         ).then(response => {
             console.log(response);

@@ -2,7 +2,7 @@ import React from 'react';
 import './ViewComments.css';
 import '../../components/Style.css';
 import { withRouter } from 'react-router-dom';
-import CommentsCard from '../../components/CommentsCard';
+//import CommentsCard from '../../components/CommentsCard';
 
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
@@ -46,10 +46,9 @@ class ViewComments extends React.Component {
     componentDidMount() {
         this.findAll();
     }
-    
-    // componentWillUnmount() {
-    //     this.clear();
-    // }
+//   componentWillUnmount() {
+//        this.clear();
+//      }
 
     delete = (commentId) => {
 
