@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import Pagination from './Pagination';
+//import Pagination from './Pagination';
 import './Style.css';
 
 let PageSize = 10;
