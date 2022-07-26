@@ -15,7 +15,7 @@ export default props => {
         // const currentTableData = useMemo(() => {
         // const firstPageIndex = (currentPage - 1) * PageSize;
         // const lastPageIndex = firstPageIndex + PageSize;
-        // return data.slice(firstPageIndex, lastPageIndex);
+        // return adta.slice(firstPageIndex, lastPageIndex);
         // }, [currentPage]);
             
         return (

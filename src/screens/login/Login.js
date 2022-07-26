@@ -1,26 +1,74 @@
 import React from 'react';
 import './Login.css';
 import '../../components/Style.css';
+
+import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
 
 import { withRouter } from 'react-router-dom';
 
+import { AuthContext } from '../../main/SessionProvider';
+
 class Login extends React.Component {
 
+    // state = {
+    //     registration: 0,
+    //     password: ''
+    // }
+    // login = () => {
+    //     this.context.login(
+    //         this.state.registration,
+    //         this.state.password
+    //     ).then(user => 
+    //         {
+    //             if (this.state.registration === 201815020003 && this.state.password === "12345678") {
+    //                 showSuccessMessage(this.state.registration + ", você está logado!");
+    //                 this.props.history.push('/');
+        
+    //             } else {
+    //                 showErrorMessage("Dados incorretos! Login inválido");
+    //             }
+
+    //         }
+    //     ).catch(error => 
+    //         {
+    //             showErrorMessage('Erro processado autenticação:', error);
+    //         }
+    //     );
+
+    
+    // }
+
     state = {
-        email: '',
+        registration: 0,
         password: ''
     }
-    login = () => {
-        if (this.state.email === "monteiro@ifpb.edu.br" && this.state.password === "12345678") {
-            console.log(this.state.email + ", você está logado!")
-            this.props.history.push('/');
 
-        } else {
-            alert("Os dados estão incorretos. Por favor, digite-os novamente!")
-        }
+    login = () => {
+        this.context.login(
+            this.state.registration,
+            this.state.password
+        ).then(user => 
+            {
+                if (user) {
+                    showSuccessMessage(`${user.registration} logado!`);
+                    this.props.history.push('/viewUsers');
+        
+                } else {
+                    showErrorMessage("Dados incorretos! Login inválido");
+                }
+
+            }
+        ).catch(error => 
+            {
+                showErrorMessage('Erro processado autenticação:', error);
+            }
+        );
+
+    
     }
 
     create = () => {
@@ -32,7 +80,7 @@ class Login extends React.Component {
 
             <div className="container">
                 <div className='row'>
-                    <div className='col-md-12' style={this.styles.colMd12}>
+                    <div className='col-md-12'>
                         <div className="bs-docs-section">
                             <Card title='Login'>
                                 <div className='row'>
@@ -40,18 +88,22 @@ class Login extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label='E-mail: *'>
-                                                        <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail acadêmico" value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} />
+                                                    <FormGroup label='Matrícula: *'>
+                                                        <input type="number" className="form-control" 
+                                                        id="inputRegistration" aria-describedby="emailHelp" 
+                                                        placeholder="Digite sua matrícula" 
+                                                        value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
                                                     </FormGroup> 
                                                     <br />   
                                                     <FormGroup label='Senha: *'>
-                                                        <input type="password" className="form-control" id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
+                                                        <input type="password" className="form-control" 
+                                                        id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <button onClick={this.login} type="button" className="btn btn-success">
+                                                    <button onClick={this.login} type="button" className="btn btn-success btn-space">
                                                         <i className="pi pi-save"></i> Entrar
                                                     </button>
-                                                    <button onClick={this.create} type="button" className="btn btn-danger">
+                                                    <button onClick={this.create} type="button" className="btn btn-danger btn-space">
                                                         <i className="pi pi-times"></i> Cadastrar
                                                     </button>                                                   
                                                 </fieldset>
@@ -67,11 +119,6 @@ class Login extends React.Component {
         );
     }
 
-    styles = {
-        colMd12: {
-            position: 'relative'
-        }
-    } 
 }
-
+Login.contextType = AuthContext;
 export default withRouter(Login);

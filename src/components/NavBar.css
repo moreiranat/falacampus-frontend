@@ -13,6 +13,7 @@
     flex-direction: row;
 }
 
+
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }

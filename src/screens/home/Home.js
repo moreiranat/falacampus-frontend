@@ -31,6 +31,8 @@ class Home extends React.Component {
                 </div>
 
             </div>
+
+            <div className="home">
                 <div>
 
                     {/* <div className="section-one">
@@ -56,20 +58,21 @@ class Home extends React.Component {
                         
                     </div> */}
                     <div className="section-two">
-                        <center><p className="post">Projeto desenvolvido por Nataly Lucena,
+                        <center><p className="post">
+                            Projeto desenvolvido por Nataly Lucena,
                             Patrícia dos Santos e Rosenato Barreto para a Disciplina de Desenvolvimento
                             de Aplicações Corporativas com o Professor Elenilson Vieira, no 5° Período
                             do Curso de Análise e Desenvolvimento de Sistemas do IFPB, Campus Monteiro.</p></center>
 
                     </div>
 
-                </div></>
+                </div>
+
+                    
 
 
 
-
-
-            // <div className="container">
+            {/* // <div className="container">
             //     <div className='row'>
             //         <div className='col-md-12' style={this.styles.colMd12}>
             //             <div className="bs-docs-section">
@@ -84,19 +87,11 @@ class Home extends React.Component {
             //             </div>
             //         </div>
             //     </div>
-            // </div>
-        );
+            // </div> */}
+            </div>
+            </>
+        )
     }
-
-    // styles = {
-    //     colMd12: {
-    //         position: 'relative'
-    //     },
-    //     cardBg: {
-    //         outerWidth: '20rem',
-    //         margin: '50px 0 0 0'
-    //     }
-    // }
 }
 
 export default withRouter(Home);
