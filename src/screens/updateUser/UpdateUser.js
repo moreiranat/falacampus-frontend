@@ -42,8 +42,8 @@ class UpdateUser extends React.Component {
     //     this.clear();
     // }
 
-    findById = () => {
-        this.service.find(this.state.id)
+    findById = (id) => {
+        this.service.find(id)
             .then(response => {
                 console.log(response);
                 const user = response.data;
@@ -99,9 +99,9 @@ class UpdateUser extends React.Component {
             errors.push('A Senha deve conter ao menos um caractere especial.')
         }
 
-        if (!this.state.departamentId) {
-            errors.push('É obrigatório informar o Departamento!');
-        }
+        // if (!this.state.departamentId) {
+        //     errors.push('É obrigatório informar o Departamento!');
+        // }
 
         return errors;
     };
@@ -205,14 +205,14 @@ class UpdateUser extends React.Component {
                                                     <br />
                                                     <FormGroup label="Departamento: *" htmlFor="inputDepartamentId">
                                                         <br />
-                                                        <SelectDepartament onChange={this.inputSelectDepartament} />
+                                                        <SelectDepartament id="select-departament" onChange={this.inputSelectDepartament} />
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <button onClick={this.update} type="button" className="btn btn-success">
+                                                    <button onClick={this.update} type="button" id="button-save" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
+                                                    <button onClick={this.cancel} type="button" id="button-cancel" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                 </fieldset>

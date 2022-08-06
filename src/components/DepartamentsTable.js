@@ -9,12 +9,12 @@ export default props => {
                 {/* <td>{departament.id}</td> */}
                 <td>{departament.name}</td>
                 <td className="col-md-2">
-                    <button type="button" title="Editar"
+                    <button type="button" title="Editar" id="button_editar" 
                         className="btn btn-warning"
                         onClick={e => props.edit(departament.id)}>
                         <i className="pi pi-pencil"></i>
                     </button>
-                    <button type="button" title="Excluir"
+                    <button type="button" title="Excluir" id="button_excluir"
                         className="btn btn-primary btn-delete"
                         onClick={e => props.delete(departament.id)}>
                         <i className="pi pi-trash"></i>

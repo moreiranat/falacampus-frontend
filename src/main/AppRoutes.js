@@ -18,11 +18,9 @@ import CreateComment from "../screens/createComment/CreateComment";
 import ViewComments from "../screens/viewComments/ViewComments";
 import UpdateComment from "../screens/updateComment/UpdateComment";
 import DeleteComment from "../screens/deleteComment/DeleteComment";
-
 import CreateAnswer from "../screens/createAnswer/CreateAnswer";
 import ViewAnswers from "../screens/viewAnswer/ViewAnswers";
 import UpdateAnswer from "../screens/updateAnswer/UpdateAnswer";
-
 import { AuthConsumer } from '../main/SessionProvider';
 
 function RestrictedRoute({ component: Component, show, ...props }) {
@@ -50,7 +48,7 @@ function AppRoutes(props) {
                 <Route component={CreateDepartament} path="/createDepartament" />
 
                 {/* <RestrictedRoute show={props.isAuthenticated} component={CreateDepartament} path="/createDepartament" /> */}
-                <Route component={ViewDepartaments} path="/viewDepartaments" />
+                <RestrictedRoute show={props.isAuthenticated} component={ViewDepartaments} path="/viewDepartaments" />
                 <RestrictedRoute show={props.isAuthenticated} component={UpdateDepartament} path="/updateDepartament/:id" />
                 <RestrictedRoute show={props.isAuthenticated} component={DeleteDepartament} path="/deleteDepartament" />
 

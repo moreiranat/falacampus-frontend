@@ -184,10 +184,10 @@ class UpdateComment extends React.Component {
                                                         <input type="long" className="form-control" id="inputDepartamentId" value={this.state.departament} name="departamentId" onChange={(e) => { this.setState({ 'departament.id': e.target.value }) }} />
                                                     </FormGroup>
                                                     <br /> */}
-                                                    <button onClick={this.update} type="button" className="btn btn-success">
+                                                    <button onClick={this.update} type="button" id="button-update" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Atualizar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
+                                                    <button onClick={this.cancel} type="button" id="button-cancel" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                 </fieldset>

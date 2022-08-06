@@ -14,34 +14,6 @@ import { AuthContext } from '../../main/SessionProvider';
 
 class Login extends React.Component {
 
-    // state = {
-    //     registration: 0,
-    //     password: ''
-    // }
-    // login = () => {
-    //     this.context.login(
-    //         this.state.registration,
-    //         this.state.password
-    //     ).then(user => 
-    //         {
-    //             if (this.state.registration === 201815020003 && this.state.password === "12345678") {
-    //                 showSuccessMessage(this.state.registration + ", você está logado!");
-    //                 this.props.history.push('/');
-        
-    //             } else {
-    //                 showErrorMessage("Dados incorretos! Login inválido");
-    //             }
-
-    //         }
-    //     ).catch(error => 
-    //         {
-    //             showErrorMessage('Erro processado autenticação:', error);
-    //         }
-    //     );
-
-    
-    // }
-
     state = {
         registration: 0,
         password: ''
@@ -55,7 +27,7 @@ class Login extends React.Component {
             {
                 if (user) {
                     showSuccessMessage(`${user.registration} logado!`);
-                    this.props.history.push('/viewUsers');
+                    this.props.history.push('/createComment');
         
                 } else {
                     showErrorMessage("Dados incorretos! Login inválido");
@@ -67,9 +39,31 @@ class Login extends React.Component {
                 showErrorMessage('Erro processado autenticação:', error);
             }
         );
+    }
+
+    // login = () => {
+    //         this.context.login(
+    //             this.state.registration,
+    //             this.state.password
+    //         ).then(user => 
+    //             {
+    //                 if (this.state.registration === 201815020003 && this.state.password === "1234567890") {
+    //                     showSuccessMessage(this.state.registration + ", você está logado!");
+    //                     this.props.history.push('/');
+            
+    //                 } else {
+    //                     showErrorMessage("Dados incorretos! Login inválido");
+    //                 }
+    
+    //             }
+    //         ).catch(error => 
+    //             {
+    //                 showErrorMessage('Erro processado autenticação:', error);
+    //             }
+    //         );
 
     
-    }
+    // }
 
     create = () => {
         this.props.history.push('/createUser');
@@ -100,10 +94,10 @@ class Login extends React.Component {
                                                         id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                     </FormGroup>
                                                     <br />
-                                                    <button onClick={this.login} type="button" className="btn btn-success btn-space">
+                                                    <button onClick={this.login} type="button" id="button-login" className="btn btn-success btn-space">
                                                         <i className="pi pi-save"></i> Entrar
                                                     </button>
-                                                    <button onClick={this.create} type="button" className="btn btn-danger btn-space">
+                                                    <button onClick={this.create} type="button" id="button-create" className="btn btn-danger btn-space">
                                                         <i className="pi pi-times"></i> Cadastrar
                                                     </button>                                                   
                                                 </fieldset>

@@ -31,26 +31,30 @@ export default class AuthenticationApiService extends ApiService {
             return null;
         }
 
-
+        
     }
-
+    
+    //Checa se o token é válido
+    isTokenValid(token){
+        return this.post('/isTokenValid', token);
+    }
     
     //Remove os dados do usuário
     logout(){
-        this.StorageService.removeItem(LOGGED_USER);
-        this.StorageService.removeItem(TOKEN);
+        this.storageService.removeItem(LOGGED_USER);
+        this.storageService.removeItem(TOKEN);
         
         return this.post('/logout');
     }
 
     //Retorna o usuário logado armazenado no storageService
     getLoggedUser(){
-        return this.StorageService.getItem(LOGGED_USER);
+        return this.storageService.getItem(LOGGED_USER);
     }
     
     //Retorna o token armazenado no storageService
     getToken(){
-        return this.StorageService.getItem(TOKEN);
+        return this.storageService.getItem(TOKEN);
     }
 
     //Pega o usuário logado e o token do storageService e envia o token para a api para checar se é válido
@@ -70,9 +74,5 @@ export default class AuthenticationApiService extends ApiService {
         return response.data;
     }
 
-    //Checa se o token é válido
-    isTokenValid(token){
-        return this.post('/isTokenValid', token);
-    }
 
 }

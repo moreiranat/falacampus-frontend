@@ -90,10 +90,10 @@ class CreateDepartament extends React.Component {
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <button onClick={this.create} type="button" className="btn btn-success">
+                                                    <button onClick={this.create} type="button" id="button-save" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Salvar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
+                                                    <button onClick={this.cancel} type="button" id="buttonCancel" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                     <br />

@@ -23,7 +23,7 @@ class CreateAnswer extends React.Component {
     componentDidMount() {
         const params = this.props.match.params;
         const id = params.id;
-        this.findById(id);
+        this.findCommentById(id);
     }
 
     // componentWillUnmount() {
@@ -34,12 +34,12 @@ class CreateAnswer extends React.Component {
         this.service = new AnswerApiService();
     }
 
-    findById = (commentId) => {
+    findCommentById = (commentId) => {
         //axios.get(`http://localhost:8080/api/comment?id=${commentId}`)
         this.service.find(commentId)
 
             .then(response => {
-                const comment = response.data[0];
+                const comment = response.data;
                 const id = comment.id;
                 const title = comment.title;
                 const message = comment.message;
@@ -143,7 +143,7 @@ class CreateAnswer extends React.Component {
                                                     </p>
                                                     <FormGroup label="Selecione o Comentário para o envio da resposta: *" htmlFor="inputDepartamentDestination">
                                                         <br />
-                                                        <SelectComment onChange={this.handleInputSelectComment} />
+                                                        <SelectComment id="select-comment" onChange={this.handleInputSelectComment} />
                                                     </FormGroup>
                                                     <br />
                                                     {/* <FormGroup label="Id do Comentário: *" htmlFor="inputCommentId">
@@ -168,14 +168,14 @@ class CreateAnswer extends React.Component {
                                                     </FormGroup>   */}
                                                     <FormGroup label="Autor do Comentário: *" htmlFor="inputUserAuthor">
                                                         <br />
-                                                        <SelectUser onChange={this.handleInputSelectUser} />
+                                                        <SelectUser id="select-author" onChange={this.handleInputSelectUser} />
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <button onClick={this.create} type="button" className="btn btn-success">
+                                                    <button onClick={this.create} type="button" id="button-answer" className="btn btn-success">
                                                         <i className="pi pi-save"></i> Responder
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
+                                                    <button onClick={this.cancel} type="button" id="button-cancel" className="btn btn-danger btn-cancel">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                 </fieldset>

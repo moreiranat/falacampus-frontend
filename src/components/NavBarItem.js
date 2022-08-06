@@ -4,8 +4,8 @@ function NavBarItem({render, ...props}){
 
     if(render){
         return(
-            <li className="nav-item dropdown">          
-                    <a className="dropdown-item" onClick={props.onClick} href={props.href}>{props.label}</a>           
+            <li className="nav-item">          
+                    <a className="nav-link" onClick={props.onClick} href={props.href}>{props.label}</a>           
             </li>
         )
 

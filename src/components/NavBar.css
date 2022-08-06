@@ -1,17 +1,40 @@
 .bg-nav{
     background-color: rgb(243, 255, 243);
-    font-weight: 700;
-    font-size: 18px;
-    font-display: right;
-    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: relative;
     border-color: rgba(8, 78, 0, 0.281);
-    
 }
 
 .dropdown-item {
     display: flex;
     flex-direction: row;
+    
 }
+
+.menu-item-display {
+    position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: right;
+  align-items: right;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+    
+}
+
+.bg-nav > .nav-items > a {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+  }
 
 
 /* ============ desktop view ============ */

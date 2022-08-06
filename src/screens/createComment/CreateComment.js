@@ -162,7 +162,7 @@ class CreateComment extends React.Component {
                                                     </FormGroup>                                                     */}
                                                     <FormGroup label="Autor do Comentário: *" htmlFor="inputUserAuthor">
                                                         <br />
-                                                        <SelectUser onChange={this.handleInputSelectUser}/>
+                                                        <SelectUser onChange={this.handleInputSelectUser} id="inputUserAuthor"/>
                                                     </FormGroup>
                                                     <br />
                                                     {/* <FormGroup label="Id do Departamento: *" htmlFor="inputDepartamentId">
@@ -174,14 +174,14 @@ class CreateComment extends React.Component {
                                                     
                                                     <FormGroup label="Selecione o Departamento para o envio da crítica, sugestão ou elogio: *" htmlFor="inputDepartamentDestination">
                                                         <br />
-                                                        <SelectDepartament onChange={this.handleInputSelectDepartament}/>
+                                                        <SelectDepartament onChange={this.handleInputSelectDepartament} id="inputDepartamentDestination"/>
                                                     </FormGroup>
                                                     <br />
                                                     <br />
-                                                    <button onClick={this.create} type="button" className="btn btn-success">
+                                                    <button onClick={this.create} type="button" className="btn btn-success" id="button_salvar">
                                                         <i className="pi pi-save"></i> Salvar
                                                     </button>
-                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel">
+                                                    <button onClick={this.cancel} type="button" className="btn btn-danger btn-cancel" id="button_cancelar">
                                                         <i className="pi pi-times"></i> Cancelar
                                                     </button>
                                                 </fieldset>

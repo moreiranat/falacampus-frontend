@@ -67,8 +67,8 @@ class ViewAnswers extends React.Component {
     //     this.props.history.push(`/updateAnswer/${answerId}`);
     // }
 
-    createAnswer = () => {
-        this.props.history.push(`/createAnswer`);
+    createAnswer = (commentId) => {
+        this.props.history.push(`/createAnswer/${commentId}`);
     }
 
     find = () => {
@@ -173,7 +173,7 @@ class ViewAnswers extends React.Component {
                                             <input type="long" className="form-control" id="inputAuthorIdId" placeholder="Digite o Id do Author" value={this.state.authorId} onChange={(e) => { this.setState({ authorId: e.target.value }) }} />
                                         </FormGroup>
                                         <br /> */}
-                                        <button onClick={this.find} type="button" className="btn btn-info">
+                                        <button onClick={this.find} type="button" id="btn-search" className="btn btn-info">
                                             <i className="pi pi-search"></i> Pesquisar
                                         </button>
                                         {/* <br />
@@ -188,7 +188,7 @@ class ViewAnswers extends React.Component {
                         <br />
                         <div className="row">
                             <div className="col-md-12">
-                                <button onClick={this.createAnswer} type="button" className="btn btn-success btn-cadastrar">
+                                <button onClick={this.createAnswer} type="button" id="new-answer" className="btn btn-success btn-cadastrar">
                                     <i className="pi pi-plus"></i> Cadastrar Nova Resposta
                                 </button>
                             </div>
