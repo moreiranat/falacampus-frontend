@@ -15,18 +15,18 @@ import { AuthContext } from '../../main/SessionProvider';
 class Login extends React.Component {
 
     state = {
-        registration: 0,
+        username: 0,
         password: ''
     }
 
     login = () => {
         this.context.login(
-            this.state.registration,
+            this.state.username,
             this.state.password
         ).then(user => 
             {
                 if (user) {
-                    showSuccessMessage(`${user.registration} logado!`);
+                    showSuccessMessage(`${user.username} logado!`);
                     this.props.history.push('/createComment');
         
                 } else {
@@ -84,9 +84,9 @@ class Login extends React.Component {
                                                 <fieldset>
                                                     <FormGroup label='Matrícula: *'>
                                                         <input type="number" className="form-control" 
-                                                        id="inputRegistration" aria-describedby="emailHelp" 
+                                                        id="inputusername" aria-describedby="emailHelp" 
                                                         placeholder="Digite sua matrícula" 
-                                                        value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
+                                                        value={this.state.username} onChange={(e) => { this.setState({ username: e.target.value }) }} />
                                                     </FormGroup> 
                                                     <br />   
                                                     <FormGroup label='Senha: *'>

@@ -82,7 +82,7 @@ class UpdateComment extends React.Component {
 
         if (!this.state.message) {
             errors.push('Campo Mensagem é obrigatório!');
-        } else if(!this.state.message.match(/[A-z 0-9]{10,255}$/)) {
+        } else if(!this.state.message .match(/[A-z 0-9]{10,255}$/)) {
             errors.push('A mensagem do Comentário deve ter no mínimo 10 e no máximo 255 caracteres!');
         }
 

@@ -9,9 +9,9 @@ export default class AuthenticationApiService extends ApiService {
     }
 
     // Authentication - Função assíncrona
-    async login(registration, password){
+    async login(username, password){
         const loginDTO = {
-            "registration": registration,
+            "username": username,
             "password": password
         };
 

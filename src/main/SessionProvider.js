@@ -29,10 +29,10 @@ export default class SessionProvider extends React.Component {
 
     }
 
-    login = async (registration, password) => {
+    login = async (username, password) => {
         const user = await this.service.login(
-            registration, 
-            password
+            username, 
+            password 
         );
 
         if(user){
