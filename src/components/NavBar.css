@@ -29,7 +29,8 @@
 
 .bg-nav > .nav-items > a {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 56px;
+    font-weight: 400;
     text-decoration: none;
     margin: 15px;
     position: relative;

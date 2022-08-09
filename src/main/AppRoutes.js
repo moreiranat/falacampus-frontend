@@ -45,9 +45,8 @@ function AppRoutes(props) {
             <Switch>
                 <Route component={Home} path="/" exact />
                 <Route component={Login} path="/login" />
-                <Route component={CreateDepartament} path="/createDepartament" />
 
-                {/* <RestrictedRoute show={props.isAuthenticated} component={CreateDepartament} path="/createDepartament" /> */}
+                <RestrictedRoute show={props.isAuthenticated} component={CreateDepartament} path="/createDepartament" /> 
                 <RestrictedRoute show={props.isAuthenticated} component={ViewDepartaments} path="/viewDepartaments" />
                 <RestrictedRoute show={props.isAuthenticated} component={UpdateDepartament} path="/updateDepartament/:id" />
                 <RestrictedRoute show={props.isAuthenticated} component={DeleteDepartament} path="/deleteDepartament" />
@@ -64,7 +63,7 @@ function AppRoutes(props) {
 
                 <RestrictedRoute show={props.isAuthenticated} component={CreateAnswer} path="/createAnswer" />
                 <RestrictedRoute show={props.isAuthenticated} component={ViewAnswers} path="/viewAnswer" />
-                <RestrictedRoute show={props.isAuthenticated} component={UpdateAnswer} path="/updateAnswer/:id" />
+                
             </Switch>
         </BrowserRouter>
     );

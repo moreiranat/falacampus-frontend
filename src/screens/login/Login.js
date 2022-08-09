@@ -1,21 +1,18 @@
 import React from 'react';
 import './Login.css';
 import '../../components/Style.css';
-
 import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
 import { showSuccessMessage, showErrorMessage } from '../../components/Toastr';
-
 import { withRouter } from 'react-router-dom';
-
 import { AuthContext } from '../../main/SessionProvider';
 
 class Login extends React.Component {
 
     state = {
-        username: 0,
+        username: '',
         password: ''
     }
 
@@ -26,7 +23,7 @@ class Login extends React.Component {
         ).then(user => 
             {
                 if (user) {
-                    showSuccessMessage(`${user.username} logado!`);
+                    showSuccessMessage(`${user.username}, você está logado!`);
                     this.props.history.push('/createComment');
         
                 } else {
@@ -40,30 +37,6 @@ class Login extends React.Component {
             }
         );
     }
-
-    // login = () => {
-    //         this.context.login(
-    //             this.state.registration,
-    //             this.state.password
-    //         ).then(user => 
-    //             {
-    //                 if (this.state.registration === 201815020003 && this.state.password === "1234567890") {
-    //                     showSuccessMessage(this.state.registration + ", você está logado!");
-    //                     this.props.history.push('/');
-            
-    //                 } else {
-    //                     showErrorMessage("Dados incorretos! Login inválido");
-    //                 }
-    
-    //             }
-    //         ).catch(error => 
-    //             {
-    //                 showErrorMessage('Erro processado autenticação:', error);
-    //             }
-    //         );
-
-    
-    // }
 
     create = () => {
         this.props.history.push('/createUser');
@@ -85,7 +58,7 @@ class Login extends React.Component {
                                                     <FormGroup label='Matrícula: *'>
                                                         <input type="number" className="form-control" 
                                                         id="inputusername" aria-describedby="emailHelp" 
-                                                        placeholder="Digite sua matrícula" 
+                                                        placeholder="Digite sua matrícula de aluno ou servidor" 
                                                         value={this.state.username} onChange={(e) => { this.setState({ username: e.target.value }) }} />
                                                     </FormGroup> 
                                                     <br />   
@@ -112,6 +85,7 @@ class Login extends React.Component {
             </div>
         );
     }
+
 
 }
 Login.contextType = AuthContext;

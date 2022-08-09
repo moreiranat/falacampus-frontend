@@ -27,40 +27,6 @@ function NavBar(props) {
                         <NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Listar Respostas" />
                         <NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" />
 
-                        {/* <a className="nav-link">Login</a>
-                        <NavBarItem href="/login" label="Login"/>                  
-
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Departamento</a>
-                            <ul className="dropdown-menu">
-                                <li><NavBarItem render={props.isAuthenticated} href="/createDepartament" label="Cadastrar Departamento" /></li>
-                                <li><NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Listar Departamentos" /></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Usuário</a>
-                            <ul className="dropdown-menu">
-                                <li><NavBarItem render={props.isAuthenticated} href="/createUser" label="Cadastrar Usuário" /></li>
-                                <li><NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Listar Usuários" /></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Comentário</a>
-                            <ul className="dropdown-menu">
-                                <li><NavBarItem render={props.isAuthenticated} href="/createComment" label="Cadastrar Comentário" /></li>
-                                <li><NavBarItem render={props.isAuthenticated} href="/viewComments" label="Listar Comentários" /></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resposta</a>
-                            <ul className="dropdown-menu">
-                                <li><NavBarItem render={props.isAuthenticated} href="/CreateAnswer" label="Cadastrar Resposta" /></li>
-                                <li><NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Listar Respostas" /></li>
-                            </ul>
-                        </li>
-                        
-                        <a className="nav-link">Sair</a>
-                        <li><NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" /></li> */}
                     </ul>
                 </div>
             </div>
@@ -110,3 +76,41 @@ document.addEventListener("DOMContentLoaded", function () {
     // end if innerWidth
 });
     // DOMContentLoaded  end
+
+
+
+
+                            {/* <a className="nav-link">Login</a>
+                        <NavBarItem href="/login" label="Login"/>                  
+
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Departamento</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem render={props.isAuthenticated} href="/createDepartament" label="Cadastrar Departamento" /></li>
+                                <li><NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Listar Departamentos" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Usuário</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem render={props.isAuthenticated} href="/createUser" label="Cadastrar Usuário" /></li>
+                                <li><NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Listar Usuários" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Comentário</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem render={props.isAuthenticated} href="/createComment" label="Cadastrar Comentário" /></li>
+                                <li><NavBarItem render={props.isAuthenticated} href="/viewComments" label="Listar Comentários" /></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resposta</a>
+                            <ul className="dropdown-menu">
+                                <li><NavBarItem render={props.isAuthenticated} href="/CreateAnswer" label="Cadastrar Resposta" /></li>
+                                <li><NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Listar Respostas" /></li>
+                            </ul>
+                        </li>
+                        
+                        <a className="nav-link">Sair</a>
+                        <li><NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" /></li> */}
