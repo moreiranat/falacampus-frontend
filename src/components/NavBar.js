@@ -17,14 +17,14 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav me-auto nav-items">
                         <a className="nav-link" href="/login">Login</a>
-                        <NavBarItem render={props.isAuthenticated} href="/createDepartament" label="Cadastrar Departamento" />
-                        <NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Listar Departamentos" />
-                        <NavBarItem render={props.isAuthenticated} href="/createUser" label="Cadastrar Usuário" />
-                        <NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Listar Usuários" />
-                        <NavBarItem render={props.isAuthenticated} href="/createComment" label="Cadastrar Comentário" />
-                        <NavBarItem render={props.isAuthenticated} href="/viewComments" label="Listar Comentários" />
-                        <NavBarItem render={props.isAuthenticated} href="/CreateAnswer" label="Cadastrar Resposta" />
-                        <NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Listar Respostas" />
+                        {/* <NavBarItem render={props.isAuthenticated} href="/createDepartament" label="Criar Departamento" /> */}
+                        <NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Departamentos" />
+                        <NavBarItem render={props.isAuthenticated} href="/createUser" label="Criar Usuário" />
+                        <NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Usuários" />
+                        <NavBarItem render={props.isAuthenticated} href="/createComment" label="Criar Comentário" />
+                        <NavBarItem render={props.isAuthenticated} href="/viewComments" label="Comentários" />
+                        {/* <NavBarItem render={props.isAuthenticated} href="/CreateAnswer" label="Cadastrar Resposta" /> */}
+                        <NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Respostas" />
                         <NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" />
 
                     </ul>

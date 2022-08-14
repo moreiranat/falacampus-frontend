@@ -4,6 +4,8 @@ import StorageService from './StorageService';
 export const LOGGED_USER = 'loggedUser';
 export const TOKEN = 'token';
 
+//const baseURL = process.env.REACT_APP_API_URL;
+
 export const httpClient = axios.create({
     baseURL:'http://localhost:8080/api',
     withCredentials: true,

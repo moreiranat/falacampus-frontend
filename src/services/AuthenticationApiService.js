@@ -1,42 +1,73 @@
 import ApiService, {LOGGED_USER, TOKEN} from './ApiService';
 import StorageService from './StorageService';
 
-export default class AuthenticationApiService extends ApiService {
+export class AuthenticationApiService extends ApiService {
 
     constructor(){
         super('');
         this.storageService = new StorageService();
+        const token = this.storageService.getItem(TOKEN);
+        this.registerToken(token);
     }
 
     // Authentication - Função assíncrona
     async login(username, password){
-        const loginDTO = {
-            "username": username,
-            "password": password
+        const userDetails = {
+            username,
+            password
+            // "username": username,
+            // "password": password
         };
 
-        try{
+        return this.post("/login", userDetails)
+            .then((response) => {
+                const user = response.data.user;
+                const token = response.data.token;
+
+                this.storageService.setItem(
+                    TOKEN,
+                    token
+                );
+                this.storageService.setItem(LOGGED_USER, user);
+                this.registerToken(token);
+
+                return user;
+            })
+            .catch(error=>null);
+
+        // try{
             
-            const response = await this.post('/login', loginDTO);
-            const user = response.data.user;
-            const token = response.data.token;
+        //     const response = await this.post('/login', loginDTO);
+        //     const user = response.data.user;
+        //     const token = response.data.token;
     
-            this.storageService.setItem(LOGGED_USER, user);
-            this.storageService.setIItem(TOKEN, token);
+        //     this.storageService.setItem(LOGGED_USER, user);
+        //     this.storageService.setItem(TOKEN, token);
     
-            this.registerToken(token);
-            return user;
+        //     this.registerToken(token);
+        //     return user;
     
-        } catch (error){
-            return null;
-        }
+        // } catch (error){
+        //     return null;
+        // }
 
         
     }
     
     //Checa se o token é válido
-    isTokenValid(token){
-        return this.post('/isTokenValid', token);
+    // isTokenValid(token){
+    //     return this.post('/isTokenValid', token);
+    // }
+
+    async isValidToken() {
+        return this.post("/isValidToken", {
+                token: this.storageService.getItem(TOKEN),
+                user: this.storageService.getItem(LOGGED_USER)
+            })
+            .then((response) => {
+                return response.data.valid;
+            })
+            .catch((error) => false);
     }
     
     //Remove os dados do usuário
@@ -74,5 +105,13 @@ export default class AuthenticationApiService extends ApiService {
         return response.data;
     }
 
+    registerToken(token) {
+        if(token) {
+            this.httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        }
+    }
+
 
 }
+
+export default AuthenticationApiService

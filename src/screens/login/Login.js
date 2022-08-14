@@ -11,9 +11,17 @@ import { AuthContext } from '../../main/SessionProvider';
 
 class Login extends React.Component {
 
-    state = {
-        username: '',
-        password: ''
+    // state = {
+    //     username: '',
+    //     password: ''
+    // }
+
+    constructor() {
+        super();
+        this.state = {
+            username: '',
+            password: ''
+        }
     }
 
     login = () => {
@@ -23,17 +31,21 @@ class Login extends React.Component {
         ).then(user => 
             {
                 if (user) {
+                    console.log("If");
                     showSuccessMessage(`${user.username}, você está logado!`);
                     this.props.history.push('/createComment');
         
                 } else {
+                    console.log(user.username);
+                    console.log("Else");
                     showErrorMessage("Dados incorretos! Login inválido");
                 }
 
             }
         ).catch(error => 
             {
-                showErrorMessage('Erro processado autenticação:', error);
+                console.log("Catch");
+                showErrorMessage('Erro! processando autenticação:', error);
             }
         );
     }
