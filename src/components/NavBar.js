@@ -17,11 +17,8 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav me-auto nav-items">
                         <a className="nav-link" href="/login">Login</a>
-                        <a className="nav-link" href="/createDepartament">Criar Departamento</a>
                         <a className="nav-link" href="/viewDepartaments" >Departamentos</a>
-                        <a className="nav-link" href="/createUser" >Criar Usuário</a>
                         <a className="nav-link" href="/viewUsers" >Usuários</a>
-                        <a className="nav-link" href="/createComment">Criar Comentário</a>
                         <a className="nav-link" href="/viewComments">Comentários</a>
                         
                         <a className="nav-link" href="/ViewAnswer">Respostas</a>
