@@ -17,22 +17,12 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav me-auto nav-items">
                         <a className="nav-link" href="/login">Login</a>
-                        <a className="nav-link" href="/viewDepartaments" >Departamentos</a>
-                        <a className="nav-link" href="/viewUsers" >Usuários</a>
-                        <a className="nav-link" href="/viewComments">Comentários</a>
-                        
-                        <a className="nav-link" href="/ViewAnswer">Respostas</a>
 
-
-                        {/* <NavBarItem render={props.isAuthenticated} href="/createDepartament" label="Criar Departamento" />
                         <NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Departamentos" />
-                        <NavBarItem render={props.isAuthenticated} href="/createUser" label="Criar Usuário" />
                         <NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Usuários" />
-                        <NavBarItem render={props.isAuthenticated} href="/createComment" label="Criar Comentário" />
                         <NavBarItem render={props.isAuthenticated} href="/viewComments" label="Comentários" />
-                        <NavBarItem render={props.isAuthenticated} href="/CreateAnswer" label="Cadastrar Resposta" />
                         <NavBarItem render={props.isAuthenticated} href="/ViewAnswer" label="Respostas" />
-                        <NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" /> */}
+                        <NavBarItem render={props.isAuthenticated} href="/login" onClick={props.logout} label="Sair" />
 
                     </ul>
                 </div>
