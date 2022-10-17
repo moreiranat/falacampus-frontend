@@ -2,7 +2,12 @@ import React from "react";
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 
 import Home from "../screens/home/Home";
-import Login from "../screens/login/Login";
+ import Login from "../screens/login/Login";
+
+//TESTE
+//import Login from "../screens/createDepartament/CreateDepartament";
+
+//TESTE
 
 import CreateDepartament from "../screens/createDepartament/CreateDepartament";
 import ViewDepartaments from "../screens/viewDepartaments/ViewDepartaments";
