@@ -1,6 +1,7 @@
 import React from 'react';
+
 import NavBarItem from './NavBarItem';
-import './NavBar.css';
+//import './NavBar.css';
 import Logo from "./Logo";
 import FalaCampus from "../assets/img/Fala_campus-logo.png";
 import { AuthConsumer } from '../main/SessionProvider';
@@ -16,8 +17,9 @@ function NavBar(props) {
 
                 <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav me-auto nav-items">
-                        <a className="nav-link" href="/login">Login</a>
+                        {/* <a className="nav-link" href="/login">Login</a> */}
 
+                        <NavBarItem render={!props.isAuthenticated} href="/login" label="Login" />
                         <NavBarItem render={props.isAuthenticated} href="/viewDepartaments" label="Departamentos" />
                         <NavBarItem render={props.isAuthenticated} href="/viewUsers" label="Usuários" />
                         <NavBarItem render={props.isAuthenticated} href="/viewComments" label="Comentários" />

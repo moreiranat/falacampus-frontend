@@ -17,7 +17,7 @@ class CreateUser extends React.Component {
     state = {
         name: '',
         email: '',
-        registration: 0,
+        username: '',
         role: '',
         password: '',
         departamentId: 0
@@ -46,7 +46,7 @@ class CreateUser extends React.Component {
             errors.push('Informe um E-mail válido!');
         }
 
-        if (!this.state.registration) {
+        if (!this.state.username) {
             errors.push('Campo Matrícula é obrigatório!');
             errors.push('A Matrícula deve conter apenas números!');
         }
@@ -87,7 +87,7 @@ class CreateUser extends React.Component {
             {
                 name: this.state.name,
                 email: this.state.email,
-                registration: this.state.registration,
+                userename: this.state.userename,
                 role: this.state.role,
                 password: this.state.password,
                 departamentId: this.state.departamentId
@@ -144,7 +144,7 @@ class CreateUser extends React.Component {
                                                     </FormGroup>
                                                     <br />
                                                     <FormGroup label="Matrícula: *" htmlFor="inputRegistration">
-                                                        <input type="number" className="form-control" id="inputRegistration" placeholder="Digite o Número da sua Matrícula" value={this.state.registration} onChange={(e) => { this.setState({ registration: e.target.value }) }} />
+                                                        <input type="number" className="form-control" id="inputRegistration" placeholder="Digite o Número da sua Matrícula" value={this.state.username} onChange={(e) => { this.setState({ userename: e.target.value }) }} />
                                                         <small id="registrationHelp" className="form-text text-muted">Apenas números.</small>
                                                     </FormGroup>
                                                     <br />

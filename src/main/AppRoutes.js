@@ -2,7 +2,7 @@ import React from "react";
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 
 import Home from "../screens/home/Home";
- import Login from "../screens/login/Login";
+import Login from "../screens/login/Login";
 
 //TESTE
 //import Login from "../screens/createDepartament/CreateDepartament";
@@ -50,13 +50,15 @@ function AppRoutes(props) {
             <Switch>
                 <Route component={Home} path="/" exact />
                 <Route component={Login} path="/login" />
+                <Route component={CreateUser} path="/createUser" />
+
 
                 <RestrictedRoute show={props.isAuthenticated} component={CreateDepartament} path="/createDepartament" /> 
                 <RestrictedRoute show={props.isAuthenticated} component={ViewDepartaments} path="/viewDepartaments" />
                 <RestrictedRoute show={props.isAuthenticated} component={UpdateDepartament} path="/updateDepartament/:id" />
                 <RestrictedRoute show={props.isAuthenticated} component={DeleteDepartament} path="/deleteDepartament" />
 
-                <RestrictedRoute show={props.isAuthenticated} component={CreateUser} path="/createUser" />
+                {/* <RestrictedRoute show={props.isAuthenticated} component={CreateUser} path="/createUser" /> */}
                 <RestrictedRoute show={props.isAuthenticated} component={ViewUsers} path="/viewUsers" />
                 <RestrictedRoute show={props.isAuthenticated} component={UpdateUser} path="/updateUser/:id" />
                 <RestrictedRoute show={props.isAuthenticated} component={DeleteUser} path="/deleteUser" />

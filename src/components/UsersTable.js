@@ -9,7 +9,7 @@ export default props => {
                 {/* <td>{user.id}</td> */}
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.registration}</td>
+                <td>{user.username}</td>
                 <td>{user.role}</td>
                 {/* <td className="col-md-2">{user.departament.id}</td> */}
                 <td className="col-md-2">

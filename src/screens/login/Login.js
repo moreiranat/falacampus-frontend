@@ -1,7 +1,6 @@
 import React from 'react';
 import './Login.css';
 import '../../components/Style.css';
-import '../../components/Style.css';
 import 'primeicons/primeicons.css';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
@@ -11,32 +10,26 @@ import { AuthContext } from '../../main/SessionProvider';
 
 class Login extends React.Component {
 
-    // state = {
-    //     username: '',
-    //     password: ''
-    // }
+    state = {
+        username: '',
+        password: ''
+    };
 
-    constructor() {
-        super();
-        this.state = {
-            username: '',
-            password: ''
-        }
-    }
 
     login = () => {
         this.context.login(
             this.state.username,
             this.state.password
+        
         ).then(user => 
             {
                 if (user) {
-                    console.log("If");
-                    showSuccessMessage(`${user.username}, você está logado!`);
-                    this.props.history.push('/createComment');
+
+                    console.log("If",user.roles);
+                    showSuccessMessage(`${user.name}, você está logado!`);
+                    this.props.history.push('/viewUsers');
         
                 } else {
-                    console.log(user.username);
                     console.log("Else");
                     showErrorMessage("Dados incorretos! Login inválido");
                 }
@@ -45,6 +38,7 @@ class Login extends React.Component {
         ).catch(error => 
             {
                 console.log("Catch");
+                console.log(error);
                 showErrorMessage('Erro! processando autenticação:', error);
             }
         );
@@ -67,14 +61,14 @@ class Login extends React.Component {
                                         <div className='bs-component'>
                                             <form>
                                                 <fieldset>
-                                                    <FormGroup label='Matrícula: *'>
+                                                    <FormGroup label='Matrícula: *' htmlForm = "inputusername">
                                                         <input type="number" className="form-control" 
                                                         id="inputusername" aria-describedby="emailHelp" 
                                                         placeholder="Digite sua matrícula de aluno ou servidor" 
                                                         value={this.state.username} onChange={(e) => { this.setState({ username: e.target.value }) }} />
                                                     </FormGroup> 
                                                     <br />   
-                                                    <FormGroup label='Senha: *'>
+                                                    <FormGroup label='Senha: *' htmlForm = "inputPassword">
                                                         <input type="password" className="form-control" 
                                                         id="inputPassword" placeholder="Digite sua senha" value={this.state.password} onChange={(e) => { this.setState({ password: e.target.value }) }} />
                                                     </FormGroup>

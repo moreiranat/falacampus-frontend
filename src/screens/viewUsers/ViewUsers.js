@@ -14,9 +14,9 @@ class ViewUsers extends React.Component {
 
     state = {
         name: '',
-        id: 0,
+        id: '',
         email: '',
-        registration: 0,
+        username: '',
         role: '',
         departament: {
             departamentId: 0,
@@ -28,13 +28,15 @@ class ViewUsers extends React.Component {
         super();
         this.service = new UserApiService();
     }
-    componentDidMount() {
-        this.findAll();
+    componentDidMount() {        
+        this.find();
+        
     }
 
     // componentWillUnmount() {
     //     this.clear();
     // }
+
 
     delete = (userId) => {
         //axios.delete(`http://localhost:8080/api/user/${userId}`,
@@ -56,8 +58,7 @@ class ViewUsers extends React.Component {
         this.props.history.push(`/createUser`);
     }
 
-    find = (id) => {
-        this.service.find.id(id)
+    find = () => {
         var params = '?';
 
         if (this.state.id !== 0) {
@@ -84,15 +85,15 @@ class ViewUsers extends React.Component {
             params = `${params}email=${this.state.email}`;
         }
 
-        if (this.state.registration !== '') {
+        if (this.state.username !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
 
-            params = `${params}registration=${this.state.registration}`;
+            params = `${params}username=${this.state.username}`;
         }
 
-        if (this.state.role !== '') {
+        if (this.state.role.name !== '') {
             if (params !== '?') {
                 params = `${params}&`;
             }
@@ -109,7 +110,7 @@ class ViewUsers extends React.Component {
         }
 
         //axios.get(`http://localhost:8080/api/user/${params}`)
-        this.service.get(this.state.id)
+        this.service.find(params)
             .then(response => {
                 const users = response.data;
                 this.setState({ users });
@@ -124,7 +125,7 @@ class ViewUsers extends React.Component {
     findAll = () => {
 
         //axios.get(`http://localhost:8080/api/user/all`)
-        this.service.get('/all')
+        this.service.findAll()
             .then(response => {
                 const users = response.data;
                 this.setState({ users });
@@ -197,6 +198,8 @@ class ViewUsers extends React.Component {
                         </div>
                         <br />
                         <div className="row">
+
+
                             <div className="col-md-12">
                                 <button onClick={this.createUser} type="button" id="idNovoUser" className="btn btn-success btn-cadastrar">
                                     <i className="pi pi-plus"></i> Cadastrar Novo Usuário

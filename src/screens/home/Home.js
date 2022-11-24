@@ -54,7 +54,6 @@ class Home extends React.Component {
                             </div>
                             </div>
                         </div>
-
                         
                     </div> */}
                     <div className="section-two">
@@ -76,7 +75,6 @@ class Home extends React.Component {
             //     <div className='row'>
             //         <div className='col-md-12' style={this.styles.colMd12}>
             //             <div className="bs-docs-section">
-
             //                 <div className="card border-success mb-3" style={this.styles.cardBg}>
             //                     <h1 className="card-header text-center">Bem Vindo(a) ao "Fala Campus"</h1>
             //                     <h3 className="card-header text-center">Este espaço é destinado a toda a comunidade acadêmica, onde todos poderão propor sugestões, realizar críticas e elogios, relacionados ao Instituto Federal da Paraíba, Campus Monteiro - PB</h3>
